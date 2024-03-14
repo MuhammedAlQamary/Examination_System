@@ -61,7 +61,7 @@
             // 
             minimize_pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             minimize_pictureBox.Image = Properties.Resources.minus_button;
-            minimize_pictureBox.Location = new Point(473, 7);
+            minimize_pictureBox.Location = new Point(225, 7);
             minimize_pictureBox.Margin = new Padding(0);
             minimize_pictureBox.Name = "minimize_pictureBox";
             minimize_pictureBox.Size = new Size(50, 50);
