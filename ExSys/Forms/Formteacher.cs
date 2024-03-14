@@ -15,8 +15,12 @@ namespace ExSys.Forms
         public Formteacher()
         {
             InitializeComponent();
+            topFormControl topFormControl = new topFormControl();
+            topFormControl.Dock = DockStyle.Top;
+            this.Controls.Add(topFormControl);
+
         }
 
-       
+
     }
 }
