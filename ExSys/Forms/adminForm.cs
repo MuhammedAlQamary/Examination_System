@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ExSys.Forms
 {
-    public partial class teacherForm : Form
+    public partial class adminForm : Form
     {
-        public teacherForm()
+        public adminForm()
         {
             InitializeComponent();
         }
