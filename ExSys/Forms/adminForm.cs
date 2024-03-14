@@ -14,7 +14,11 @@ namespace ExSys.Forms
     {
         public adminForm()
         {
+            // topformcontrol = new topFormControl();
             InitializeComponent();
+            topFormControl topFormControl = new topFormControl();
+            topFormControl.Dock = DockStyle.Top;
+            this.Controls.Add(topFormControl);
         }
     }
 }
