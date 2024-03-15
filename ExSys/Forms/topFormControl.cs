@@ -16,5 +16,18 @@ namespace ExSys.Forms
         {
             InitializeComponent();
         }
+
+        private void X_pictureBox_Click(object sender, EventArgs e)
+        {
+            // Close the application
+            Application.Exit();
+        }
+
+        private void minimize_pictureBox_Click(object sender, EventArgs e)
+        {
+            // Minimize the application
+            this.FindForm().WindowState = FormWindowState.Minimized;
+
+        }
     }
 }
