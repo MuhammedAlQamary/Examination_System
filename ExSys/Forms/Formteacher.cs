@@ -15,8 +15,19 @@ namespace ExSys.Forms
         public Formteacher()
         {
             InitializeComponent();
+            topFormControl topFormControl = new topFormControl();
+            topFormControl.Dock = DockStyle.Top;
+            this.Controls.Add(topFormControl);
         }
 
-       
+        private void tabPage6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Question_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,8 +30,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formteacher));
             TeacherTabs = new TabControl();
             tabPage1 = new TabPage();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
             panel2 = new Panel();
             panel1 = new Panel();
             TeacherCourses = new DataGridView();
@@ -40,22 +38,31 @@
             label4 = new Label();
             pictureBox1 = new PictureBox();
             Email = new Label();
-            Courses = new TabPage();
-            label2 = new Label();
             tabPage3 = new TabPage();
             tabControl1 = new TabControl();
             Question = new TabPage();
-            label3 = new Label();
+            questionLbl = new Label();
             tabPage6 = new TabPage();
             button1 = new Button();
             tabPage8 = new TabPage();
             Reports = new TabPage();
             Exam = new TabPage();
+            textBox1 = new TextBox();
+            radioButton2 = new RadioButton();
+            textBox6 = new TextBox();
+            QAnswer = new Label();
+            qType = new Label();
+            AddBtn = new Button();
+            radioButton1 = new RadioButton();
+            panel3 = new Panel();
+            panel4 = new Panel();
+            textBox2 = new TextBox();
+            label1 = new Label();
+            Update = new Button();
             TeacherTabs.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TeacherCourses).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            Courses.SuspendLayout();
             tabPage3.SuspendLayout();
             tabControl1.SuspendLayout();
             Question.SuspendLayout();
@@ -65,7 +72,6 @@
             // TeacherTabs
             // 
             TeacherTabs.Controls.Add(tabPage1);
-            TeacherTabs.Controls.Add(Courses);
             TeacherTabs.Controls.Add(tabPage3);
             TeacherTabs.Controls.Add(Reports);
             TeacherTabs.Controls.Add(Exam);
@@ -78,8 +84,8 @@
             // 
             // tabPage1
             // 
-            tabPage1.Controls.Add(comboBox2);
-            tabPage1.Controls.Add(comboBox1);
+            tabPage1.Controls.Add(panel4);
+            tabPage1.Controls.Add(panel3);
             tabPage1.Controls.Add(panel2);
             tabPage1.Controls.Add(panel1);
             tabPage1.Controls.Add(TeacherCourses);
@@ -95,22 +101,6 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Profile";
             tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(501, 183);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(151, 28);
-            comboBox2.TabIndex = 9;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(144, 178);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 8;
             // 
             // panel2
             // 
@@ -183,26 +173,6 @@
             Email.TabIndex = 0;
             Email.Text = "Email";
             // 
-            // Courses
-            // 
-            Courses.Controls.Add(label2);
-            Courses.Location = new Point(4, 29);
-            Courses.Name = "Courses";
-            Courses.Padding = new Padding(3);
-            Courses.Size = new Size(792, 417);
-            Courses.TabIndex = 1;
-            Courses.Text = "Mycourses";
-            Courses.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(263, 137);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 20);
-            label2.TabIndex = 0;
-            label2.Text = "label2";
-            // 
             // tabPage3
             // 
             tabPage3.Controls.Add(tabControl1);
@@ -230,7 +200,17 @@
             // 
             // Question
             // 
-            Question.Controls.Add(label3);
+            Question.Controls.Add(Update);
+            Question.Controls.Add(textBox2);
+            Question.Controls.Add(label1);
+            Question.Controls.Add(AddBtn);
+            Question.Controls.Add(qType);
+            Question.Controls.Add(textBox6);
+            Question.Controls.Add(QAnswer);
+            Question.Controls.Add(radioButton2);
+            Question.Controls.Add(radioButton1);
+            Question.Controls.Add(textBox1);
+            Question.Controls.Add(questionLbl);
             Question.Location = new Point(4, 29);
             Question.Name = "Question";
             Question.Padding = new Padding(3);
@@ -238,15 +218,16 @@
             Question.TabIndex = 0;
             Question.Text = "Add Question";
             Question.UseVisualStyleBackColor = true;
+            Question.Click += Question_Click;
             // 
-            // label3
+            // questionLbl
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(311, 91);
-            label3.Name = "label3";
-            label3.Size = new Size(50, 20);
-            label3.TabIndex = 0;
-            label3.Text = "label3";
+            questionLbl.AutoSize = true;
+            questionLbl.Location = new Point(28, 34);
+            questionLbl.Name = "questionLbl";
+            questionLbl.Size = new Size(68, 20);
+            questionLbl.TabIndex = 0;
+            questionLbl.Text = "Question";
             // 
             // tabPage6
             // 
@@ -259,6 +240,7 @@
             tabPage6.TabIndex = 1;
             tabPage6.Text = "Update Question";
             tabPage6.UseVisualStyleBackColor = true;
+            tabPage6.Click += tabPage6_Click;
             // 
             // button1
             // 
@@ -299,6 +281,119 @@
             Exam.Text = "Exam";
             Exam.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(176, 20);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(315, 34);
+            textBox1.TabIndex = 1;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(87, 192);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(59, 24);
+            radioButton2.TabIndex = 3;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Mcq";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(176, 75);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(315, 27);
+            textBox6.TabIndex = 17;
+            // 
+            // QAnswer
+            // 
+            QAnswer.AutoSize = true;
+            QAnswer.Location = new Point(28, 78);
+            QAnswer.Name = "QAnswer";
+            QAnswer.Size = new Size(118, 20);
+            QAnswer.TabIndex = 16;
+            QAnswer.Text = "Question answer";
+            // 
+            // qType
+            // 
+            qType.AutoSize = true;
+            qType.Location = new Point(37, 158);
+            qType.Name = "qType";
+            qType.Size = new Size(110, 20);
+            qType.TabIndex = 18;
+            qType.Tag = " ";
+            qType.Text = "Question Type :";
+            // 
+            // AddBtn
+            // 
+            AddBtn.BackColor = Color.DeepSkyBlue;
+            AddBtn.Font = new Font("Rockwell", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AddBtn.ForeColor = Color.White;
+            AddBtn.Location = new Point(616, 89);
+            AddBtn.Margin = new Padding(0);
+            AddBtn.Name = "AddBtn";
+            AddBtn.Size = new Size(94, 43);
+            AddBtn.TabIndex = 20;
+            AddBtn.Text = "Add";
+            AddBtn.UseVisualStyleBackColor = false;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(230, 192);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(95, 24);
+            radioButton1.TabIndex = 2;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "True/false";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            panel3.Location = new Point(117, 201);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(138, 5);
+            panel3.TabIndex = 8;
+            // 
+            // panel4
+            // 
+            panel4.Location = new Point(487, 201);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(138, 5);
+            panel4.TabIndex = 9;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(185, 255);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(315, 34);
+            textBox2.TabIndex = 22;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(37, 269);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 20);
+            label1.TabIndex = 21;
+            label1.Text = "Course";
+            // 
+            // Update
+            // 
+            Update.BackColor = Color.DeepSkyBlue;
+            Update.Font = new Font("Rockwell", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Update.ForeColor = Color.White;
+            Update.Location = new Point(616, 214);
+            Update.Margin = new Padding(0);
+            Update.Name = "Update";
+            Update.Size = new Size(94, 43);
+            Update.TabIndex = 23;
+            Update.Text = "Update";
+            Update.UseVisualStyleBackColor = false;
+            // 
             // Formteacher
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -317,8 +412,6 @@
             tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)TeacherCourses).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            Courses.ResumeLayout(false);
-            Courses.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             Question.ResumeLayout(false);
@@ -331,15 +424,12 @@
 
         private TabControl TeacherTabs;
         private TabPage tabPage1;
-        private TabPage Courses;
         private TabPage tabPage3;
         private TabPage Reports;
         private Label Email;
         private TabControl tabControl1;
         private TabPage Question;
         private TabPage tabPage6;
-        private Label label2;
-        private Label label3;
         private Button button1;
         private TabPage Exam;
         private TabPage tabPage8;
@@ -350,7 +440,18 @@
         private Label label4;
         private Panel panel1;
         private Panel panel2;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private Label questionLbl;
+        private TextBox textBox1;
+        private RadioButton radioButton2;
+        private Label qType;
+        private TextBox textBox6;
+        private Label QAnswer;
+        private Button AddBtn;
+        private RadioButton radioButton1;
+        private Panel panel4;
+        private Panel panel3;
+        private Button Update;
+        private TextBox textBox2;
+        private Label label1;
     }
 }
