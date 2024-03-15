@@ -30,6 +30,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formteacher));
             TeacherTabs = new TabControl();
             tabPage1 = new TabPage();
+            comboBox2 = new ComboBox();
+            comboBox1 = new ComboBox();
+            panel2 = new Panel();
+            panel1 = new Panel();
+            TeacherCourses = new DataGridView();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            pictureBox1 = new PictureBox();
             Email = new Label();
             Courses = new TabPage();
             label2 = new Label();
@@ -42,24 +51,15 @@
             tabPage8 = new TabPage();
             Reports = new TabPage();
             Exam = new TabPage();
-            pictureBox1 = new PictureBox();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            TeacherCourses = new DataGridView();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
             TeacherTabs.SuspendLayout();
             tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)TeacherCourses).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             Courses.SuspendLayout();
             tabPage3.SuspendLayout();
             tabControl1.SuspendLayout();
             Question.SuspendLayout();
             tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)TeacherCourses).BeginInit();
             SuspendLayout();
             // 
             // TeacherTabs
@@ -95,6 +95,84 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Profile";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(501, 183);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(151, 28);
+            comboBox2.TabIndex = 9;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(144, 178);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 28);
+            comboBox1.TabIndex = 8;
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(372, 126);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(250, 5);
+            panel2.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(372, 68);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(250, 5);
+            panel1.TabIndex = 6;
+            // 
+            // TeacherCourses
+            // 
+            TeacherCourses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TeacherCourses.Dock = DockStyle.Bottom;
+            TeacherCourses.Location = new Point(3, 226);
+            TeacherCourses.Name = "TeacherCourses";
+            TeacherCourses.RowHeadersWidth = 51;
+            TeacherCourses.Size = new Size(786, 188);
+            TeacherCourses.TabIndex = 5;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(438, 186);
+            label6.Name = "label6";
+            label6.Size = new Size(43, 20);
+            label6.TabIndex = 4;
+            label6.Text = "Track";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(48, 186);
+            label5.Name = "label5";
+            label5.Size = new Size(54, 20);
+            label5.TabIndex = 3;
+            label5.Text = "Branch";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(273, 111);
+            label4.Name = "label4";
+            label4.Size = new Size(49, 20);
+            label4.TabIndex = 2;
+            label4.Text = "Name";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(5, 6);
+            pictureBox1.Margin = new Padding(0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(213, 150);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
             // 
             // Email
             // 
@@ -177,7 +255,7 @@
             tabPage6.Margin = new Padding(0);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new Padding(3);
-            tabPage6.Size = new Size(718, 314);
+            tabPage6.Size = new Size(778, 378);
             tabPage6.TabIndex = 1;
             tabPage6.Text = "Update Question";
             tabPage6.UseVisualStyleBackColor = true;
@@ -196,7 +274,7 @@
             tabPage8.Location = new Point(4, 29);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new Padding(3);
-            tabPage8.Size = new Size(718, 314);
+            tabPage8.Size = new Size(778, 378);
             tabPage8.TabIndex = 2;
             tabPage8.Text = "ViewQuestion";
             tabPage8.UseVisualStyleBackColor = true;
@@ -221,84 +299,6 @@
             Exam.Text = "Exam";
             Exam.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(5, 6);
-            pictureBox1.Margin = new Padding(0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(213, 150);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(273, 111);
-            label4.Name = "label4";
-            label4.Size = new Size(49, 20);
-            label4.TabIndex = 2;
-            label4.Text = "Name";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(48, 186);
-            label5.Name = "label5";
-            label5.Size = new Size(54, 20);
-            label5.TabIndex = 3;
-            label5.Text = "Branch";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(438, 186);
-            label6.Name = "label6";
-            label6.Size = new Size(43, 20);
-            label6.TabIndex = 4;
-            label6.Text = "Track";
-            // 
-            // TeacherCourses
-            // 
-            TeacherCourses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TeacherCourses.Dock = DockStyle.Bottom;
-            TeacherCourses.Location = new Point(3, 226);
-            TeacherCourses.Name = "TeacherCourses";
-            TeacherCourses.RowHeadersWidth = 51;
-            TeacherCourses.Size = new Size(786, 188);
-            TeacherCourses.TabIndex = 5;
-            // 
-            // panel1
-            // 
-            panel1.Location = new Point(372, 68);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(250, 5);
-            panel1.TabIndex = 6;
-            // 
-            // panel2
-            // 
-            panel2.Location = new Point(372, 126);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(250, 5);
-            panel2.TabIndex = 7;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(123, 183);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 8;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(501, 183);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(151, 28);
-            comboBox2.TabIndex = 9;
-            // 
             // Formteacher
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -315,6 +315,8 @@
             TeacherTabs.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)TeacherCourses).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             Courses.ResumeLayout(false);
             Courses.PerformLayout();
             tabPage3.ResumeLayout(false);
@@ -322,8 +324,6 @@
             Question.ResumeLayout(false);
             Question.PerformLayout();
             tabPage6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)TeacherCourses).EndInit();
             ResumeLayout(false);
         }
 
