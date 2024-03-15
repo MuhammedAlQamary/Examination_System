@@ -31,31 +31,41 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
             adminTabControl = new TabControl();
             tp = new TabPage();
-            groupBoxTrackes = new GroupBox();
-            buttonTrackes = new Button();
-            listBoxTrackes = new ListBox();
+            tabControl1 = new TabControl();
+            Branches = new TabPage();
             groupBoxBranches = new GroupBox();
             buttonAddBranch = new Button();
             listBoxBranches = new ListBox();
-            tpInstructors = new TabPage();
-            tabControl1 = new TabControl();
-            Branches = new TabPage();
             tTrackes = new TabPage();
+            groupBoxTrackes = new GroupBox();
+            buttonTrackes = new Button();
+            listBoxTrackes = new ListBox();
+            tpInstructors = new TabPage();
             tdUpdateInstructor = new TabControl();
             tpAddInstructor = new TabPage();
+            gbAddInstructor = new GroupBox();
+            btnAddInstructor = new Button();
+            tbInstructorName = new TextBox();
+            lblInstructorName = new Label();
             tpUpdateInstructor = new TabPage();
-            label1 = new Label();
             tpStudents = new TabPage();
+            textBox1 = new TextBox();
+            label1 = new Label();
+            textBox2 = new TextBox();
+            label2 = new Label();
+            textBox3 = new TextBox();
+            label3 = new Label();
             adminTabControl.SuspendLayout();
             tp.SuspendLayout();
-            groupBoxTrackes.SuspendLayout();
-            groupBoxBranches.SuspendLayout();
-            tpInstructors.SuspendLayout();
             tabControl1.SuspendLayout();
             Branches.SuspendLayout();
+            groupBoxBranches.SuspendLayout();
             tTrackes.SuspendLayout();
+            groupBoxTrackes.SuspendLayout();
+            tpInstructors.SuspendLayout();
             tdUpdateInstructor.SuspendLayout();
             tpAddInstructor.SuspendLayout();
+            gbAddInstructor.SuspendLayout();
             SuspendLayout();
             // 
             // adminTabControl
@@ -74,6 +84,49 @@
             resources.ApplyResources(tp, "tp");
             tp.Name = "tp";
             tp.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(Branches);
+            tabControl1.Controls.Add(tTrackes);
+            resources.ApplyResources(tabControl1, "tabControl1");
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            // 
+            // Branches
+            // 
+            Branches.Controls.Add(groupBoxBranches);
+            resources.ApplyResources(Branches, "Branches");
+            Branches.Name = "Branches";
+            Branches.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxBranches
+            // 
+            groupBoxBranches.Controls.Add(buttonAddBranch);
+            groupBoxBranches.Controls.Add(listBoxBranches);
+            resources.ApplyResources(groupBoxBranches, "groupBoxBranches");
+            groupBoxBranches.Name = "groupBoxBranches";
+            groupBoxBranches.TabStop = false;
+            // 
+            // buttonAddBranch
+            // 
+            resources.ApplyResources(buttonAddBranch, "buttonAddBranch");
+            buttonAddBranch.Name = "buttonAddBranch";
+            buttonAddBranch.UseVisualStyleBackColor = true;
+            buttonAddBranch.Click += buttonAddBranch_Click;
+            // 
+            // listBoxBranches
+            // 
+            resources.ApplyResources(listBoxBranches, "listBoxBranches");
+            listBoxBranches.FormattingEnabled = true;
+            listBoxBranches.Name = "listBoxBranches";
+            // 
+            // tTrackes
+            // 
+            tTrackes.Controls.Add(groupBoxTrackes);
+            resources.ApplyResources(tTrackes, "tTrackes");
+            tTrackes.Name = "tTrackes";
+            tTrackes.UseVisualStyleBackColor = true;
             // 
             // groupBoxTrackes
             // 
@@ -95,54 +148,12 @@
             listBoxTrackes.FormattingEnabled = true;
             listBoxTrackes.Name = "listBoxTrackes";
             // 
-            // groupBoxBranches
-            // 
-            groupBoxBranches.Controls.Add(buttonAddBranch);
-            groupBoxBranches.Controls.Add(listBoxBranches);
-            resources.ApplyResources(groupBoxBranches, "groupBoxBranches");
-            groupBoxBranches.Name = "groupBoxBranches";
-            groupBoxBranches.TabStop = false;
-            // 
-            // buttonAddBranch
-            // 
-            resources.ApplyResources(buttonAddBranch, "buttonAddBranch");
-            buttonAddBranch.Name = "buttonAddBranch";
-            buttonAddBranch.UseVisualStyleBackColor = true;
-            // 
-            // listBoxBranches
-            // 
-            resources.ApplyResources(listBoxBranches, "listBoxBranches");
-            listBoxBranches.FormattingEnabled = true;
-            listBoxBranches.Name = "listBoxBranches";
-            // 
             // tpInstructors
             // 
             tpInstructors.Controls.Add(tdUpdateInstructor);
             resources.ApplyResources(tpInstructors, "tpInstructors");
             tpInstructors.Name = "tpInstructors";
             tpInstructors.UseVisualStyleBackColor = true;
-            // 
-            // tabControl1
-            // 
-            tabControl1.Controls.Add(Branches);
-            tabControl1.Controls.Add(tTrackes);
-            resources.ApplyResources(tabControl1, "tabControl1");
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            // 
-            // Branches
-            // 
-            Branches.Controls.Add(groupBoxBranches);
-            resources.ApplyResources(Branches, "Branches");
-            Branches.Name = "Branches";
-            Branches.UseVisualStyleBackColor = true;
-            // 
-            // tTrackes
-            // 
-            tTrackes.Controls.Add(groupBoxTrackes);
-            resources.ApplyResources(tTrackes, "tTrackes");
-            tTrackes.Name = "tTrackes";
-            tTrackes.UseVisualStyleBackColor = true;
             // 
             // tdUpdateInstructor
             // 
@@ -154,10 +165,42 @@
             // 
             // tpAddInstructor
             // 
-            tpAddInstructor.Controls.Add(label1);
+            tpAddInstructor.Controls.Add(gbAddInstructor);
             resources.ApplyResources(tpAddInstructor, "tpAddInstructor");
             tpAddInstructor.Name = "tpAddInstructor";
             tpAddInstructor.UseVisualStyleBackColor = true;
+            // 
+            // gbAddInstructor
+            // 
+            gbAddInstructor.Controls.Add(textBox3);
+            gbAddInstructor.Controls.Add(label3);
+            gbAddInstructor.Controls.Add(textBox2);
+            gbAddInstructor.Controls.Add(label2);
+            gbAddInstructor.Controls.Add(textBox1);
+            gbAddInstructor.Controls.Add(label1);
+            gbAddInstructor.Controls.Add(btnAddInstructor);
+            gbAddInstructor.Controls.Add(tbInstructorName);
+            gbAddInstructor.Controls.Add(lblInstructorName);
+            resources.ApplyResources(gbAddInstructor, "gbAddInstructor");
+            gbAddInstructor.Name = "gbAddInstructor";
+            gbAddInstructor.TabStop = false;
+            // 
+            // btnAddInstructor
+            // 
+            resources.ApplyResources(btnAddInstructor, "btnAddInstructor");
+            btnAddInstructor.Name = "btnAddInstructor";
+            btnAddInstructor.UseVisualStyleBackColor = true;
+            btnAddInstructor.Click += btnAddInstructor_Click;
+            // 
+            // tbInstructorName
+            // 
+            resources.ApplyResources(tbInstructorName, "tbInstructorName");
+            tbInstructorName.Name = "tbInstructorName";
+            // 
+            // lblInstructorName
+            // 
+            resources.ApplyResources(lblInstructorName, "lblInstructorName");
+            lblInstructorName.Name = "lblInstructorName";
             // 
             // tpUpdateInstructor
             // 
@@ -165,16 +208,41 @@
             tpUpdateInstructor.Name = "tpUpdateInstructor";
             tpUpdateInstructor.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            resources.ApplyResources(label1, "label1");
-            label1.Name = "label1";
-            // 
             // tpStudents
             // 
             resources.ApplyResources(tpStudents, "tpStudents");
             tpStudents.Name = "tpStudents";
             tpStudents.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(textBox1, "textBox1");
+            textBox1.Name = "textBox1";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
+            // 
+            // textBox2
+            // 
+            resources.ApplyResources(textBox2, "textBox2");
+            textBox2.Name = "textBox2";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(label2, "label2");
+            label2.Name = "label2";
+            // 
+            // textBox3
+            // 
+            resources.ApplyResources(textBox3, "textBox3");
+            textBox3.Name = "textBox3";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(label3, "label3");
+            label3.Name = "label3";
             // 
             // adminForm
             // 
@@ -188,15 +256,16 @@
             Load += adminForm_Load;
             adminTabControl.ResumeLayout(false);
             tp.ResumeLayout(false);
-            groupBoxTrackes.ResumeLayout(false);
-            groupBoxBranches.ResumeLayout(false);
-            tpInstructors.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             Branches.ResumeLayout(false);
+            groupBoxBranches.ResumeLayout(false);
             tTrackes.ResumeLayout(false);
+            groupBoxTrackes.ResumeLayout(false);
+            tpInstructors.ResumeLayout(false);
             tdUpdateInstructor.ResumeLayout(false);
             tpAddInstructor.ResumeLayout(false);
-            tpAddInstructor.PerformLayout();
+            gbAddInstructor.ResumeLayout(false);
+            gbAddInstructor.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -217,7 +286,16 @@
         private TabControl tdUpdateInstructor;
         private TabPage tpAddInstructor;
         private TabPage tpUpdateInstructor;
-        private Label label1;
         private TabPage tpStudents;
+        private GroupBox gbAddInstructor;
+        private Button btnAddInstructor;
+        private TextBox tbInstructorName;
+        private Label lblInstructorName;
+        private TextBox textBox3;
+        private Label label3;
+        private TextBox textBox2;
+        private Label label2;
+        private TextBox textBox1;
+        private Label label1;
     }
 }
