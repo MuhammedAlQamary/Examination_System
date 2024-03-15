@@ -46,7 +46,7 @@ namespace ExSys.Forms
             listBoxBranches.DataSource = branches;
             listBoxBranches.DisplayMember = "name";
             listBoxBranches.SelectedIndex = 0;
-            
+
             // Create a list of Trackes
             List<Branch> trackes = new List<Branch>()
             {
@@ -60,7 +60,22 @@ namespace ExSys.Forms
             listBoxTrackes.SelectedIndex = 0;
 
             // assign 
-            
+
+        }
+
+        private void buttonAddBranch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddInstructor_Click(object sender, EventArgs e)
+        {
+            /// <summary>
+            /// StoredProcedure add a new instructor to the database
+            /// check if the instructor email is already exist
+            /// if not exist add the instructor to the database return true
+            /// else return false
+            /// 
         }
 
         // on form load, populate the list of branches
