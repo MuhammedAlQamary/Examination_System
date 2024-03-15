@@ -44,17 +44,23 @@
             tdUpdateInstructor = new TabControl();
             tpAddInstructor = new TabPage();
             gbAddInstructor = new GroupBox();
+            textBox3 = new TextBox();
+            label3 = new Label();
+            textBox2 = new TextBox();
+            label2 = new Label();
+            textBox1 = new TextBox();
+            label1 = new Label();
             btnAddInstructor = new Button();
             tbInstructorName = new TextBox();
             lblInstructorName = new Label();
             tpUpdateInstructor = new TabPage();
             tpStudents = new TabPage();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            textBox2 = new TextBox();
-            label2 = new Label();
-            textBox3 = new TextBox();
-            label3 = new Label();
+            tabAdd = new TabControl();
+            tabAddStudent = new TabPage();
+            tabUpdateStudent = new TabPage();
+            tabPage3 = new TabPage();
+            tabPage4 = new TabPage();
+            groupBox1 = new GroupBox();
             adminTabControl.SuspendLayout();
             tp.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -66,6 +72,9 @@
             tdUpdateInstructor.SuspendLayout();
             tpAddInstructor.SuspendLayout();
             gbAddInstructor.SuspendLayout();
+            tpStudents.SuspendLayout();
+            tabAdd.SuspendLayout();
+            tabAddStudent.SuspendLayout();
             SuspendLayout();
             // 
             // adminTabControl
@@ -185,6 +194,36 @@
             gbAddInstructor.Name = "gbAddInstructor";
             gbAddInstructor.TabStop = false;
             // 
+            // textBox3
+            // 
+            resources.ApplyResources(textBox3, "textBox3");
+            textBox3.Name = "textBox3";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(label3, "label3");
+            label3.Name = "label3";
+            // 
+            // textBox2
+            // 
+            resources.ApplyResources(textBox2, "textBox2");
+            textBox2.Name = "textBox2";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(label2, "label2");
+            label2.Name = "label2";
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(textBox1, "textBox1");
+            textBox1.Name = "textBox1";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
+            // 
             // btnAddInstructor
             // 
             resources.ApplyResources(btnAddInstructor, "btnAddInstructor");
@@ -210,39 +249,51 @@
             // 
             // tpStudents
             // 
+            tpStudents.Controls.Add(tabAdd);
             resources.ApplyResources(tpStudents, "tpStudents");
             tpStudents.Name = "tpStudents";
             tpStudents.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tabAdd
             // 
-            resources.ApplyResources(textBox1, "textBox1");
-            textBox1.Name = "textBox1";
+            tabAdd.Controls.Add(tabAddStudent);
+            tabAdd.Controls.Add(tabUpdateStudent);
+            tabAdd.Controls.Add(tabPage3);
+            tabAdd.Controls.Add(tabPage4);
+            resources.ApplyResources(tabAdd, "tabAdd");
+            tabAdd.Name = "tabAdd";
+            tabAdd.SelectedIndex = 0;
             // 
-            // label1
+            // tabAddStudent
             // 
-            resources.ApplyResources(label1, "label1");
-            label1.Name = "label1";
+            tabAddStudent.Controls.Add(groupBox1);
+            resources.ApplyResources(tabAddStudent, "tabAddStudent");
+            tabAddStudent.Name = "tabAddStudent";
+            tabAddStudent.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // tabUpdateStudent
             // 
-            resources.ApplyResources(textBox2, "textBox2");
-            textBox2.Name = "textBox2";
+            resources.ApplyResources(tabUpdateStudent, "tabUpdateStudent");
+            tabUpdateStudent.Name = "tabUpdateStudent";
+            tabUpdateStudent.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // tabPage3
             // 
-            resources.ApplyResources(label2, "label2");
-            label2.Name = "label2";
+            resources.ApplyResources(tabPage3, "tabPage3");
+            tabPage3.Name = "tabPage3";
+            tabPage3.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // tabPage4
             // 
-            resources.ApplyResources(textBox3, "textBox3");
-            textBox3.Name = "textBox3";
+            resources.ApplyResources(tabPage4, "tabPage4");
+            tabPage4.Name = "tabPage4";
+            tabPage4.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // groupBox1
             // 
-            resources.ApplyResources(label3, "label3");
-            label3.Name = "label3";
+            resources.ApplyResources(groupBox1, "groupBox1");
+            groupBox1.Name = "groupBox1";
+            groupBox1.TabStop = false;
             // 
             // adminForm
             // 
@@ -266,6 +317,9 @@
             tpAddInstructor.ResumeLayout(false);
             gbAddInstructor.ResumeLayout(false);
             gbAddInstructor.PerformLayout();
+            tpStudents.ResumeLayout(false);
+            tabAdd.ResumeLayout(false);
+            tabAddStudent.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -297,5 +351,11 @@
         private Label label2;
         private TextBox textBox1;
         private Label label1;
+        private TabControl tabAdd;
+        private TabPage tabAddStudent;
+        private TabPage tabUpdateStudent;
+        private TabPage tabPage3;
+        private TabPage tabPage4;
+        private GroupBox groupBox1;
     }
 }
