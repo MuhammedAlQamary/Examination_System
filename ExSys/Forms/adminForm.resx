@@ -117,38 +117,446 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="buttonAddBranch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="buttonAddBranch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonAddBranch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 357</value>
+  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 80</value>
   </data>
-  <data name="buttonAddBranch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>768, 23</value>
+  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>284, 23</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="buttonAddBranch.TabIndex" type="System.Int32, mscorlib">
+  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
+    <value>textBox2</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 62</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Branch Name</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnAddBranch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnAddBranch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 120</value>
+  </data>
+  <data name="btnAddBranch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 23</value>
+  </data>
+  <data name="btnAddBranch.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="buttonAddBranch.Text" xml:space="preserve">
+  <data name="btnAddBranch.Text" xml:space="preserve">
     <value>Add Branch</value>
   </data>
-  <data name="&gt;&gt;buttonAddBranch.Name" xml:space="preserve">
-    <value>buttonAddBranch</value>
+  <data name="btnAddBranch.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;buttonAddBranch.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnAddBranch.Name" xml:space="preserve">
+    <value>btnAddBranch</value>
+  </data>
+  <data name="&gt;&gt;btnAddBranch.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonAddBranch.Parent" xml:space="preserve">
-    <value>groupBoxBranches</value>
+  <data name="&gt;&gt;btnAddBranch.Parent" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;buttonAddBranch.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnAddBranch.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>481, 3</value>
+  </data>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 382</value>
+  </data>
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Add Branch</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>Branches</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>51, 19</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 15</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Other Tracks</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>gbBranchTracks</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="listBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="listBox1.ItemHeight" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="listBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 19</value>
+  </data>
+  <data name="listBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 194</value>
+  </data>
+  <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;listBox1.Name" xml:space="preserve">
+    <value>listBox1</value>
+  </data>
+  <data name="&gt;&gt;listBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBox1.Parent" xml:space="preserve">
+    <value>gbBranchTracks</value>
+  </data>
+  <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="listBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="listBox2.ItemHeight" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="listBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>177, 19</value>
+  </data>
+  <data name="listBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 194</value>
+  </data>
+  <data name="listBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;listBox2.Name" xml:space="preserve">
+    <value>listBox2</value>
+  </data>
+  <data name="&gt;&gt;listBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBox2.Parent" xml:space="preserve">
+    <value>gbBranchTracks</value>
+  </data>
+  <data name="&gt;&gt;listBox2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 115</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 23</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>gbBranchTracks</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="gbBranchTracks.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="gbBranchTracks.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 163</value>
+  </data>
+  <data name="gbBranchTracks.Size" type="System.Drawing.Size, System.Drawing">
+    <value>312, 216</value>
+  </data>
+  <data name="gbBranchTracks.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="gbBranchTracks.Text" xml:space="preserve">
+    <value>Branch Tracks</value>
+  </data>
+  <data name="&gt;&gt;gbBranchTracks.Name" xml:space="preserve">
+    <value>gbBranchTracks</value>
+  </data>
+  <data name="&gt;&gt;gbBranchTracks.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbBranchTracks.Parent" xml:space="preserve">
+    <value>gbAddBranch</value>
+  </data>
+  <data name="&gt;&gt;gbBranchTracks.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 106</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Branch Name</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>gbAddBranch</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tbBranchSerialNumber.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbBranchSerialNumber.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 36</value>
+  </data>
+  <data name="tbBranchSerialNumber.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 23</value>
+  </data>
+  <data name="tbBranchSerialNumber.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;tbBranchSerialNumber.Name" xml:space="preserve">
+    <value>tbBranchSerialNumber</value>
+  </data>
+  <data name="&gt;&gt;tbBranchSerialNumber.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbBranchSerialNumber.Parent" xml:space="preserve">
+    <value>gbAddBranch</value>
+  </data>
+  <data name="&gt;&gt;tbBranchSerialNumber.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 18</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 15</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Branch Serial Number</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>gbAddBranch</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tbBranchName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="tbBranchName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 80</value>
+  </data>
+  <data name="tbBranchName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 23</value>
+  </data>
+  <data name="tbBranchName.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;tbBranchName.Name" xml:space="preserve">
+    <value>tbBranchName</value>
+  </data>
+  <data name="&gt;&gt;tbBranchName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbBranchName.Parent" xml:space="preserve">
+    <value>gbAddBranch</value>
+  </data>
+  <data name="&gt;&gt;tbBranchName.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 62</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 15</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Branch Name</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>gbAddBranch</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="buttonUpdateBranch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="buttonUpdateBranch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonUpdateBranch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 134</value>
+  </data>
+  <data name="buttonUpdateBranch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 23</value>
+  </data>
+  <data name="buttonUpdateBranch.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="buttonUpdateBranch.Text" xml:space="preserve">
+    <value>Update Branch</value>
+  </data>
+  <data name="buttonUpdateBranch.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;buttonUpdateBranch.Name" xml:space="preserve">
+    <value>buttonUpdateBranch</value>
+  </data>
+  <data name="&gt;&gt;buttonUpdateBranch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonUpdateBranch.Parent" xml:space="preserve">
+    <value>gbAddBranch</value>
+  </data>
+  <data name="&gt;&gt;buttonUpdateBranch.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="gbAddBranch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="gbAddBranch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 3</value>
+  </data>
+  <data name="gbAddBranch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 382</value>
+  </data>
+  <data name="gbAddBranch.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="gbAddBranch.Text" xml:space="preserve">
+    <value>Update Branch</value>
+  </data>
+  <data name="&gt;&gt;gbAddBranch.Name" xml:space="preserve">
+    <value>gbAddBranch</value>
+  </data>
+  <data name="&gt;&gt;gbAddBranch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbAddBranch.Parent" xml:space="preserve">
+    <value>Branches</value>
+  </data>
+  <data name="&gt;&gt;gbAddBranch.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="listBoxBranches.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -160,7 +568,7 @@
     <value>2, 18</value>
   </data>
   <data name="listBoxBranches.Size" type="System.Drawing.Size, System.Drawing">
-    <value>768, 362</value>
+    <value>150, 362</value>
   </data>
   <data name="listBoxBranches.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -175,10 +583,10 @@
     <value>groupBoxBranches</value>
   </data>
   <data name="&gt;&gt;listBoxBranches.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="groupBoxBranches.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+    <value>Left</value>
   </data>
   <data name="groupBoxBranches.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -188,7 +596,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="groupBoxBranches.Size" type="System.Drawing.Size, System.Drawing">
-    <value>772, 382</value>
+    <value>154, 382</value>
   </data>
   <data name="groupBoxBranches.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -206,7 +614,7 @@
     <value>Branches</value>
   </data>
   <data name="&gt;&gt;groupBoxBranches.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="Branches.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
@@ -368,57 +776,57 @@
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>tp</value>
+    <value>tpTrack</value>
   </data>
   <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tp.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tpTrack.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
   </data>
-  <data name="tp.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="tpTrack.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="tp.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tpTrack.Size" type="System.Drawing.Size, System.Drawing">
     <value>792, 422</value>
   </data>
-  <data name="tp.TabIndex" type="System.Int32, mscorlib">
+  <data name="tpTrack.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="tp.Text" xml:space="preserve">
+  <data name="tpTrack.Text" xml:space="preserve">
     <value>Branches / Trackes</value>
   </data>
-  <data name="&gt;&gt;tp.Name" xml:space="preserve">
-    <value>tp</value>
+  <data name="&gt;&gt;tpTrack.Name" xml:space="preserve">
+    <value>tpTrack</value>
   </data>
-  <data name="&gt;&gt;tp.Type" xml:space="preserve">
+  <data name="&gt;&gt;tpTrack.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tp.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tpTrack.Parent" xml:space="preserve">
     <value>adminTabControl</value>
   </data>
-  <data name="&gt;&gt;tp.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tpTrack.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="textBox3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tbInstructorPassword.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 146</value>
   </data>
-  <data name="textBox3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tbInstructorPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>235, 23</value>
   </data>
-  <data name="textBox3.TabIndex" type="System.Int32, mscorlib">
+  <data name="tbInstructorPassword.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;textBox3.Name" xml:space="preserve">
-    <value>textBox3</value>
+  <data name="&gt;&gt;tbInstructorPassword.Name" xml:space="preserve">
+    <value>tbInstructorPassword</value>
   </data>
-  <data name="&gt;&gt;textBox3.Type" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorPassword.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorPassword.Parent" xml:space="preserve">
     <value>gbAddInstructor</value>
   </data>
-  <data name="&gt;&gt;textBox3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorPassword.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
@@ -451,25 +859,25 @@
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tbInstructorEmail.Location" type="System.Drawing.Point, System.Drawing">
     <value>142, 107</value>
   </data>
-  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tbInstructorEmail.Size" type="System.Drawing.Size, System.Drawing">
     <value>235, 23</value>
   </data>
-  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
+  <data name="tbInstructorEmail.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
-    <value>textBox2</value>
+  <data name="&gt;&gt;tbInstructorEmail.Name" xml:space="preserve">
+    <value>tbInstructorEmail</value>
   </data>
-  <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorEmail.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorEmail.Parent" xml:space="preserve">
     <value>gbAddInstructor</value>
   </data>
-  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorEmail.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
@@ -502,25 +910,25 @@
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tbInstructorLName.Location" type="System.Drawing.Point, System.Drawing">
     <value>141, 70</value>
   </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tbInstructorLName.Size" type="System.Drawing.Size, System.Drawing">
     <value>235, 23</value>
   </data>
-  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="tbInstructorLName.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
-    <value>textBox1</value>
+  <data name="&gt;&gt;tbInstructorLName.Name" xml:space="preserve">
+    <value>tbInstructorLName</value>
   </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorLName.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorLName.Parent" xml:space="preserve">
     <value>gbAddInstructor</value>
   </data>
-  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorLName.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
@@ -577,25 +985,25 @@
   <data name="&gt;&gt;btnAddInstructor.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="tbInstructorName.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tbInstructorFName.Location" type="System.Drawing.Point, System.Drawing">
     <value>141, 34</value>
   </data>
-  <data name="tbInstructorName.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tbInstructorFName.Size" type="System.Drawing.Size, System.Drawing">
     <value>235, 23</value>
   </data>
-  <data name="tbInstructorName.TabIndex" type="System.Int32, mscorlib">
+  <data name="tbInstructorFName.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;tbInstructorName.Name" xml:space="preserve">
-    <value>tbInstructorName</value>
+  <data name="&gt;&gt;tbInstructorFName.Name" xml:space="preserve">
+    <value>tbInstructorFName</value>
   </data>
-  <data name="&gt;&gt;tbInstructorName.Type" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorFName.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbInstructorName.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorFName.Parent" xml:space="preserve">
     <value>gbAddInstructor</value>
   </data>
-  <data name="&gt;&gt;tbInstructorName.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tbInstructorFName.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="lblInstructorName.AutoSize" type="System.Boolean, mscorlib">
@@ -677,6 +1085,60 @@
     <value>tdUpdateInstructor</value>
   </data>
   <data name="&gt;&gt;tpAddInstructor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lbInstructors.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="lbInstructors.ItemHeight" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="lbInstructors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 19</value>
+  </data>
+  <data name="lbInstructors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 360</value>
+  </data>
+  <data name="lbInstructors.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lbInstructors.Name" xml:space="preserve">
+    <value>lbInstructors</value>
+  </data>
+  <data name="&gt;&gt;lbInstructors.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbInstructors.Parent" xml:space="preserve">
+    <value>gbUpdateInstructor</value>
+  </data>
+  <data name="&gt;&gt;lbInstructors.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gbUpdateInstructor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gbUpdateInstructor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="gbUpdateInstructor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>772, 382</value>
+  </data>
+  <data name="gbUpdateInstructor.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="gbUpdateInstructor.Text" xml:space="preserve">
+    <value>Update Instructor</value>
+  </data>
+  <data name="&gt;&gt;gbUpdateInstructor.Name" xml:space="preserve">
+    <value>gbUpdateInstructor</value>
+  </data>
+  <data name="&gt;&gt;gbUpdateInstructor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbUpdateInstructor.Parent" xml:space="preserve">
+    <value>tpUpdateInstructor</value>
+  </data>
+  <data name="&gt;&gt;gbUpdateInstructor.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="tpUpdateInstructor.Location" type="System.Drawing.Point, System.Drawing">

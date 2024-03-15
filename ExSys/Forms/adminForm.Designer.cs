@@ -30,11 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
             adminTabControl = new TabControl();
-            tp = new TabPage();
+            tpTrack = new TabPage();
             tabControl1 = new TabControl();
             Branches = new TabPage();
+            groupBox1 = new GroupBox();
+            textBox2 = new TextBox();
+            label7 = new Label();
+            btnAddBranch = new Button();
+            gbAddBranch = new GroupBox();
+            gbBranchTracks = new GroupBox();
+            listBox1 = new ListBox();
+            listBox2 = new ListBox();
+            button1 = new Button();
+            label6 = new Label();
+            tbBranchSerialNumber = new TextBox();
+            label5 = new Label();
+            tbBranchName = new TextBox();
+            label4 = new Label();
+            buttonUpdateBranch = new Button();
             groupBoxBranches = new GroupBox();
-            buttonAddBranch = new Button();
             listBoxBranches = new ListBox();
             tTrackes = new TabPage();
             groupBoxTrackes = new GroupBox();
@@ -44,21 +58,27 @@
             tdUpdateInstructor = new TabControl();
             tpAddInstructor = new TabPage();
             gbAddInstructor = new GroupBox();
+            tbInstructorPassword = new TextBox();
+            label3 = new Label();
+            tbInstructorEmail = new TextBox();
+            label2 = new Label();
+            tbInstructorLName = new TextBox();
+            label1 = new Label();
             btnAddInstructor = new Button();
-            tbInstructorName = new TextBox();
+            tbInstructorFName = new TextBox();
             lblInstructorName = new Label();
             tpUpdateInstructor = new TabPage();
+            gbUpdateInstructor = new GroupBox();
+            lbInstructors = new ListBox();
             tpStudents = new TabPage();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            textBox2 = new TextBox();
-            label2 = new Label();
-            textBox3 = new TextBox();
-            label3 = new Label();
+            label8 = new Label();
             adminTabControl.SuspendLayout();
-            tp.SuspendLayout();
+            tpTrack.SuspendLayout();
             tabControl1.SuspendLayout();
             Branches.SuspendLayout();
+            groupBox1.SuspendLayout();
+            gbAddBranch.SuspendLayout();
+            gbBranchTracks.SuspendLayout();
             groupBoxBranches.SuspendLayout();
             tTrackes.SuspendLayout();
             groupBoxTrackes.SuspendLayout();
@@ -66,11 +86,13 @@
             tdUpdateInstructor.SuspendLayout();
             tpAddInstructor.SuspendLayout();
             gbAddInstructor.SuspendLayout();
+            tpUpdateInstructor.SuspendLayout();
+            gbUpdateInstructor.SuspendLayout();
             SuspendLayout();
             // 
             // adminTabControl
             // 
-            adminTabControl.Controls.Add(tp);
+            adminTabControl.Controls.Add(tpTrack);
             adminTabControl.Controls.Add(tpInstructors);
             adminTabControl.Controls.Add(tpStudents);
             resources.ApplyResources(adminTabControl, "adminTabControl");
@@ -78,12 +100,12 @@
             adminTabControl.SelectedIndex = 0;
             adminTabControl.SizeMode = TabSizeMode.FillToRight;
             // 
-            // tp
+            // tpTrack
             // 
-            tp.Controls.Add(tabControl1);
-            resources.ApplyResources(tp, "tp");
-            tp.Name = "tp";
-            tp.UseVisualStyleBackColor = true;
+            tpTrack.Controls.Add(tabControl1);
+            resources.ApplyResources(tpTrack, "tpTrack");
+            tpTrack.Name = "tpTrack";
+            tpTrack.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -95,31 +117,125 @@
             // 
             // Branches
             // 
+            Branches.Controls.Add(groupBox1);
+            Branches.Controls.Add(gbAddBranch);
             Branches.Controls.Add(groupBoxBranches);
             resources.ApplyResources(Branches, "Branches");
             Branches.Name = "Branches";
             Branches.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(btnAddBranch);
+            resources.ApplyResources(groupBox1, "groupBox1");
+            groupBox1.Name = "groupBox1";
+            groupBox1.TabStop = false;
+            // 
+            // textBox2
+            // 
+            resources.ApplyResources(textBox2, "textBox2");
+            textBox2.Name = "textBox2";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(label7, "label7");
+            label7.Name = "label7";
+            // 
+            // btnAddBranch
+            // 
+            resources.ApplyResources(btnAddBranch, "btnAddBranch");
+            btnAddBranch.Name = "btnAddBranch";
+            btnAddBranch.UseVisualStyleBackColor = true;
+            // 
+            // gbAddBranch
+            // 
+            gbAddBranch.Controls.Add(gbBranchTracks);
+            gbAddBranch.Controls.Add(label6);
+            gbAddBranch.Controls.Add(tbBranchSerialNumber);
+            gbAddBranch.Controls.Add(label5);
+            gbAddBranch.Controls.Add(tbBranchName);
+            gbAddBranch.Controls.Add(label4);
+            gbAddBranch.Controls.Add(buttonUpdateBranch);
+            resources.ApplyResources(gbAddBranch, "gbAddBranch");
+            gbAddBranch.Name = "gbAddBranch";
+            gbAddBranch.TabStop = false;
+            // 
+            // gbBranchTracks
+            // 
+            gbBranchTracks.Controls.Add(label8);
+            gbBranchTracks.Controls.Add(listBox1);
+            gbBranchTracks.Controls.Add(listBox2);
+            gbBranchTracks.Controls.Add(button1);
+            resources.ApplyResources(gbBranchTracks, "gbBranchTracks");
+            gbBranchTracks.Name = "gbBranchTracks";
+            gbBranchTracks.TabStop = false;
+            // 
+            // listBox1
+            // 
+            resources.ApplyResources(listBox1, "listBox1");
+            listBox1.FormattingEnabled = true;
+            listBox1.Name = "listBox1";
+            // 
+            // listBox2
+            // 
+            resources.ApplyResources(listBox2, "listBox2");
+            listBox2.FormattingEnabled = true;
+            listBox2.Name = "listBox2";
+            // 
+            // button1
+            // 
+            resources.ApplyResources(button1, "button1");
+            button1.Name = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            resources.ApplyResources(label6, "label6");
+            label6.Name = "label6";
+            // 
+            // tbBranchSerialNumber
+            // 
+            resources.ApplyResources(tbBranchSerialNumber, "tbBranchSerialNumber");
+            tbBranchSerialNumber.Name = "tbBranchSerialNumber";
+            tbBranchSerialNumber.ReadOnly = true;
+            // 
+            // label5
+            // 
+            resources.ApplyResources(label5, "label5");
+            label5.Name = "label5";
+            // 
+            // tbBranchName
+            // 
+            resources.ApplyResources(tbBranchName, "tbBranchName");
+            tbBranchName.Name = "tbBranchName";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(label4, "label4");
+            label4.Name = "label4";
+            // 
+            // buttonUpdateBranch
+            // 
+            resources.ApplyResources(buttonUpdateBranch, "buttonUpdateBranch");
+            buttonUpdateBranch.Name = "buttonUpdateBranch";
+            buttonUpdateBranch.UseVisualStyleBackColor = true;
+            buttonUpdateBranch.Click += buttonAddBranch_Click;
+            // 
             // groupBoxBranches
             // 
-            groupBoxBranches.Controls.Add(buttonAddBranch);
             groupBoxBranches.Controls.Add(listBoxBranches);
             resources.ApplyResources(groupBoxBranches, "groupBoxBranches");
             groupBoxBranches.Name = "groupBoxBranches";
             groupBoxBranches.TabStop = false;
-            // 
-            // buttonAddBranch
-            // 
-            resources.ApplyResources(buttonAddBranch, "buttonAddBranch");
-            buttonAddBranch.Name = "buttonAddBranch";
-            buttonAddBranch.UseVisualStyleBackColor = true;
-            buttonAddBranch.Click += buttonAddBranch_Click;
             // 
             // listBoxBranches
             // 
             resources.ApplyResources(listBoxBranches, "listBoxBranches");
             listBoxBranches.FormattingEnabled = true;
             listBoxBranches.Name = "listBoxBranches";
+            listBoxBranches.SelectedIndexChanged += listBoxBranches_SelectedIndexChanged;
             // 
             // tTrackes
             // 
@@ -172,18 +288,48 @@
             // 
             // gbAddInstructor
             // 
-            gbAddInstructor.Controls.Add(textBox3);
+            gbAddInstructor.Controls.Add(tbInstructorPassword);
             gbAddInstructor.Controls.Add(label3);
-            gbAddInstructor.Controls.Add(textBox2);
+            gbAddInstructor.Controls.Add(tbInstructorEmail);
             gbAddInstructor.Controls.Add(label2);
-            gbAddInstructor.Controls.Add(textBox1);
+            gbAddInstructor.Controls.Add(tbInstructorLName);
             gbAddInstructor.Controls.Add(label1);
             gbAddInstructor.Controls.Add(btnAddInstructor);
-            gbAddInstructor.Controls.Add(tbInstructorName);
+            gbAddInstructor.Controls.Add(tbInstructorFName);
             gbAddInstructor.Controls.Add(lblInstructorName);
             resources.ApplyResources(gbAddInstructor, "gbAddInstructor");
             gbAddInstructor.Name = "gbAddInstructor";
             gbAddInstructor.TabStop = false;
+            // 
+            // tbInstructorPassword
+            // 
+            resources.ApplyResources(tbInstructorPassword, "tbInstructorPassword");
+            tbInstructorPassword.Name = "tbInstructorPassword";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(label3, "label3");
+            label3.Name = "label3";
+            // 
+            // tbInstructorEmail
+            // 
+            resources.ApplyResources(tbInstructorEmail, "tbInstructorEmail");
+            tbInstructorEmail.Name = "tbInstructorEmail";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(label2, "label2");
+            label2.Name = "label2";
+            // 
+            // tbInstructorLName
+            // 
+            resources.ApplyResources(tbInstructorLName, "tbInstructorLName");
+            tbInstructorLName.Name = "tbInstructorLName";
+            // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
             // 
             // btnAddInstructor
             // 
@@ -192,10 +338,10 @@
             btnAddInstructor.UseVisualStyleBackColor = true;
             btnAddInstructor.Click += btnAddInstructor_Click;
             // 
-            // tbInstructorName
+            // tbInstructorFName
             // 
-            resources.ApplyResources(tbInstructorName, "tbInstructorName");
-            tbInstructorName.Name = "tbInstructorName";
+            resources.ApplyResources(tbInstructorFName, "tbInstructorFName");
+            tbInstructorFName.Name = "tbInstructorFName";
             // 
             // lblInstructorName
             // 
@@ -204,9 +350,23 @@
             // 
             // tpUpdateInstructor
             // 
+            tpUpdateInstructor.Controls.Add(gbUpdateInstructor);
             resources.ApplyResources(tpUpdateInstructor, "tpUpdateInstructor");
             tpUpdateInstructor.Name = "tpUpdateInstructor";
             tpUpdateInstructor.UseVisualStyleBackColor = true;
+            // 
+            // gbUpdateInstructor
+            // 
+            gbUpdateInstructor.Controls.Add(lbInstructors);
+            resources.ApplyResources(gbUpdateInstructor, "gbUpdateInstructor");
+            gbUpdateInstructor.Name = "gbUpdateInstructor";
+            gbUpdateInstructor.TabStop = false;
+            // 
+            // lbInstructors
+            // 
+            resources.ApplyResources(lbInstructors, "lbInstructors");
+            lbInstructors.FormattingEnabled = true;
+            lbInstructors.Name = "lbInstructors";
             // 
             // tpStudents
             // 
@@ -214,35 +374,10 @@
             tpStudents.Name = "tpStudents";
             tpStudents.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // label8
             // 
-            resources.ApplyResources(textBox1, "textBox1");
-            textBox1.Name = "textBox1";
-            // 
-            // label1
-            // 
-            resources.ApplyResources(label1, "label1");
-            label1.Name = "label1";
-            // 
-            // textBox2
-            // 
-            resources.ApplyResources(textBox2, "textBox2");
-            textBox2.Name = "textBox2";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(label2, "label2");
-            label2.Name = "label2";
-            // 
-            // textBox3
-            // 
-            resources.ApplyResources(textBox3, "textBox3");
-            textBox3.Name = "textBox3";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(label3, "label3");
-            label3.Name = "label3";
+            resources.ApplyResources(label8, "label8");
+            label8.Name = "label8";
             // 
             // adminForm
             // 
@@ -255,9 +390,15 @@
             WindowState = FormWindowState.Maximized;
             Load += adminForm_Load;
             adminTabControl.ResumeLayout(false);
-            tp.ResumeLayout(false);
+            tpTrack.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             Branches.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            gbAddBranch.ResumeLayout(false);
+            gbAddBranch.PerformLayout();
+            gbBranchTracks.ResumeLayout(false);
+            gbBranchTracks.PerformLayout();
             groupBoxBranches.ResumeLayout(false);
             tTrackes.ResumeLayout(false);
             groupBoxTrackes.ResumeLayout(false);
@@ -266,17 +407,18 @@
             tpAddInstructor.ResumeLayout(false);
             gbAddInstructor.ResumeLayout(false);
             gbAddInstructor.PerformLayout();
+            tpUpdateInstructor.ResumeLayout(false);
+            gbUpdateInstructor.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private TabControl adminTabControl;
-        private TabPage tp;
+        private TabPage tpTrack;
         private TabPage tpInstructors;
         private GroupBox groupBoxBranches;
-        private ListBox listBoxBranches;
-        private Button buttonAddBranch;
+        private Button buttonUpdateBranch;
         private GroupBox groupBoxTrackes;
         private Button buttonTrackes;
         private ListBox listBoxTrackes;
@@ -289,13 +431,31 @@
         private TabPage tpStudents;
         private GroupBox gbAddInstructor;
         private Button btnAddInstructor;
-        private TextBox tbInstructorName;
+        private TextBox tbInstructorFName;
         private Label lblInstructorName;
-        private TextBox textBox3;
+        private TextBox tbInstructorPassword;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox tbInstructorEmail;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox tbInstructorLName;
         private Label label1;
+        private GroupBox gbUpdateInstructor;
+        private ListBox lbInstructors;
+        private ListBox listBoxBranches;
+        private GroupBox gbAddBranch;
+        private TextBox tbBranchName;
+        private Label label4;
+        private TextBox tbBranchSerialNumber;
+        private Label label5;
+        private GroupBox groupBox1;
+        private TextBox textBox2;
+        private Label label7;
+        private Button btnAddBranch;
+        private Label label6;
+        private GroupBox gbBranchTracks;
+        private ListBox listBox1;
+        private ListBox listBox2;
+        private Button button1;
+        private Label label8;
     }
 }

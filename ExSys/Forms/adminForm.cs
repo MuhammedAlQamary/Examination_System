@@ -29,6 +29,9 @@ namespace ExSys.Forms
             topFormControl topFormControl = new topFormControl();
             topFormControl.Dock = DockStyle.Top;
             this.Controls.Add(topFormControl);
+
+            this.Controls.Add(new InstructorDataController());
+
         }
 
         // Create a list of Branches
@@ -76,6 +79,34 @@ namespace ExSys.Forms
             /// if not exist add the instructor to the database return true
             /// else return false
             /// 
+            string fname = tbInstructorFName.Text;
+            string lname = tbInstructorLName.Text;
+            string email = tbInstructorEmail.Text;
+            string password = tbInstructorPassword.Text;
+            // using (SqlConnection con = new SqlConnection(connectionString))
+            // {
+            //     using (SqlCommand cmd = new SqlCommand("AddInstructor", con))
+            //     {
+            //         cmd.CommandType = CommandType.StoredProcedure;
+            //         cmd.Parameters.AddWithValue("@FName", fname);
+            //         cmd.Parameters.AddWithValue("@LName", lname);
+            //         cmd.Parameters.AddWithValue("@Email", email);
+            //         cmd.Parameters.AddWithValue("@Password", password);
+            //         con.Open();
+            //         cmd.ExecuteNonQuery();
+            //         con.Close();
+            //     }
+            // }
+
+        }
+
+        private void listBoxBranches_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // when selected index changed, populate the list of trackes based on the selected branch
+            
+
+
+
         }
 
         // on form load, populate the list of branches

@@ -38,7 +38,6 @@
             // X_pictureBox
             // 
             X_pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            // X_pictureBox.Image = Properties.Resources.cross_mark;
             X_pictureBox.Location = new Point(544, 7);
             X_pictureBox.Margin = new Padding(0);
             X_pictureBox.Name = "X_pictureBox";
@@ -60,7 +59,6 @@
             // minimize_pictureBox
             // 
             minimize_pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            // minimize_pictureBox.Image = Properties.Resources.minus_button;
             minimize_pictureBox.Location = new Point(477, 7);
             minimize_pictureBox.Margin = new Padding(0);
             minimize_pictureBox.Name = "minimize_pictureBox";
