@@ -1,24 +1,13 @@
 using ExSys.Forms;
+using System.Linq;
 using Microsoft.VisualBasic.ApplicationServices;
+using ExSys.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExSys
 {
     public partial class loginForm : Form
     {
-        /*
-        private readonly Dictionary<string, string> teachers = new Dictionary<string, string>
-        {
-            { "teacher1@teacher.com", "teacher1" },
-            { "teacher2@teacher.com", "teacher2" },
-            
-        };
-        private readonly Dictionary<string, string> students = new Dictionary<string, string>
-        {
-            { "student1@student.com", "student1" },
-            { "student2@student.com", "student2" },
-           
-        };
-        */
 
         public loginForm()
         {
@@ -45,27 +34,23 @@ namespace ExSys
             string email = txtEmail.Text.Trim();
             string password = txtPass.Text;
 
-            if (email == "admin@admin.com" && password == "admin12345")
+            using (var context = new Exam_System_Generate_DatabaseContext())
             {
-                OpenAdminForm();
+                var instructor = context.Instructors.FirstOrDefault(i => i.Instructor_Email == email && i.Instructor_Password == password);
+                if (email == "admin@admin.com" && password == "admin12345")
+                {
+                    OpenAdminForm();
+                }
+                if (instructor != null)
+                {
+                    OpenTeacherForm();
 
+                }
+                else
+                {
+                    ShowErrorMessage("Invalid email or password.");
+                }
             }
-            else if (email == "teacher@teacher.com" && password == "teacher12345")
-            {
-                OpenTeacherForm();
-            }
-            /*
-            else if (teachers.ContainsKey(email) && teachers[email] == password)
-            {
-                OpenTeacherForm();
-            }
-            */
-            else
-            {
-                ShowErrorMessage("Invalid email or password.");
-            }
-
-
         }
 
 
