@@ -6,5 +6,10 @@ namespace ExSys
         {
             InitializeComponent();
         }
+
+        private void loginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
