@@ -30,8 +30,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formteacher));
             TeacherTabs = new TabControl();
             tabPage1 = new TabPage();
-            panel2 = new Panel();
-            panel1 = new Panel();
+            txtName = new TextBox();
+            txtEmail = new TextBox();
+            panel4 = new Panel();
+            panel3 = new Panel();
             TeacherCourses = new DataGridView();
             label6 = new Label();
             label5 = new Label();
@@ -41,24 +43,22 @@
             tabPage3 = new TabPage();
             tabControl1 = new TabControl();
             Question = new TabPage();
+            Update = new Button();
+            textBox2 = new TextBox();
+            label1 = new Label();
+            AddBtn = new Button();
+            qType = new Label();
+            textBox6 = new TextBox();
+            QAnswer = new Label();
+            radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
+            textBox1 = new TextBox();
             questionLbl = new Label();
             tabPage6 = new TabPage();
             button1 = new Button();
             tabPage8 = new TabPage();
             Reports = new TabPage();
             Exam = new TabPage();
-            textBox1 = new TextBox();
-            radioButton2 = new RadioButton();
-            textBox6 = new TextBox();
-            QAnswer = new Label();
-            qType = new Label();
-            AddBtn = new Button();
-            radioButton1 = new RadioButton();
-            panel3 = new Panel();
-            panel4 = new Panel();
-            textBox2 = new TextBox();
-            label1 = new Label();
-            Update = new Button();
             TeacherTabs.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TeacherCourses).BeginInit();
@@ -84,10 +84,10 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(txtName);
+            tabPage1.Controls.Add(txtEmail);
             tabPage1.Controls.Add(panel4);
             tabPage1.Controls.Add(panel3);
-            tabPage1.Controls.Add(panel2);
-            tabPage1.Controls.Add(panel1);
             tabPage1.Controls.Add(TeacherCourses);
             tabPage1.Controls.Add(label6);
             tabPage1.Controls.Add(label5);
@@ -102,19 +102,35 @@
             tabPage1.Text = "Profile";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // txtName
             // 
-            panel2.Location = new Point(372, 126);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(250, 5);
-            panel2.TabIndex = 7;
+            txtName.Location = new Point(361, 104);
+            txtName.Name = "txtName";
+            txtName.ReadOnly = true;
+            txtName.Size = new Size(275, 27);
+            txtName.TabIndex = 11;
             // 
-            // panel1
+            // txtEmail
             // 
-            panel1.Location = new Point(372, 68);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(250, 5);
-            panel1.TabIndex = 6;
+            txtEmail.Location = new Point(361, 46);
+            txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
+            txtEmail.Size = new Size(275, 27);
+            txtEmail.TabIndex = 10;
+            // 
+            // panel4
+            // 
+            panel4.Location = new Point(487, 201);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(138, 5);
+            panel4.TabIndex = 9;
+            // 
+            // panel3
+            // 
+            panel3.Location = new Point(117, 201);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(138, 5);
+            panel3.TabIndex = 8;
             // 
             // TeacherCourses
             // 
@@ -220,6 +236,105 @@
             Question.UseVisualStyleBackColor = true;
             Question.Click += Question_Click;
             // 
+            // Update
+            // 
+            Update.BackColor = Color.DeepSkyBlue;
+            Update.Font = new Font("Rockwell", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Update.ForeColor = Color.White;
+            Update.Location = new Point(616, 214);
+            Update.Margin = new Padding(0);
+            Update.Name = "Update";
+            Update.Size = new Size(94, 43);
+            Update.TabIndex = 23;
+            Update.Text = "Update";
+            Update.UseVisualStyleBackColor = false;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(185, 255);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(315, 34);
+            textBox2.TabIndex = 22;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(37, 269);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 20);
+            label1.TabIndex = 21;
+            label1.Text = "Course";
+            // 
+            // AddBtn
+            // 
+            AddBtn.BackColor = Color.DeepSkyBlue;
+            AddBtn.Font = new Font("Rockwell", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AddBtn.ForeColor = Color.White;
+            AddBtn.Location = new Point(616, 89);
+            AddBtn.Margin = new Padding(0);
+            AddBtn.Name = "AddBtn";
+            AddBtn.Size = new Size(94, 43);
+            AddBtn.TabIndex = 20;
+            AddBtn.Text = "Add";
+            AddBtn.UseVisualStyleBackColor = false;
+            // 
+            // qType
+            // 
+            qType.AutoSize = true;
+            qType.Location = new Point(37, 158);
+            qType.Name = "qType";
+            qType.Size = new Size(110, 20);
+            qType.TabIndex = 18;
+            qType.Tag = " ";
+            qType.Text = "Question Type :";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(176, 75);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(315, 27);
+            textBox6.TabIndex = 17;
+            // 
+            // QAnswer
+            // 
+            QAnswer.AutoSize = true;
+            QAnswer.Location = new Point(28, 78);
+            QAnswer.Name = "QAnswer";
+            QAnswer.Size = new Size(118, 20);
+            QAnswer.TabIndex = 16;
+            QAnswer.Text = "Question answer";
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(87, 192);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(59, 24);
+            radioButton2.TabIndex = 3;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Mcq";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(230, 192);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(95, 24);
+            radioButton1.TabIndex = 2;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "True/false";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(176, 20);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(315, 34);
+            textBox1.TabIndex = 1;
+            // 
             // questionLbl
             // 
             questionLbl.AutoSize = true;
@@ -281,119 +396,6 @@
             Exam.Text = "Exam";
             Exam.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(176, 20);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(315, 34);
-            textBox1.TabIndex = 1;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(87, 192);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(59, 24);
-            radioButton2.TabIndex = 3;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Mcq";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(176, 75);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(315, 27);
-            textBox6.TabIndex = 17;
-            // 
-            // QAnswer
-            // 
-            QAnswer.AutoSize = true;
-            QAnswer.Location = new Point(28, 78);
-            QAnswer.Name = "QAnswer";
-            QAnswer.Size = new Size(118, 20);
-            QAnswer.TabIndex = 16;
-            QAnswer.Text = "Question answer";
-            // 
-            // qType
-            // 
-            qType.AutoSize = true;
-            qType.Location = new Point(37, 158);
-            qType.Name = "qType";
-            qType.Size = new Size(110, 20);
-            qType.TabIndex = 18;
-            qType.Tag = " ";
-            qType.Text = "Question Type :";
-            // 
-            // AddBtn
-            // 
-            AddBtn.BackColor = Color.DeepSkyBlue;
-            AddBtn.Font = new Font("Rockwell", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AddBtn.ForeColor = Color.White;
-            AddBtn.Location = new Point(616, 89);
-            AddBtn.Margin = new Padding(0);
-            AddBtn.Name = "AddBtn";
-            AddBtn.Size = new Size(94, 43);
-            AddBtn.TabIndex = 20;
-            AddBtn.Text = "Add";
-            AddBtn.UseVisualStyleBackColor = false;
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(230, 192);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(95, 24);
-            radioButton1.TabIndex = 2;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "True/false";
-            radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            panel3.Location = new Point(117, 201);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(138, 5);
-            panel3.TabIndex = 8;
-            // 
-            // panel4
-            // 
-            panel4.Location = new Point(487, 201);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(138, 5);
-            panel4.TabIndex = 9;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(185, 255);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(315, 34);
-            textBox2.TabIndex = 22;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(37, 269);
-            label1.Name = "label1";
-            label1.Size = new Size(54, 20);
-            label1.TabIndex = 21;
-            label1.Text = "Course";
-            // 
-            // Update
-            // 
-            Update.BackColor = Color.DeepSkyBlue;
-            Update.Font = new Font("Rockwell", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Update.ForeColor = Color.White;
-            Update.Location = new Point(616, 214);
-            Update.Margin = new Padding(0);
-            Update.Name = "Update";
-            Update.Size = new Size(94, 43);
-            Update.TabIndex = 23;
-            Update.Text = "Update";
-            Update.UseVisualStyleBackColor = false;
-            // 
             // Formteacher
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -438,8 +440,6 @@
         private Label label6;
         private Label label5;
         private Label label4;
-        private Panel panel1;
-        private Panel panel2;
         private Label questionLbl;
         private TextBox textBox1;
         private RadioButton radioButton2;
@@ -453,5 +453,7 @@
         private Button Update;
         private TextBox textBox2;
         private Label label1;
+        private TextBox txtName;
+        private TextBox txtEmail;
     }
 }

@@ -43,7 +43,9 @@ namespace ExSys
                 }
                 if (instructor != null)
                 {
-                    OpenTeacherForm();
+                    Formteacher teacherForm = new Formteacher(instructor.Instructor_Fname + " " + instructor.Instructor_Lname, instructor.Instructor_Email);
+                    teacherForm.Show();
+                    this.Hide();
 
                 }
                 else
@@ -63,12 +65,7 @@ namespace ExSys
             this.Hide();
         }
 
-        private void OpenTeacherForm()
-        {
-            Formteacher teacherForm = new Formteacher();
-            teacherForm.Show();
-            this.Hide();
-        }
+
 
         private void ShowErrorMessage(string message)
         {
