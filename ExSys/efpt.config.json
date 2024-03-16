@@ -1,0 +1,310 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "ExSys",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "ExSys",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[Branch_Tracks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Branches]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Choices]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Course_Topics]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Courses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Exam_Questions]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Exams]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Instructor_Courses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Instructors]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Questions]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Student_Courses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Student_Exam_Questions]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Students]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Topics]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Track_Courses]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Tracks]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AddCourses]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[AddInstructor_Course]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[AddInstructors]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[AddNewChoice]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[AddNewExamQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[AddNewQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[AddStudent]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteBranch]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteChoice]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteCourse]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteCourseTopic]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteExam]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteExamQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteInstructor_Course]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteInstructors]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteStudent]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteTopic]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteTrack]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetAllChoices]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetAllExamQuestions]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetAllQuestions]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetChoiceByID]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetCourseTopics]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetExamQuestionByID]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetExams]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetQuestionByID]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetTopics]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[hamada]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertBranch]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertCourseTopic]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertExam]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertTopic]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[InsertTrack]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectBranches]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectCourses]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectInstructor_Course]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectInstructors]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectTracks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateBranch]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateBranchTrack]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateChoice]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateCourses]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateCourseTopic]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateExam]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateExamQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateInstructor_Course]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateInstructors]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateTopic]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateTrack]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "esiti.Exam_System_Generate_Database.dbo",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}
