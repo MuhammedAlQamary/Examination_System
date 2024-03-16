@@ -102,28 +102,16 @@ public partial class ExSysContext : DbContext
 
     #region functions for stored procedures for student course
 
-    // Method to retrieve student courses using the stored procedure of showing courses for students 
-    //using this proc 
-    /*
-     * CREATE PROCEDURE [dbo].[ShowStudentCourses]
-    @Student_ID int
-AS
-BEGIN
-    SET NOCOUNT ON;
-    SELECT CONCAT(Students.Student_FName, ' ' , Students.Student_LName) as 'Full name' , Courses.Course_Name, Student_Courses.Student_Grade
-    FROM Students
-    JOIN Student_Courses ON Students.Student_ID = Student_Courses.Student_ID
-    JOIN Courses ON Student_Courses.Course_ID = Courses.Course_ID
-    WHERE Students.Student_ID = @Student_ID
-END
-    */
-    public StudentCourse  ShowStudentCourses(int studentId)
-    {
-        // Call the stored procedure using raw SQL query
-        Database.ExecuteSqlRaw("EXEC dbo.ShowStudentCourses @Student_ID",
-                                 new SqlParameter("@Student_ID", studentId));
-        return new StudentCourse();
-    }
+    // Method to execute stored procedure ShowStudentCourses
+    
+
+
+
+
+
+
+
+
 
 
 

@@ -128,7 +128,6 @@ namespace ExSys.Forms
             {
                 // Call the method to update the student
                 context.UpdateStudent(studentId, studentFname, studentLname, studentEmail, studentPassword, trackId);
-                context.SaveChanges(); // No need to call SaveChanges because stored procedure updates directly in the database
 
                 MessageBox.Show("Student Updated Successfully");
             }
