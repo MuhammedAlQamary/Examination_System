@@ -39,6 +39,9 @@ namespace ExSys.Forms
 
         private void adminForm_Load(object sender, EventArgs e)
         {
+            // Add event handler for the Enter event of the tab
+           //+= new EventHandler(tabAssignCourseToInstructor_Enter);
+
             // Create a list of Branches
             List<Branch> branches = new List<Branch>()
             {
@@ -72,7 +75,7 @@ namespace ExSys.Forms
 
         }
 
-       
+
 
 
 
@@ -435,7 +438,7 @@ namespace ExSys.Forms
             }
             catch
             {
-               MessageBox.Show($"You can't delete this instructor because it's used in another table ", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"You can't delete this instructor because it's used in another table ", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -485,13 +488,154 @@ namespace ExSys.Forms
                     MessageBox.Show(ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
+
         }
         #endregion
 
 
 
+        #region instructor courses assignment
+
+        private void btn_AssignNewCrs_Click(object sender, EventArgs e)
+        {
+
+            // Get the selected instructor ID
+            int instructorId = (int)listBoxinstructors.SelectedValue;
+
+            // Go to the tab of assign course to instructor
+            // Find the index of the tab named "tabAssignCourseToInstructor"
+            int tabIndex = -1;
+            for (int i = 0; i < tdUpdateInstructor.TabPages.Count; i++)
+            {
+                if (tdUpdateInstructor.TabPages[i].Name == "tabAssignCourseToInstructor")
+                {
+                    tabIndex = i;
+                    break;
+                }
+            }
+
+            // Set the selected index to the found index
+            if (tabIndex != -1)
+                tdUpdateInstructor.SelectedIndex = tabIndex;
+
+            // Select the instructor name in the combo box
+            comboBoxInstructors.SelectedValue = instructorId;
+
+            // Fill the courses in the list box of assigned courses
+            using (var context = new ExSysContext())
+            {
+                var assignedCourses = context.GetInstructorCourses(instructorId).ToList();
+                listBoxAssignedCourses.DataSource = assignedCourses;
+                listBoxAssignedCourses.DisplayMember = "CourseName";
+                listBoxAssignedCourses.ValueMember = "CourseId";
+            }
+
+            // Fill the other list box of unassigned courses
+            using (var context = new ExSysContext())
+            {
+                var unassignedCourses = context.GetInstructorNotTeachingCourses(instructorId).ToList();
+                listBoxUnassignedCourses.DataSource = unassignedCourses;
+                listBoxUnassignedCourses.DisplayMember = "CourseName";
+                listBoxUnassignedCourses.ValueMember = "CourseId";
+            }
+
+        }
+
+        private void tabAssignCourseToInstructor_Enter(object sender, EventArgs e)
+        {
+            PopulateComboBoxInstructors();
+        }
+        private void PopulateComboBoxInstructors()
+        {
+            //using GetAllInstructors stored proc 
+            using (var context = new ExSysContext())
+            {
+                var instructors = context.Instructors.ToList();
+                comboBoxInstructors.DataSource = instructors;
+                comboBoxInstructors.DisplayMember = "InstructorFname";
+                comboBoxInstructors.ValueMember = "InstructorId";
+            }
+        }
+
+        private void comboBoxInstructors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboBoxInstructors.SelectedValue is int instructorId)
+            {
+                using (var context = new ExSysContext())
+                {
+                    var assignedCourses = context.GetInstructorCourses(instructorId).ToList();
+                    listBoxAssignedCourses.DataSource = assignedCourses;
+                    listBoxAssignedCourses.DisplayMember = "CourseName";
+                    listBoxAssignedCourses.ValueMember = "CourseId";
+
+                    var unassignedCourses = context.GetInstructorNotTeachingCourses(instructorId).ToList();
+                    listBoxUnassignedCourses.DataSource = unassignedCourses;
+                    listBoxUnassignedCourses.DisplayMember = "CourseName";
+                    listBoxUnassignedCourses.ValueMember = "CourseId";
+                }
+            }
+            
+            
 
 
+        }
+
+        private void btn_RemoveThisInsCrs_Click(object sender, EventArgs e)
+        {
+            //on clicking remove btn remove the course from assigned courses  list  and move it to un assigned  courses list and refresh the database 
+            int instructorId = (int)comboBoxInstructors.SelectedValue;
+            using (var context = new ExSysContext())
+            {
+                int courseId = (int)listBoxAssignedCourses.SelectedValue;
+                DialogResult result = MessageBox.Show("Are you sure you want to remove this course from the instructor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                context.RemoveInstructorCourse(instructorId, courseId);
+                context.SaveChanges();
+                // Fill the courses in the list box of assigned courses
+                var assignedCourses = context.GetInstructorCourses(instructorId).ToList();
+                listBoxAssignedCourses.DataSource = assignedCourses;
+                listBoxAssignedCourses.DisplayMember = "CourseName";
+                listBoxAssignedCourses.ValueMember = "CourseId";
+
+                // Fill the other list box of unassigned courses
+                var unassignedCourses = context.GetInstructorNotTeachingCourses(instructorId).ToList();
+                listBoxUnassignedCourses.DataSource = unassignedCourses;
+                listBoxUnassignedCourses.DisplayMember = "CourseName";
+                listBoxUnassignedCourses.ValueMember = "CourseId";
+
+            }
+
+
+
+        }
+
+        private void btn_AddthisCoursetoIns_Click(object sender, EventArgs e)
+        {
+            //on clicking add btn add the course from unassigned courses  list  and move it to assigned  courses list and refresh the database
+            int instructorId = (int)comboBoxInstructors.SelectedValue;
+            using (var context = new ExSysContext())
+            {
+                int courseId = (int)listBoxUnassignedCourses.SelectedValue;
+                //add mesaage box to confirm the action
+                DialogResult result = MessageBox.Show("Are you sure you want to add this course to the instructor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                context.AddInstructorCourse(instructorId, courseId);
+                context.SaveChanges();
+                // Fill the courses in the list box of assigned courses
+                var assignedCourses = context.GetInstructorCourses(instructorId).ToList();
+                listBoxAssignedCourses.DataSource = assignedCourses;
+                listBoxAssignedCourses.DisplayMember = "CourseName";
+                listBoxAssignedCourses.ValueMember = "CourseId";
+
+                // Fill the other list box of unassigned courses
+                var unassignedCourses = context.GetInstructorNotTeachingCourses(instructorId).ToList();
+                listBoxUnassignedCourses.DataSource = unassignedCourses;
+                listBoxUnassignedCourses.DisplayMember = "CourseName";
+                listBoxUnassignedCourses.ValueMember = "CourseId";
+
+            }
+            
+
+        }
+        #endregion
     }
 }

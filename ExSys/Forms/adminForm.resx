@@ -679,8 +679,32 @@
   <data name="&gt;&gt;tpAddInstructor.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="btn_AssignNewCrs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 216</value>
+  </data>
+  <data name="btn_AssignNewCrs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 23</value>
+  </data>
+  <data name="btn_AssignNewCrs.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
+  </data>
+  <data name="btn_AssignNewCrs.Text" xml:space="preserve">
+    <value>Assign Courses</value>
+  </data>
+  <data name="&gt;&gt;btn_AssignNewCrs.Name" xml:space="preserve">
+    <value>btn_AssignNewCrs</value>
+  </data>
+  <data name="&gt;&gt;btn_AssignNewCrs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_AssignNewCrs.Parent" xml:space="preserve">
+    <value>groupBoxupIns</value>
+  </data>
+  <data name="&gt;&gt;btn_AssignNewCrs.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btn_delIns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 273</value>
+    <value>143, 216</value>
   </data>
   <data name="btn_delIns.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 23</value>
@@ -701,7 +725,7 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;btn_delIns.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="listBoxinstructors.ItemHeight" type="System.Int32, mscorlib">
     <value>15</value>
@@ -725,7 +749,7 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;listBoxinstructors.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label19.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -755,7 +779,7 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="TBInstructorPass.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 163</value>
@@ -776,7 +800,7 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;TBInstructorPass.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="label20.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -806,7 +830,7 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="TBInstructorMail.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 124</value>
@@ -827,7 +851,7 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;TBInstructorMail.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="label21.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -857,7 +881,7 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="TBInstructorLName.Location" type="System.Drawing.Point, System.Drawing">
     <value>143, 87</value>
@@ -878,7 +902,7 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;TBInstructorLName.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label22.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -908,13 +932,13 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btn_updateIns.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btn_updateIns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>272, 273</value>
+    <value>272, 216</value>
   </data>
   <data name="btn_updateIns.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 23</value>
@@ -935,7 +959,7 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;btn_updateIns.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="TBInstructorFName.Location" type="System.Drawing.Point, System.Drawing">
     <value>143, 51</value>
@@ -956,7 +980,7 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;TBInstructorFName.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="label23.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -986,7 +1010,7 @@
     <value>groupBoxupIns</value>
   </data>
   <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="groupBoxupIns.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1041,6 +1065,270 @@
   </data>
   <data name="&gt;&gt;tpUpdateInstructor.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="btn_AddthisCoursetoIns.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_AddthisCoursetoIns.Location" type="System.Drawing.Point, System.Drawing">
+    <value>493, 217</value>
+  </data>
+  <data name="btn_AddthisCoursetoIns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 23</value>
+  </data>
+  <data name="btn_AddthisCoursetoIns.TabIndex" type="System.Int32, mscorlib">
+    <value>59</value>
+  </data>
+  <data name="btn_AddthisCoursetoIns.Text" xml:space="preserve">
+    <value>Add the course</value>
+  </data>
+  <data name="&gt;&gt;btn_AddthisCoursetoIns.Name" xml:space="preserve">
+    <value>btn_AddthisCoursetoIns</value>
+  </data>
+  <data name="&gt;&gt;btn_AddthisCoursetoIns.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_AddthisCoursetoIns.Parent" xml:space="preserve">
+    <value>groupBoxAssignCourses</value>
+  </data>
+  <data name="&gt;&gt;btn_AddthisCoursetoIns.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="listBoxUnassignedCourses.ItemHeight" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="listBoxUnassignedCourses.Location" type="System.Drawing.Point, System.Drawing">
+    <value>211, 217</value>
+  </data>
+  <data name="listBoxUnassignedCourses.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 79</value>
+  </data>
+  <data name="listBoxUnassignedCourses.TabIndex" type="System.Int32, mscorlib">
+    <value>58</value>
+  </data>
+  <data name="&gt;&gt;listBoxUnassignedCourses.Name" xml:space="preserve">
+    <value>listBoxUnassignedCourses</value>
+  </data>
+  <data name="&gt;&gt;listBoxUnassignedCourses.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBoxUnassignedCourses.Parent" xml:space="preserve">
+    <value>groupBoxAssignCourses</value>
+  </data>
+  <data name="&gt;&gt;listBoxUnassignedCourses.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label25.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label25.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 221</value>
+  </data>
+  <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 15</value>
+  </data>
+  <data name="label25.TabIndex" type="System.Int32, mscorlib">
+    <value>57</value>
+  </data>
+  <data name="label25.Text" xml:space="preserve">
+    <value>Insrtuctor Not Assigned  Courses</value>
+  </data>
+  <data name="&gt;&gt;label25.Name" xml:space="preserve">
+    <value>label25</value>
+  </data>
+  <data name="&gt;&gt;label25.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label25.Parent" xml:space="preserve">
+    <value>groupBoxAssignCourses</value>
+  </data>
+  <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label24.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label24.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 30</value>
+  </data>
+  <data name="label24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 15</value>
+  </data>
+  <data name="label24.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="label24.Text" xml:space="preserve">
+    <value>Choose Instructor </value>
+  </data>
+  <data name="&gt;&gt;label24.Name" xml:space="preserve">
+    <value>label24</value>
+  </data>
+  <data name="&gt;&gt;label24.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label24.Parent" xml:space="preserve">
+    <value>groupBoxAssignCourses</value>
+  </data>
+  <data name="&gt;&gt;label24.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="comboBoxInstructors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 27</value>
+  </data>
+  <data name="comboBoxInstructors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 23</value>
+  </data>
+  <data name="comboBoxInstructors.TabIndex" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="&gt;&gt;comboBoxInstructors.Name" xml:space="preserve">
+    <value>comboBoxInstructors</value>
+  </data>
+  <data name="&gt;&gt;comboBoxInstructors.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxInstructors.Parent" xml:space="preserve">
+    <value>groupBoxAssignCourses</value>
+  </data>
+  <data name="&gt;&gt;comboBoxInstructors.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btn_RemoveThisInsCrs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>493, 86</value>
+  </data>
+  <data name="btn_RemoveThisInsCrs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 23</value>
+  </data>
+  <data name="btn_RemoveThisInsCrs.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="btn_RemoveThisInsCrs.Text" xml:space="preserve">
+    <value>Remove the course</value>
+  </data>
+  <data name="&gt;&gt;btn_RemoveThisInsCrs.Name" xml:space="preserve">
+    <value>btn_RemoveThisInsCrs</value>
+  </data>
+  <data name="&gt;&gt;btn_RemoveThisInsCrs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_RemoveThisInsCrs.Parent" xml:space="preserve">
+    <value>groupBoxAssignCourses</value>
+  </data>
+  <data name="&gt;&gt;btn_RemoveThisInsCrs.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="listBoxAssignedCourses.ItemHeight" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="listBoxAssignedCourses.Location" type="System.Drawing.Point, System.Drawing">
+    <value>211, 86</value>
+  </data>
+  <data name="listBoxAssignedCourses.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 79</value>
+  </data>
+  <data name="listBoxAssignedCourses.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="&gt;&gt;listBoxAssignedCourses.Name" xml:space="preserve">
+    <value>listBoxAssignedCourses</value>
+  </data>
+  <data name="&gt;&gt;listBoxAssignedCourses.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBoxAssignedCourses.Parent" xml:space="preserve">
+    <value>groupBoxAssignCourses</value>
+  </data>
+  <data name="&gt;&gt;listBoxAssignedCourses.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="label18.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 90</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 15</value>
+  </data>
+  <data name="label18.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>Insrtuctor Assigned  Courses</value>
+  </data>
+  <data name="&gt;&gt;label18.Name" xml:space="preserve">
+    <value>label18</value>
+  </data>
+  <data name="&gt;&gt;label18.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label18.Parent" xml:space="preserve">
+    <value>groupBoxAssignCourses</value>
+  </data>
+  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="groupBoxAssignCourses.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="groupBoxAssignCourses.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="groupBoxAssignCourses.Size" type="System.Drawing.Size, System.Drawing">
+    <value>772, 382</value>
+  </data>
+  <data name="groupBoxAssignCourses.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="groupBoxAssignCourses.Text" xml:space="preserve">
+    <value>Assign  Courses</value>
+  </data>
+  <data name="&gt;&gt;groupBoxAssignCourses.Name" xml:space="preserve">
+    <value>groupBoxAssignCourses</value>
+  </data>
+  <data name="&gt;&gt;groupBoxAssignCourses.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxAssignCourses.Parent" xml:space="preserve">
+    <value>tabAssignCourseToInstructor</value>
+  </data>
+  <data name="&gt;&gt;groupBoxAssignCourses.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabAssignCourseToInstructor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tabAssignCourseToInstructor.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabAssignCourseToInstructor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>778, 388</value>
+  </data>
+  <data name="tabAssignCourseToInstructor.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabAssignCourseToInstructor.Text" xml:space="preserve">
+    <value>Assign Courses</value>
+  </data>
+  <data name="&gt;&gt;tabAssignCourseToInstructor.Name" xml:space="preserve">
+    <value>tabAssignCourseToInstructor</value>
+  </data>
+  <data name="&gt;&gt;tabAssignCourseToInstructor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabAssignCourseToInstructor.Parent" xml:space="preserve">
+    <value>tdUpdateInstructor</value>
+  </data>
+  <data name="&gt;&gt;tabAssignCourseToInstructor.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="tdUpdateInstructor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

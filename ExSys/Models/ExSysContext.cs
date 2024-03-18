@@ -112,6 +112,36 @@ public partial class ExSysContext : DbContext
         Database.ExecuteSqlRaw("EXEC dbo.DeleteInstructor @Instructor_ID",
                                      new SqlParameter("@Instructor_ID", instructorId));
     }
+
+    #region functions for stored procedures for instructor course
+
+    public void AddInstructorCourse(int instructorId, int courseId)
+    {
+        var sql = "EXEC dbo.AddInstructor_Course @Instructor_ID, @Course_ID";
+        this.Database.ExecuteSqlRaw(sql, new SqlParameter("@Instructor_ID", instructorId), new SqlParameter("@Course_ID", courseId));
+    }
+
+    public List<Course> GetInstructorCourses(int instructorId)
+    {
+        var sql = "EXEC dbo.GetInstructor_Courses @Instructor_ID";
+        return this.Courses.FromSqlRaw(sql, new SqlParameter("@Instructor_ID", instructorId)).ToList();
+    }
+
+    public List<Course> GetInstructorNotTeachingCourses(int instructorId)
+    {
+        var sql = "EXEC dbo.GetInstructor_NotTeachingCourses @Instructor_ID";
+        return this.Courses.FromSqlRaw(sql, new SqlParameter("@Instructor_ID", instructorId)).ToList();
+    }
+
+    public void RemoveInstructorCourse(int instructorId, int courseId)
+    {
+        var sql = "EXEC dbo.RemoveInstructor_Course @Instructor_ID, @Course_ID";
+        this.Database.ExecuteSqlRaw(sql, new SqlParameter("@Instructor_ID", instructorId), new SqlParameter("@Course_ID", courseId));
+    }
+
+    
+
+    #endregion
     #endregion
 
     #region functions for stored procedures for student

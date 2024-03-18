@@ -55,6 +55,7 @@
             lblInstructorName = new Label();
             tpUpdateInstructor = new TabPage();
             groupBoxupIns = new GroupBox();
+            btn_AssignNewCrs = new Button();
             btn_delIns = new Button();
             listBoxinstructors = new ListBox();
             label19 = new Label();
@@ -67,6 +68,16 @@
             btn_updateIns = new Button();
             TBInstructorFName = new TextBox();
             label23 = new Label();
+            tabAssignCourseToInstructor = new TabPage();
+            groupBoxAssignCourses = new GroupBox();
+            btn_AddthisCoursetoIns = new Button();
+            listBoxUnassignedCourses = new ListBox();
+            label25 = new Label();
+            label24 = new Label();
+            comboBoxInstructors = new ComboBox();
+            btn_RemoveThisInsCrs = new Button();
+            listBoxAssignedCourses = new ListBox();
+            label18 = new Label();
             tpStudents = new TabPage();
             tabٍStudents = new TabControl();
             tabAddStudent = new TabPage();
@@ -126,6 +137,8 @@
             gbAddInstructor.SuspendLayout();
             tpUpdateInstructor.SuspendLayout();
             groupBoxupIns.SuspendLayout();
+            tabAssignCourseToInstructor.SuspendLayout();
+            groupBoxAssignCourses.SuspendLayout();
             tpStudents.SuspendLayout();
             tabٍStudents.SuspendLayout();
             tabAddStudent.SuspendLayout();
@@ -232,6 +245,7 @@
             // 
             tdUpdateInstructor.Controls.Add(tpAddInstructor);
             tdUpdateInstructor.Controls.Add(tpUpdateInstructor);
+            tdUpdateInstructor.Controls.Add(tabAssignCourseToInstructor);
             resources.ApplyResources(tdUpdateInstructor, "tdUpdateInstructor");
             tdUpdateInstructor.Name = "tdUpdateInstructor";
             tdUpdateInstructor.SelectedIndex = 0;
@@ -315,6 +329,7 @@
             // 
             // groupBoxupIns
             // 
+            groupBoxupIns.Controls.Add(btn_AssignNewCrs);
             groupBoxupIns.Controls.Add(btn_delIns);
             groupBoxupIns.Controls.Add(listBoxinstructors);
             groupBoxupIns.Controls.Add(label19);
@@ -328,8 +343,16 @@
             groupBoxupIns.Controls.Add(TBInstructorFName);
             groupBoxupIns.Controls.Add(label23);
             resources.ApplyResources(groupBoxupIns, "groupBoxupIns");
+            groupBoxupIns.ForeColor = SystemColors.ActiveCaptionText;
             groupBoxupIns.Name = "groupBoxupIns";
             groupBoxupIns.TabStop = false;
+            // 
+            // btn_AssignNewCrs
+            // 
+            resources.ApplyResources(btn_AssignNewCrs, "btn_AssignNewCrs");
+            btn_AssignNewCrs.Name = "btn_AssignNewCrs";
+            btn_AssignNewCrs.UseVisualStyleBackColor = true;
+            btn_AssignNewCrs.Click += btn_AssignNewCrs_Click;
             // 
             // btn_delIns
             // 
@@ -396,6 +419,77 @@
             // 
             resources.ApplyResources(label23, "label23");
             label23.Name = "label23";
+            // 
+            // tabAssignCourseToInstructor
+            // 
+            tabAssignCourseToInstructor.Controls.Add(groupBoxAssignCourses);
+            resources.ApplyResources(tabAssignCourseToInstructor, "tabAssignCourseToInstructor");
+            tabAssignCourseToInstructor.Name = "tabAssignCourseToInstructor";
+            tabAssignCourseToInstructor.UseVisualStyleBackColor = true;
+            tabAssignCourseToInstructor.Enter += tabAssignCourseToInstructor_Enter;
+
+            // 
+            // groupBoxAssignCourses
+            // 
+            groupBoxAssignCourses.Controls.Add(btn_AddthisCoursetoIns);
+            groupBoxAssignCourses.Controls.Add(listBoxUnassignedCourses);
+            groupBoxAssignCourses.Controls.Add(label25);
+            groupBoxAssignCourses.Controls.Add(label24);
+            groupBoxAssignCourses.Controls.Add(comboBoxInstructors);
+            groupBoxAssignCourses.Controls.Add(btn_RemoveThisInsCrs);
+            groupBoxAssignCourses.Controls.Add(listBoxAssignedCourses);
+            groupBoxAssignCourses.Controls.Add(label18);
+            resources.ApplyResources(groupBoxAssignCourses, "groupBoxAssignCourses");
+            groupBoxAssignCourses.Name = "groupBoxAssignCourses";
+            groupBoxAssignCourses.TabStop = false;
+            // 
+            // btn_AddthisCoursetoIns
+            // 
+            resources.ApplyResources(btn_AddthisCoursetoIns, "btn_AddthisCoursetoIns");
+            btn_AddthisCoursetoIns.Name = "btn_AddthisCoursetoIns";
+            btn_AddthisCoursetoIns.UseVisualStyleBackColor = true;
+            btn_AddthisCoursetoIns.Click += btn_AddthisCoursetoIns_Click;
+            // 
+            // listBoxUnassignedCourses
+            // 
+            listBoxUnassignedCourses.FormattingEnabled = true;
+            resources.ApplyResources(listBoxUnassignedCourses, "listBoxUnassignedCourses");
+            listBoxUnassignedCourses.Name = "listBoxUnassignedCourses";
+            // 
+            // label25
+            // 
+            resources.ApplyResources(label25, "label25");
+            label25.Name = "label25";
+            // 
+            // label24
+            // 
+            resources.ApplyResources(label24, "label24");
+            label24.Name = "label24";
+            // 
+            // comboBoxInstructors
+            // 
+            comboBoxInstructors.FormattingEnabled = true;
+            resources.ApplyResources(comboBoxInstructors, "comboBoxInstructors");
+            comboBoxInstructors.Name = "comboBoxInstructors";
+            comboBoxInstructors.SelectedIndexChanged += comboBoxInstructors_SelectedIndexChanged;
+            // 
+            // btn_RemoveThisInsCrs
+            // 
+            resources.ApplyResources(btn_RemoveThisInsCrs, "btn_RemoveThisInsCrs");
+            btn_RemoveThisInsCrs.Name = "btn_RemoveThisInsCrs";
+            btn_RemoveThisInsCrs.UseVisualStyleBackColor = true;
+            btn_RemoveThisInsCrs.Click += btn_RemoveThisInsCrs_Click;
+            // 
+            // listBoxAssignedCourses
+            // 
+            listBoxAssignedCourses.FormattingEnabled = true;
+            resources.ApplyResources(listBoxAssignedCourses, "listBoxAssignedCourses");
+            listBoxAssignedCourses.Name = "listBoxAssignedCourses";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(label18, "label18");
+            label18.Name = "label18";
             // 
             // tpStudents
             // 
@@ -726,6 +820,9 @@
             tpUpdateInstructor.ResumeLayout(false);
             groupBoxupIns.ResumeLayout(false);
             groupBoxupIns.PerformLayout();
+            tabAssignCourseToInstructor.ResumeLayout(false);
+            groupBoxAssignCourses.ResumeLayout(false);
+            groupBoxAssignCourses.PerformLayout();
             tpStudents.ResumeLayout(false);
             tabٍStudents.ResumeLayout(false);
             tabAddStudent.ResumeLayout(false);
@@ -743,6 +840,11 @@
             groupBoxupdate.ResumeLayout(false);
             groupBoxupdate.PerformLayout();
             ResumeLayout(false);
+        }
+
+        private void TabAssignCourseToInstructor_Enter(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -820,10 +922,8 @@
         private Button btn_updateCourse;
         private GroupBox groupBoxupIns;
         private TextBox textBox4;
-        private Button button1;
-        private Label label18;
+        private Button btn_AssignNewCrs;
         private Label label19;
-        private ListBox listBox1;
         private TextBox TBInstructorPass;
         private Label label20;
         private TextBox TBInstructorMail;
@@ -835,5 +935,15 @@
         private Label label23;
         private Button btn_delIns;
         private ListBox listBoxinstructors;
+        private TabPage tabAssignCourseToInstructor;
+        private GroupBox groupBoxAssignCourses;
+        private ListBox listBoxAssignedCourses;
+        private Label label18;
+        private Button btn_RemoveThisInsCrs;
+        private Button btn_AddthisCoursetoIns;
+        private ListBox listBoxUnassignedCourses;
+        private Label label25;
+        private Label label24;
+        private ComboBox comboBoxInstructors;
     }
 }
