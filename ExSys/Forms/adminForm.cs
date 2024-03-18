@@ -1,5 +1,6 @@
 ﻿using Data.Models;
 using ExSys;
+using ExSys.MyModels;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExSys.MyModels;
 
 namespace ExSys.Forms
 {
@@ -35,12 +37,14 @@ namespace ExSys.Forms
             this.Controls.Add(topFormControl);
         }
 
+
+
         // Create a list of Branches
 
         private void adminForm_Load(object sender, EventArgs e)
         {
-            // Add event handler for the Enter event of the tab
-            //+= new EventHandler(tabAssignCourseToInstructor_Enter);
+            
+
 
             // Create a list of Branches
             List<Branch> branches = new List<Branch>()
@@ -502,10 +506,6 @@ namespace ExSys.Forms
             // Go to the tab of assign course to instructor
             tdUpdateInstructor.SelectTab(tabAssignCourseToInstructor);
 
-           
-
-            
-
             // Select the instructor name in the combo box
             comboBoxInstructors.SelectedValue = instructorId;
 
@@ -641,5 +641,23 @@ namespace ExSys.Forms
 
         }
         #endregion
+
+        private void btn_report_Click(object sender, EventArgs e)
+        {
+            int instructorId = (int)listBoxinstructors.SelectedValue; // Get the selected instructor ID
+
+            using (var context = new ExSysContext())
+            {
+                var parameter = new SqlParameter("@Instructor_ID", instructorId);
+                var result = context.Database.SqlQueryRaw<InstructorCourseReport>("EXEC GetInstructor_Courses_Students @Instructor_ID", parameter).ToList();
+
+                // Do something with the result
+                foreach (var item in result)
+                {
+                    Console.WriteLine($"Course ID: {item.Course_ID}, Course Name: {item.Course_Name}, Number of Students: {item.Number_Of_Students}");
+                }
+            }
+        }
+
     }
 }

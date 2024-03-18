@@ -55,6 +55,7 @@
             lblInstructorName = new Label();
             tpUpdateInstructor = new TabPage();
             groupBoxupIns = new GroupBox();
+            btn_report = new Button();
             btn_AssignNewCrs = new Button();
             btn_delIns = new Button();
             listBoxinstructors = new ListBox();
@@ -329,6 +330,7 @@
             // 
             // groupBoxupIns
             // 
+            groupBoxupIns.Controls.Add(btn_report);
             groupBoxupIns.Controls.Add(btn_AssignNewCrs);
             groupBoxupIns.Controls.Add(btn_delIns);
             groupBoxupIns.Controls.Add(listBoxinstructors);
@@ -347,6 +349,13 @@
             groupBoxupIns.Name = "groupBoxupIns";
             groupBoxupIns.TabStop = false;
             // 
+            // btn_report
+            // 
+            resources.ApplyResources(btn_report, "btn_report");
+            btn_report.Name = "btn_report";
+            btn_report.UseVisualStyleBackColor = true;
+            btn_report.Click += btn_report_Click;
+            // 
             // btn_AssignNewCrs
             // 
             resources.ApplyResources(btn_AssignNewCrs, "btn_AssignNewCrs");
@@ -363,6 +372,7 @@
             // 
             // listBoxinstructors
             // 
+            listBoxinstructors.ForeColor = Color.Black;
             listBoxinstructors.FormattingEnabled = true;
             resources.ApplyResources(listBoxinstructors, "listBoxinstructors");
             listBoxinstructors.Name = "listBoxinstructors";
@@ -427,7 +437,6 @@
             tabAssignCourseToInstructor.Name = "tabAssignCourseToInstructor";
             tabAssignCourseToInstructor.UseVisualStyleBackColor = true;
             tabAssignCourseToInstructor.Enter += tabAssignCourseToInstructor_Enter;
-
             // 
             // groupBoxAssignCourses
             // 
@@ -945,5 +954,6 @@
         private Label label25;
         private Label label24;
         private ComboBox comboBoxInstructors;
+        private Button btn_report;
     }
 }

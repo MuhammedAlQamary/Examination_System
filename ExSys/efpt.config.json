@@ -200,6 +200,22 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[GetInstructor_Courses_Students]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetInstructor_Courses]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetInstructor_NotTeachingCourses]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetInstructors]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[GetQuestionByID]",
          "ObjectType": 1
       },
@@ -233,6 +249,10 @@
       },
       {
          "Name": "[dbo].[InsertTrackCourse]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[RemoveInstructor_Course]",
          "ObjectType": 1
       },
       {

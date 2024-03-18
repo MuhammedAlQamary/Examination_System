@@ -42,6 +42,10 @@ namespace Data.Models
         Task<List<GetCourseTopicsResult>> GetCourseTopicsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetExamQuestionByIDResult>> GetExamQuestionByIDAsync(int? Exam_ID, int? Question_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetExamsResult>> GetExamsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetInstructor_CoursesResult>> GetInstructor_CoursesAsync(int? Instructor_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetInstructor_Courses_StudentsResult>> GetInstructor_Courses_StudentsAsync(int? Instructor_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetInstructor_NotTeachingCoursesResult>> GetInstructor_NotTeachingCoursesAsync(int? Instructor_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetInstructorsResult>> GetInstructorsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetQuestionByIDResult>> GetQuestionByIDAsync(int? Question_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetTopicsResult>> GetTopicsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<hamadaResult>> hamadaAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
@@ -51,6 +55,7 @@ namespace Data.Models
         Task<int> InsertTopicAsync(string To_Name, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> InsertTrackAsync(string Track_Name, int? Supervisor_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> InsertTrackCourseAsync(int? Track_ID, int? Course_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> RemoveInstructor_CourseAsync(int? Instructor_ID, int? Course_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<SelectBranchesResult>> SelectBranchesAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<SelectCoursesResult>> SelectCoursesAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<SelectInstructor_CourseResult>> SelectInstructor_CourseAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
