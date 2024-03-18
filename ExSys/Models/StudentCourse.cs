@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class StudentCourse
 {
@@ -11,7 +11,7 @@ public partial class StudentCourse
 
     public int CourseId { get; set; }
 
-    public short? StudentGrade { get; set; }
+    public int? StudentGrade { get; set; }
 
     public virtual Course Course { get; set; }
 

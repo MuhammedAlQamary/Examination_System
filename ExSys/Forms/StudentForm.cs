@@ -1,4 +1,5 @@
-﻿using ExSys.Models;
+﻿
+using Data.Models;
 using ExSys.MyModels;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -36,7 +37,7 @@ namespace ExSys.Forms
             try
             {
 
-                // Initialize dbContext
+               
                 dbContext = new ExSysContext();
 
                 //get the full name using the id 
@@ -56,7 +57,7 @@ namespace ExSys.Forms
 
                     //get the track name from students and tracks relation by the id of track 
                     var studentTrack = dbContext.Students
-                                                 .Include(s => s.Track) // Eager loading of Track entity
+                                                 .Include(s => s.Track) 
                                                  .FirstOrDefault(sc => sc.StudentId == studentid);
 
                     if (studentTrack != null)
@@ -99,11 +100,20 @@ namespace ExSys.Forms
             {
                 var selectedCourse = comboBoxStdCrs.SelectedItem.ToString();
                 var course = dbContext.Courses
-                                    .Include(c => c.StudentCourses) // Eager loading of StudentCourses entity
+                                    .Include(c => c.StudentCourses)
                                     .FirstOrDefault(c => c.CourseName == selectedCourse);
                 if (course != null)
                 {
-                    LBLStudentCrsDegree.Text = course.StudentCourses.FirstOrDefault(sc => sc.StudentId == studentid).StudentGrade.ToString();
+                    // Assuming studentid is of type Int16
+                    var studentCourse = course.StudentCourses.FirstOrDefault(sc => sc.StudentId == Convert.ToInt16(studentid));
+                    if (studentCourse != null)
+                    {
+                        LBLStudentCrsDegree.Text = studentCourse.StudentGrade.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student grade not found for selected course.");
+                    }
                 }
                 else
                 {
@@ -113,9 +123,10 @@ namespace ExSys.Forms
             catch (Exception ex)
             {
                 // Handle any exceptions
-                MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show("An error قق occurred: " + ex.Message);
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
+
     }
 }

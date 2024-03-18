@@ -2,11 +2,10 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using ExSys.MyModels;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class ExSysContext : DbContext
 {
@@ -18,7 +17,6 @@ public partial class ExSysContext : DbContext
         : base(options)
     {
     }
-
 
     public virtual DbSet<Branch> Branches { get; set; }
 
@@ -42,42 +40,10 @@ public partial class ExSysContext : DbContext
 
     public virtual DbSet<Track> Tracks { get; set; }
 
-    #region update functions for stored procedures for students
-    public void UpdateStudent(int studentId, string studentFname, string studentLname, string studentEmail, string studentPassword, int trackId)
-    {
-        // Call the stored procedure using Entity Framework
-        Database.ExecuteSqlRaw("EXEC dbo.UpdateStudent @Student_ID, @Student_FName, @Student_LName, @Student_Email, @Student_Password, @Track_ID",
-            new SqlParameter("@Student_ID", studentId),
-            new SqlParameter("@Student_FName", studentFname),
-            new SqlParameter("@Student_LName", studentLname),
-            new SqlParameter("@Student_Email", studentEmail),
-            new SqlParameter("@Student_Password", studentPassword),
-            new SqlParameter("@Track_ID", trackId));
-    }
-
-    public void DeleteStudent(int studentId)
-    {
-        // Call the stored procedure using Entity Framework
-        Database.ExecuteSqlRaw("EXEC dbo.DeleteStudent @Student_ID",
-            new SqlParameter("@Student_ID", studentId));
-    }
-    public void AddStudent(string studentFName, string studentLName, string studentEmail, string studentPassword, int trackId)
-    {
-        // Call the stored procedure using raw SQL query
-        Database.ExecuteSqlRaw("EXEC dbo.AddStudent @Student_FName, @Student_LName, @Student_Email, @Student_Password, @Track_ID",
-            new SqlParameter("@Student_FName", studentFName),
-            new SqlParameter("@Student_LName", studentLName),
-            new SqlParameter("@Student_Email", studentEmail),
-            new SqlParameter("@Student_Password", studentPassword),
-            new SqlParameter("@Track_ID", trackId));
-    }
-    #endregion
-
-
 
     #region functions for stored procedures for course
     //  make function for this stored procedure
-    
+
     public void AddCourse(string courseName)
     {
         // Call the stored procedure using raw SQL query
@@ -103,7 +69,7 @@ public partial class ExSysContext : DbContext
     #region functions for stored procedures for student course
 
     // Method to execute stored procedure ShowStudentCourses
-    
+
 
 
 
@@ -118,6 +84,67 @@ public partial class ExSysContext : DbContext
 
     #endregion
 
+    #region functions for stored procedures for instructor
+    public void AddInstructor(string instructorFname, string instructorLname, string instructorEmail, string instructorPassword)
+    {
+        // Call the stored procedure using raw SQL query
+        Database.ExecuteSqlRaw("EXEC dbo.AddInstructor @Instructor_Fname, @Instructor_Lname, @Instructor_Email, @Instructor_Password",
+                                      new SqlParameter("@Instructor_Fname", instructorFname),
+                                      new SqlParameter("@Instructor_Lname", instructorLname),
+                                      new SqlParameter("@Instructor_Email", instructorEmail),
+                                      new SqlParameter("@Instructor_Password", instructorPassword));
+    }
+
+    public void UpdateInstructor(int instructorId, string instructorFname, string instructorLname, string instructorEmail, string instructorPassword)
+    {
+        // Call the stored procedure using Entity Framework
+        Database.ExecuteSqlRaw("EXEC dbo.UpdateInstructor @Instructor_ID, @Instructor_Fname, @Instructor_Lname, @Instructor_Email, @Instructor_Password",
+                                     new SqlParameter("@Instructor_ID", instructorId),
+                                     new SqlParameter("@Instructor_Fname", instructorFname),
+                                     new SqlParameter("@Instructor_Lname", instructorLname),
+                                                                                                                                                                                                                                                                                                                            new SqlParameter("@Instructor_Email", instructorEmail),
+                                                                                                                                                                                                                                                                                                                                                                                                                                                         new SqlParameter("@Instructor_Password", instructorPassword));
+    }
+
+    public void DeleteInstructor(int instructorId)
+    {
+        // Call the stored procedure using Entity Framework
+        Database.ExecuteSqlRaw("EXEC dbo.DeleteInstructor @Instructor_ID",
+                                     new SqlParameter("@Instructor_ID", instructorId));
+    }
+    #endregion
+
+    #region functions for stored procedures for student
+    public void AddStudent(string studentFname, string studentLname, string studentEmail, string studentPassword, int trackId)
+    {
+        // Call the stored procedure using raw SQL query
+        Database.ExecuteSqlRaw("EXEC dbo.AddStudent @Student_FName, @Student_LName, @Student_Email, @Student_Password, @Track_ID",
+                                                 new SqlParameter("@Student_FName", studentFname),
+                                                                                      new SqlParameter("@Student_LName", studentLname),
+                                                                                                                           new SqlParameter("@Student_Email", studentEmail),
+                                                                                                                                                                new SqlParameter("@Student_Password", studentPassword),
+                                                                                                                                                                                                     new SqlParameter("@Track_ID", trackId));
+    }
+
+    public void UpdateStudent(int studentId, string studentFname, string studentLname, string studentEmail, string studentPassword, int trackId)
+    {
+        // Call the stored procedure using Entity Framework
+        Database.ExecuteSqlRaw("EXEC dbo.UpdateStudent @Student_ID, @Student_FName, @Student_LName, @Student_Email, @Student_Password, @Track_ID",
+                                                            new SqlParameter("@Student_ID", studentId),
+                                                                                                                                                 new SqlParameter("@Student_FName", studentFname),
+                                                                                                                                                                                                                                                                           new SqlParameter("@Student_LName", studentLname),
+                                                                                                                                                                                                                                                                                                                                                                                                                          new SqlParameter("@Student_Email", studentEmail),
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              new SqlParameter("@Student_Password", studentPassword),
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       new SqlParameter("@Track_ID", trackId));
+    }
+
+    public void DeleteStudent(int studentId)
+    {
+        // Call the stored procedure using Entity Framework
+        Database.ExecuteSqlRaw("EXEC dbo.DeleteStudent @Student_ID",
+                                                                       new SqlParameter("@Student_ID", studentId));
+    }
+    #endregion
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=esiti.database.windows.net;Initial Catalog=Exam_System_Generate_Database;Persist Security Info=True;User ID=emad;Password=Lah27052");
@@ -158,9 +185,7 @@ public partial class ExSysContext : DbContext
 
         modelBuilder.Entity<Choice>(entity =>
         {
-            entity.Property(e => e.ChoiceId)
-                .ValueGeneratedNever()
-                .HasColumnName("Choice_ID");
+            entity.Property(e => e.ChoiceId).HasColumnName("Choice_ID");
             entity.Property(e => e.ChoiceText)
                 .HasMaxLength(20)
                 .IsUnicode(false)
@@ -175,6 +200,8 @@ public partial class ExSysContext : DbContext
         modelBuilder.Entity<Course>(entity =>
         {
             entity.HasKey(e => e.CourseId).HasName("PK__Courses__F5C807D38E645DDE");
+
+            entity.HasIndex(e => e.CourseName, "UC_Name").IsUnique();
 
             entity.Property(e => e.CourseId).HasColumnName("Course_ID");
             entity.Property(e => e.CourseName)
@@ -237,6 +264,8 @@ public partial class ExSysContext : DbContext
 
         modelBuilder.Entity<Instructor>(entity =>
         {
+            entity.HasIndex(e => e.InstructorEmail, "UC_Email").IsUnique();
+
             entity.Property(e => e.InstructorId).HasColumnName("Instructor_ID");
             entity.Property(e => e.InstructorEmail)
                 .HasMaxLength(50)
@@ -279,30 +308,38 @@ public partial class ExSysContext : DbContext
         {
             entity.HasKey(e => e.QuestionId).HasName("PK__Question__5C22EDA88A4571DD");
 
+            entity.HasIndex(e => e.QuestionText, "UC_QText").IsUnique();
+
             entity.Property(e => e.QuestionId).HasColumnName("Question_ID");
             entity.Property(e => e.CourseId).HasColumnName("Course_ID");
             entity.Property(e => e.QuestionModelAnswer)
+                .IsRequired()
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("Question_ModelAnswer");
             entity.Property(e => e.QuestionText)
+                .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("Question_Text");
             entity.Property(e => e.QuestionType)
+                .IsRequired()
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("Question_Type");
 
             entity.HasOne(d => d.Course).WithMany(p => p.Questions)
                 .HasForeignKey(d => d.CourseId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Questions_Courses");
         });
 
         modelBuilder.Entity<Student>(entity =>
         {
+            entity.HasIndex(e => e.StudentEmail, "UC_stdEmail").IsUnique();
+
             entity.Property(e => e.StudentId)
-                .ValueGeneratedNever()
+                .HasDefaultValueSql("(NEXT VALUE FOR [StudentIDSequence])")
                 .HasColumnName("Student_ID");
             entity.Property(e => e.StudentEmail)
                 .HasMaxLength(50)
@@ -336,7 +373,9 @@ public partial class ExSysContext : DbContext
 
             entity.Property(e => e.StudentId).HasColumnName("Student_ID");
             entity.Property(e => e.CourseId).HasColumnName("Course_ID");
-            entity.Property(e => e.StudentGrade).HasColumnName("Student_Grade");
+            entity.Property(e => e.StudentGrade)
+                .HasDefaultValue(0)
+                .HasColumnName("Student_Grade");
 
             entity.HasOne(d => d.Course).WithMany(p => p.StudentCourses)
                 .HasForeignKey(d => d.CourseId)
@@ -398,6 +437,8 @@ public partial class ExSysContext : DbContext
         {
             entity.HasIndex(e => e.SupervisorId, "UIX_Supervisor_ID").IsUnique();
 
+            entity.HasIndex(e => e.TrackName, "UniqueTrackName").IsUnique();
+
             entity.Property(e => e.TrackId).HasColumnName("Track_ID");
             entity.Property(e => e.SupervisorId).HasColumnName("Supervisor_ID");
             entity.Property(e => e.TrackName)
@@ -429,6 +470,7 @@ public partial class ExSysContext : DbContext
                         j.IndexerProperty<int>("CourseId").HasColumnName("Course_ID");
                     });
         });
+        modelBuilder.HasSequence<int>("StudentIDSequence").StartsAt(31L);
 
         OnModelCreatingGeneratedProcedures(modelBuilder);
         OnModelCreatingPartial(modelBuilder);

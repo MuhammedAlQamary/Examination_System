@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Student
 {
@@ -24,8 +24,4 @@ public partial class Student
     public virtual ICollection<StudentExamQuestion> StudentExamQuestions { get; set; } = new List<StudentExamQuestion>();
 
     public virtual Track Track { get; set; }
-    public override string ToString()
-    {
-        return $"{StudentId} : {StudentFname} : {StudentLname} ";
-    }
 }
