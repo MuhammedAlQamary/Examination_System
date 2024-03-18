@@ -11,5 +11,7 @@ public partial class Branch
 
     public string BranchName { get; set; }
 
+    public virtual ICollection<Instructor> Instructors { get; set; } = new List<Instructor>();
+
     public virtual ICollection<Track> Tracks { get; set; } = new List<Track>();
 }

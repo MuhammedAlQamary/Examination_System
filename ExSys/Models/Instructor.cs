@@ -17,6 +17,10 @@ public partial class Instructor
 
     public string InstructorPassword { get; set; }
 
+    public int? BranchId { get; set; }
+
+    public virtual Branch Branch { get; set; }
+
     public virtual Track Track { get; set; }
 
     public virtual ICollection<Course> Courses { get; set; } = new List<Course>();

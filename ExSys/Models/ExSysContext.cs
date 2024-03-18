@@ -40,7 +40,6 @@ public partial class ExSysContext : DbContext
 
     public virtual DbSet<Track> Tracks { get; set; }
 
-
     #region functions for stored procedures for course
     //  make function for this stored procedure
 
@@ -139,7 +138,7 @@ public partial class ExSysContext : DbContext
         this.Database.ExecuteSqlRaw(sql, new SqlParameter("@Instructor_ID", instructorId), new SqlParameter("@Course_ID", courseId));
     }
 
-    
+
 
     #endregion
     #endregion
@@ -177,7 +176,7 @@ public partial class ExSysContext : DbContext
     #endregion
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=esiti.database.windows.net;Initial Catalog=Exam_System_Generate_Database;Persist Security Info=True;User ID=emad;Password=Lah27052");
+        => optionsBuilder.UseSqlServer("Data Source=esiti.database.windows.net;Initial Catalog=Exam_System_Generate_Database;Persist Security Info=True;User ID=emad;Password=Lah27052;Encrypt=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -297,6 +296,7 @@ public partial class ExSysContext : DbContext
             entity.HasIndex(e => e.InstructorEmail, "UC_Email").IsUnique();
 
             entity.Property(e => e.InstructorId).HasColumnName("Instructor_ID");
+            entity.Property(e => e.BranchId).HasColumnName("Branch_ID");
             entity.Property(e => e.InstructorEmail)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -313,6 +313,10 @@ public partial class ExSysContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("Instructor_Password");
+
+            entity.HasOne(d => d.Branch).WithMany(p => p.Instructors)
+                .HasForeignKey(d => d.BranchId)
+                .HasConstraintName("FK_BranchID");
 
             entity.HasMany(d => d.Courses).WithMany(p => p.Instructors)
                 .UsingEntity<Dictionary<string, object>>(

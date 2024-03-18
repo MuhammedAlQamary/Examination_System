@@ -12,5 +12,6 @@ namespace Data.Models
         public string Instructor_Lname { get; set; }
         public string Instructor_Email { get; set; }
         public string Instructor_Password { get; set; }
+        public int? Branch_ID { get; set; }
     }
 }
