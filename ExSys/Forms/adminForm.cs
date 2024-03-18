@@ -502,7 +502,6 @@ namespace ExSys.Forms
             // Go to the tab of assign course to instructor
             tdUpdateInstructor.SelectTab(tabAssignCourseToInstructor);
 
-
             // Select the instructor name in the combo box
             comboBoxInstructors.SelectedValue = instructorId;
 
