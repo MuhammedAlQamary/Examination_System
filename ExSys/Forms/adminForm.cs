@@ -40,7 +40,7 @@ namespace ExSys.Forms
         private void adminForm_Load(object sender, EventArgs e)
         {
             // Add event handler for the Enter event of the tab
-           //+= new EventHandler(tabAssignCourseToInstructor_Enter);
+            //+= new EventHandler(tabAssignCourseToInstructor_Enter);
 
             // Create a list of Branches
             List<Branch> branches = new List<Branch>()
@@ -357,7 +357,6 @@ namespace ExSys.Forms
         }
         #endregion
 
-
         #region instructors CRUD
         private void tdUpdateInstructor_Enter(object sender, EventArgs e)
         {
@@ -492,8 +491,6 @@ namespace ExSys.Forms
         }
         #endregion
 
-
-
         #region instructor courses assignment
 
         private void btn_AssignNewCrs_Click(object sender, EventArgs e)
@@ -575,8 +572,8 @@ namespace ExSys.Forms
                     listBoxUnassignedCourses.ValueMember = "CourseId";
                 }
             }
-            
-            
+
+
 
 
         }
@@ -589,19 +586,27 @@ namespace ExSys.Forms
             {
                 int courseId = (int)listBoxAssignedCourses.SelectedValue;
                 DialogResult result = MessageBox.Show("Are you sure you want to remove this course from the instructor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                context.RemoveInstructorCourse(instructorId, courseId);
-                context.SaveChanges();
-                // Fill the courses in the list box of assigned courses
-                var assignedCourses = context.GetInstructorCourses(instructorId).ToList();
-                listBoxAssignedCourses.DataSource = assignedCourses;
-                listBoxAssignedCourses.DisplayMember = "CourseName";
-                listBoxAssignedCourses.ValueMember = "CourseId";
+                if (result == DialogResult.Yes)
+                {
+                    context.RemoveInstructorCourse(instructorId, courseId);
+                    context.SaveChanges();
+                    // Fill the courses in the list box of assigned courses
+                    var assignedCourses = context.GetInstructorCourses(instructorId).ToList();
+                    listBoxAssignedCourses.DataSource = assignedCourses;
+                    listBoxAssignedCourses.DisplayMember = "CourseName";
+                    listBoxAssignedCourses.ValueMember = "CourseId";
 
-                // Fill the other list box of unassigned courses
-                var unassignedCourses = context.GetInstructorNotTeachingCourses(instructorId).ToList();
-                listBoxUnassignedCourses.DataSource = unassignedCourses;
-                listBoxUnassignedCourses.DisplayMember = "CourseName";
-                listBoxUnassignedCourses.ValueMember = "CourseId";
+                    // Fill the other list box of unassigned courses
+                    var unassignedCourses = context.GetInstructorNotTeachingCourses(instructorId).ToList();
+                    listBoxUnassignedCourses.DataSource = unassignedCourses;
+                    listBoxUnassignedCourses.DisplayMember = "CourseName";
+                    listBoxUnassignedCourses.ValueMember = "CourseId";
+                }
+                else
+                {
+                    return;
+                }
+
 
             }
 
@@ -618,22 +623,30 @@ namespace ExSys.Forms
                 int courseId = (int)listBoxUnassignedCourses.SelectedValue;
                 //add mesaage box to confirm the action
                 DialogResult result = MessageBox.Show("Are you sure you want to add this course to the instructor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                context.AddInstructorCourse(instructorId, courseId);
-                context.SaveChanges();
-                // Fill the courses in the list box of assigned courses
-                var assignedCourses = context.GetInstructorCourses(instructorId).ToList();
-                listBoxAssignedCourses.DataSource = assignedCourses;
-                listBoxAssignedCourses.DisplayMember = "CourseName";
-                listBoxAssignedCourses.ValueMember = "CourseId";
+                if (result == DialogResult.Yes)
+                {
 
-                // Fill the other list box of unassigned courses
-                var unassignedCourses = context.GetInstructorNotTeachingCourses(instructorId).ToList();
-                listBoxUnassignedCourses.DataSource = unassignedCourses;
-                listBoxUnassignedCourses.DisplayMember = "CourseName";
-                listBoxUnassignedCourses.ValueMember = "CourseId";
+                    context.AddInstructorCourse(instructorId, courseId);
+                    context.SaveChanges();
+                    // Fill the courses in the list box of assigned courses
+                    var assignedCourses = context.GetInstructorCourses(instructorId).ToList();
+                    listBoxAssignedCourses.DataSource = assignedCourses;
+                    listBoxAssignedCourses.DisplayMember = "CourseName";
+                    listBoxAssignedCourses.ValueMember = "CourseId";
+
+                    // Fill the other list box of unassigned courses
+                    var unassignedCourses = context.GetInstructorNotTeachingCourses(instructorId).ToList();
+                    listBoxUnassignedCourses.DataSource = unassignedCourses;
+                    listBoxUnassignedCourses.DisplayMember = "CourseName";
+                    listBoxUnassignedCourses.ValueMember = "CourseId";
+                }
+                else
+                {
+                    return;
+                }
 
             }
-            
+
 
         }
         #endregion
