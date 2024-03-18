@@ -500,20 +500,8 @@ namespace ExSys.Forms
             int instructorId = (int)listBoxinstructors.SelectedValue;
 
             // Go to the tab of assign course to instructor
-            // Find the index of the tab named "tabAssignCourseToInstructor"
-            int tabIndex = -1;
-            for (int i = 0; i < tdUpdateInstructor.TabPages.Count; i++)
-            {
-                if (tdUpdateInstructor.TabPages[i].Name == "tabAssignCourseToInstructor")
-                {
-                    tabIndex = i;
-                    break;
-                }
-            }
+            tdUpdateInstructor.SelectTab(tabAssignCourseToInstructor);
 
-            // Set the selected index to the found index
-            if (tabIndex != -1)
-                tdUpdateInstructor.SelectedIndex = tabIndex;
 
             // Select the instructor name in the combo box
             comboBoxInstructors.SelectedValue = instructorId;
