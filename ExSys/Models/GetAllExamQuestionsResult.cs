@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ExSys.Models
+namespace Data.Models
 {
     public partial class GetAllExamQuestionsResult
     {

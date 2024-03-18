@@ -44,16 +44,29 @@
             tdUpdateInstructor = new TabControl();
             tpAddInstructor = new TabPage();
             gbAddInstructor = new GroupBox();
-            textBox3 = new TextBox();
+            TBInstructorPassAdd = new TextBox();
             label3 = new Label();
-            textBox2 = new TextBox();
+            TBInstructorMailAdd = new TextBox();
             label2 = new Label();
-            textBox1 = new TextBox();
+            TBInstructorLNameAdd = new TextBox();
             label1 = new Label();
             btnAddInstructor = new Button();
-            tbInstructorName = new TextBox();
+            tbInstructorNameAdd = new TextBox();
             lblInstructorName = new Label();
             tpUpdateInstructor = new TabPage();
+            groupBoxupIns = new GroupBox();
+            btn_delIns = new Button();
+            listBoxinstructors = new ListBox();
+            label19 = new Label();
+            TBInstructorPass = new TextBox();
+            label20 = new Label();
+            TBInstructorMail = new TextBox();
+            label21 = new Label();
+            TBInstructorLName = new TextBox();
+            label22 = new Label();
+            btn_updateIns = new Button();
+            TBInstructorFName = new TextBox();
+            label23 = new Label();
             tpStudents = new TabPage();
             tabٍStudents = new TabControl();
             tabAddStudent = new TabPage();
@@ -85,9 +98,6 @@
             btn_UpdateStd = new Button();
             TBStudentFName = new TextBox();
             label11 = new Label();
-            tabPageDeleteStd = new TabPage();
-            groupBox2 = new GroupBox();
-            tabPage4 = new TabPage();
             tabPageCourses = new TabPage();
             tabControlforcourses = new TabControl();
             tabPageAddcourse = new TabPage();
@@ -114,13 +124,14 @@
             tdUpdateInstructor.SuspendLayout();
             tpAddInstructor.SuspendLayout();
             gbAddInstructor.SuspendLayout();
+            tpUpdateInstructor.SuspendLayout();
+            groupBoxupIns.SuspendLayout();
             tpStudents.SuspendLayout();
             tabٍStudents.SuspendLayout();
             tabAddStudent.SuspendLayout();
             groupBox1.SuspendLayout();
             tabUpdateStudent.SuspendLayout();
             groupBoxUpdateStd.SuspendLayout();
-            tabPageDeleteStd.SuspendLayout();
             tabPageCourses.SuspendLayout();
             tabControlforcourses.SuspendLayout();
             tabPageAddcourse.SuspendLayout();
@@ -224,6 +235,7 @@
             resources.ApplyResources(tdUpdateInstructor, "tdUpdateInstructor");
             tdUpdateInstructor.Name = "tdUpdateInstructor";
             tdUpdateInstructor.SelectedIndex = 0;
+            tdUpdateInstructor.Enter += tdUpdateInstructor_Enter;
             // 
             // tpAddInstructor
             // 
@@ -234,43 +246,43 @@
             // 
             // gbAddInstructor
             // 
-            gbAddInstructor.Controls.Add(textBox3);
+            gbAddInstructor.Controls.Add(TBInstructorPassAdd);
             gbAddInstructor.Controls.Add(label3);
-            gbAddInstructor.Controls.Add(textBox2);
+            gbAddInstructor.Controls.Add(TBInstructorMailAdd);
             gbAddInstructor.Controls.Add(label2);
-            gbAddInstructor.Controls.Add(textBox1);
+            gbAddInstructor.Controls.Add(TBInstructorLNameAdd);
             gbAddInstructor.Controls.Add(label1);
             gbAddInstructor.Controls.Add(btnAddInstructor);
-            gbAddInstructor.Controls.Add(tbInstructorName);
+            gbAddInstructor.Controls.Add(tbInstructorNameAdd);
             gbAddInstructor.Controls.Add(lblInstructorName);
             resources.ApplyResources(gbAddInstructor, "gbAddInstructor");
             gbAddInstructor.Name = "gbAddInstructor";
             gbAddInstructor.TabStop = false;
             // 
-            // textBox3
+            // TBInstructorPassAdd
             // 
-            resources.ApplyResources(textBox3, "textBox3");
-            textBox3.Name = "textBox3";
+            resources.ApplyResources(TBInstructorPassAdd, "TBInstructorPassAdd");
+            TBInstructorPassAdd.Name = "TBInstructorPassAdd";
             // 
             // label3
             // 
             resources.ApplyResources(label3, "label3");
             label3.Name = "label3";
             // 
-            // textBox2
+            // TBInstructorMailAdd
             // 
-            resources.ApplyResources(textBox2, "textBox2");
-            textBox2.Name = "textBox2";
+            resources.ApplyResources(TBInstructorMailAdd, "TBInstructorMailAdd");
+            TBInstructorMailAdd.Name = "TBInstructorMailAdd";
             // 
             // label2
             // 
             resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
             // 
-            // textBox1
+            // TBInstructorLNameAdd
             // 
-            resources.ApplyResources(textBox1, "textBox1");
-            textBox1.Name = "textBox1";
+            resources.ApplyResources(TBInstructorLNameAdd, "TBInstructorLNameAdd");
+            TBInstructorLNameAdd.Name = "TBInstructorLNameAdd";
             // 
             // label1
             // 
@@ -284,10 +296,10 @@
             btnAddInstructor.UseVisualStyleBackColor = true;
             btnAddInstructor.Click += btnAddInstructor_Click;
             // 
-            // tbInstructorName
+            // tbInstructorNameAdd
             // 
-            resources.ApplyResources(tbInstructorName, "tbInstructorName");
-            tbInstructorName.Name = "tbInstructorName";
+            resources.ApplyResources(tbInstructorNameAdd, "tbInstructorNameAdd");
+            tbInstructorNameAdd.Name = "tbInstructorNameAdd";
             // 
             // lblInstructorName
             // 
@@ -296,9 +308,94 @@
             // 
             // tpUpdateInstructor
             // 
+            tpUpdateInstructor.Controls.Add(groupBoxupIns);
             resources.ApplyResources(tpUpdateInstructor, "tpUpdateInstructor");
             tpUpdateInstructor.Name = "tpUpdateInstructor";
             tpUpdateInstructor.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxupIns
+            // 
+            groupBoxupIns.Controls.Add(btn_delIns);
+            groupBoxupIns.Controls.Add(listBoxinstructors);
+            groupBoxupIns.Controls.Add(label19);
+            groupBoxupIns.Controls.Add(TBInstructorPass);
+            groupBoxupIns.Controls.Add(label20);
+            groupBoxupIns.Controls.Add(TBInstructorMail);
+            groupBoxupIns.Controls.Add(label21);
+            groupBoxupIns.Controls.Add(TBInstructorLName);
+            groupBoxupIns.Controls.Add(label22);
+            groupBoxupIns.Controls.Add(btn_updateIns);
+            groupBoxupIns.Controls.Add(TBInstructorFName);
+            groupBoxupIns.Controls.Add(label23);
+            resources.ApplyResources(groupBoxupIns, "groupBoxupIns");
+            groupBoxupIns.Name = "groupBoxupIns";
+            groupBoxupIns.TabStop = false;
+            // 
+            // btn_delIns
+            // 
+            resources.ApplyResources(btn_delIns, "btn_delIns");
+            btn_delIns.Name = "btn_delIns";
+            btn_delIns.UseVisualStyleBackColor = true;
+            btn_delIns.Click += btn_delIns_Click;
+            // 
+            // listBoxinstructors
+            // 
+            listBoxinstructors.FormattingEnabled = true;
+            resources.ApplyResources(listBoxinstructors, "listBoxinstructors");
+            listBoxinstructors.Name = "listBoxinstructors";
+            listBoxinstructors.SelectedIndexChanged += listBoxinstructors_SelectedIndexChanged;
+            // 
+            // label19
+            // 
+            resources.ApplyResources(label19, "label19");
+            label19.Name = "label19";
+            // 
+            // TBInstructorPass
+            // 
+            resources.ApplyResources(TBInstructorPass, "TBInstructorPass");
+            TBInstructorPass.Name = "TBInstructorPass";
+            // 
+            // label20
+            // 
+            resources.ApplyResources(label20, "label20");
+            label20.Name = "label20";
+            // 
+            // TBInstructorMail
+            // 
+            resources.ApplyResources(TBInstructorMail, "TBInstructorMail");
+            TBInstructorMail.Name = "TBInstructorMail";
+            // 
+            // label21
+            // 
+            resources.ApplyResources(label21, "label21");
+            label21.Name = "label21";
+            // 
+            // TBInstructorLName
+            // 
+            resources.ApplyResources(TBInstructorLName, "TBInstructorLName");
+            TBInstructorLName.Name = "TBInstructorLName";
+            // 
+            // label22
+            // 
+            resources.ApplyResources(label22, "label22");
+            label22.Name = "label22";
+            // 
+            // btn_updateIns
+            // 
+            resources.ApplyResources(btn_updateIns, "btn_updateIns");
+            btn_updateIns.Name = "btn_updateIns";
+            btn_updateIns.UseVisualStyleBackColor = true;
+            btn_updateIns.Click += btn_updateIns_Click;
+            // 
+            // TBInstructorFName
+            // 
+            resources.ApplyResources(TBInstructorFName, "TBInstructorFName");
+            TBInstructorFName.Name = "TBInstructorFName";
+            // 
+            // label23
+            // 
+            resources.ApplyResources(label23, "label23");
+            label23.Name = "label23";
             // 
             // tpStudents
             // 
@@ -311,8 +408,6 @@
             // 
             tabٍStudents.Controls.Add(tabAddStudent);
             tabٍStudents.Controls.Add(tabUpdateStudent);
-            tabٍStudents.Controls.Add(tabPageDeleteStd);
-            tabٍStudents.Controls.Add(tabPage4);
             resources.ApplyResources(tabٍStudents, "tabٍStudents");
             tabٍStudents.Name = "tabٍStudents";
             tabٍStudents.SelectedIndex = 0;
@@ -502,25 +597,6 @@
             resources.ApplyResources(label11, "label11");
             label11.Name = "label11";
             // 
-            // tabPageDeleteStd
-            // 
-            tabPageDeleteStd.Controls.Add(groupBox2);
-            resources.ApplyResources(tabPageDeleteStd, "tabPageDeleteStd");
-            tabPageDeleteStd.Name = "tabPageDeleteStd";
-            tabPageDeleteStd.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            resources.ApplyResources(groupBox2, "groupBox2");
-            groupBox2.Name = "groupBox2";
-            groupBox2.TabStop = false;
-            // 
-            // tabPage4
-            // 
-            resources.ApplyResources(tabPage4, "tabPage4");
-            tabPage4.Name = "tabPage4";
-            tabPage4.UseVisualStyleBackColor = true;
-            // 
             // tabPageCourses
             // 
             tabPageCourses.Controls.Add(tabControlforcourses);
@@ -647,6 +723,9 @@
             tpAddInstructor.ResumeLayout(false);
             gbAddInstructor.ResumeLayout(false);
             gbAddInstructor.PerformLayout();
+            tpUpdateInstructor.ResumeLayout(false);
+            groupBoxupIns.ResumeLayout(false);
+            groupBoxupIns.PerformLayout();
             tpStudents.ResumeLayout(false);
             tabٍStudents.ResumeLayout(false);
             tabAddStudent.ResumeLayout(false);
@@ -655,7 +734,6 @@
             tabUpdateStudent.ResumeLayout(false);
             groupBoxUpdateStd.ResumeLayout(false);
             groupBoxUpdateStd.PerformLayout();
-            tabPageDeleteStd.ResumeLayout(false);
             tabPageCourses.ResumeLayout(false);
             tabControlforcourses.ResumeLayout(false);
             tabPageAddcourse.ResumeLayout(false);
@@ -687,19 +765,17 @@
         private TabPage tpStudents;
         private GroupBox gbAddInstructor;
         private Button btnAddInstructor;
-        private TextBox tbInstructorName;
+        private TextBox tbInstructorNameAdd;
         private Label lblInstructorName;
-        private TextBox textBox3;
+        private TextBox TBInstructorPassAdd;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox TBInstructorMailAdd;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox TBInstructorLNameAdd;
         private Label label1;
         private TabControl tabٍStudents;
         private TabPage tabAddStudent;
         private TabPage tabUpdateStudent;
-        private TabPage tabPageDeleteStd;
-        private TabPage tabPage4;
         private GroupBox groupBox1;
         private GroupBox groupBoxUpdateStd;
         private TextBox TBStudentPasswordAdd;
@@ -711,7 +787,6 @@
         private Button btn_AddStudent;
         private TextBox TBStudentFNameAdd;
         private Label label7;
-        private GroupBox groupBox2;
         private Label label12;
         private ListBox listBoxStd;
         private TextBox TBStudentPassword;
@@ -743,5 +818,22 @@
         private Button btn_addCourse;
         private Button btn_delete;
         private Button btn_updateCourse;
+        private GroupBox groupBoxupIns;
+        private TextBox textBox4;
+        private Button button1;
+        private Label label18;
+        private Label label19;
+        private ListBox listBox1;
+        private TextBox TBInstructorPass;
+        private Label label20;
+        private TextBox TBInstructorMail;
+        private Label label21;
+        private TextBox TBInstructorLName;
+        private Label label22;
+        private Button btn_updateIns;
+        private TextBox TBInstructorFName;
+        private Label label23;
+        private Button btn_delIns;
+        private ListBox listBoxinstructors;
     }
 }

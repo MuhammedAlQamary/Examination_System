@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ExSys.Models
+namespace Data.Models
 {
-    public partial class DeleteCourseResult
+    public partial class SelectTrackCoursesResult
     {
-        public string Message { get; set; }
+        public int Track_ID { get; set; }
+        public int Course_ID { get; set; }
     }
 }

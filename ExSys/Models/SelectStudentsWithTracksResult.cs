@@ -5,9 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Models
 {
-    public partial class GetCourseTopicsResult
+    public partial class SelectStudentsWithTracksResult
     {
-        public int Course_ID { get; set; }
-        public int Topic_ID { get; set; }
+        public string Student_FName { get; set; }
+        public string Student_LName { get; set; }
+        public string Track_Name { get; set; }
     }
 }

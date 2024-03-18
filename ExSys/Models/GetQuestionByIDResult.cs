@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ExSys.Models
+namespace Data.Models
 {
     public partial class GetQuestionByIDResult
     {
@@ -11,6 +11,6 @@ namespace ExSys.Models
         public string Question_Type { get; set; }
         public string Question_Text { get; set; }
         public string Question_ModelAnswer { get; set; }
-        public int? Course_ID { get; set; }
+        public int Course_ID { get; set; }
     }
 }

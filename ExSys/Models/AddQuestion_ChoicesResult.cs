@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ExSys.Models
+namespace Data.Models
 {
-    public partial class AddStudentResult
+    public partial class AddQuestion_ChoicesResult
     {
-        public string Message { get; set; }
+        [Column("Question_Id", TypeName = "decimal(38,0)")]
+        public decimal? Question_Id { get; set; }
     }
 }

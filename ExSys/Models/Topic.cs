@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Topic
 {

@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ExSys.Models
+namespace Data.Models
 {
-    public partial class AddCoursesResult
+    public partial class ShowStudentCoursesResult
     {
-        public string Message { get; set; }
+        public string FullName { get; set; }
+        public string CourseName { get; set; }
+        public int? Student_Grade { get; set; }
     }
 }

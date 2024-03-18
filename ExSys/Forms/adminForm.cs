@@ -1,5 +1,5 @@
-﻿using ExSys;
-using ExSys.Models;
+﻿using Data.Models;
+using ExSys;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -72,15 +72,7 @@ namespace ExSys.Forms
 
         }
 
-        private void btnAddInstructor_Click(object sender, EventArgs e)
-        {
-            /// <summary>
-            /// StoredProcedure add a new instructor to the database
-            /// check if the instructor email is already exist
-            /// if not exist add the instructor to the database return true
-            /// else return false
-            /// 
-        }
+       
 
 
 
@@ -128,7 +120,6 @@ namespace ExSys.Forms
             {
                 // Call the method to update the student
                 context.UpdateStudent(studentId, studentFname, studentLname, studentEmail, studentPassword, trackId);
-                context.SaveChanges(); // No need to call SaveChanges because stored procedure updates directly in the database
 
                 MessageBox.Show("Student Updated Successfully");
             }
@@ -138,7 +129,7 @@ namespace ExSys.Forms
 
         private void btn_DeleteStd_Click(object sender, EventArgs e)
         {
-           
+
 
             //make it between try and catch for foreign key if it is used in another table
             try
@@ -278,7 +269,7 @@ namespace ExSys.Forms
             {
                 // Call the method to update the course
                 context.UpdateCourse(courseId, courseName);
-                context.SaveChanges(); 
+                context.SaveChanges();
                 MessageBox.Show("Course Updated Successfully");
                 RefreshCourseList();
             }
@@ -287,7 +278,7 @@ namespace ExSys.Forms
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            
+
 
             //make it by try and catch for foreign key 
             try
@@ -306,7 +297,7 @@ namespace ExSys.Forms
                     }
                 }
 
-               
+
             }
             catch (DbUpdateException ex)
             {
@@ -362,5 +353,145 @@ namespace ExSys.Forms
 
         }
         #endregion
+
+
+        #region instructors CRUD
+        private void tdUpdateInstructor_Enter(object sender, EventArgs e)
+        {
+            //show all instructors in the listbox
+            using (var context = new ExSysContext())
+            {
+                var instructors = context.Instructors.ToList();
+                listBoxinstructors.DataSource = instructors;
+                listBoxinstructors.DisplayMember = "InstructorFname";
+                listBoxinstructors.ValueMember = "InstructorId";
+            }
+
+        }
+        private void listBoxinstructors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //data binding 
+            TBInstructorFName.DataBindings.Clear();
+            TBInstructorLName.DataBindings.Clear();
+            TBInstructorMail.DataBindings.Clear();
+            TBInstructorPass.DataBindings.Clear();
+
+
+            TBInstructorFName.DataBindings.Add("Text", listBoxinstructors.DataSource, "InstructorFname");
+            TBInstructorLName.DataBindings.Add("Text", listBoxinstructors.DataSource, "InstructorLname");
+            TBInstructorMail.DataBindings.Add("Text", listBoxinstructors.DataSource, "InstructorEmail");
+            TBInstructorPass.DataBindings.Add("Text", listBoxinstructors.DataSource, "InstructorPassword");
+
+        }
+        private void btn_updateIns_Click(object sender, EventArgs e)
+        {
+            //get the selected instructor id
+            int instructorId = (int)listBoxinstructors.SelectedValue;
+            string instructorFname = TBInstructorFName.Text;
+            string instructorLname = TBInstructorLName.Text;
+            string instructorEmail = TBInstructorMail.Text;
+            string instructorPassword = TBInstructorPass.Text;
+
+            using (var context = new ExSysContext())
+            {
+                // Call the method to update the instructor
+                context.UpdateInstructor(instructorId, instructorFname, instructorLname, instructorEmail, instructorPassword);
+                context.SaveChanges();
+                MessageBox.Show("Instructor Updated Successfully");
+                RefreshInstructorList();
+            }
+
+        }
+        public void RefreshInstructorList()
+        {
+            using (var context = new ExSysContext())
+            {
+                var instructors = context.Instructors.ToList();
+                listBoxinstructors.DataSource = instructors;
+                listBoxinstructors.DisplayMember = "InstructorFname";
+                listBoxinstructors.ValueMember = "InstructorId";
+            }
+
+        }
+
+        private void btn_delIns_Click(object sender, EventArgs e)
+        {
+            //make it by try and catch for foreign key 
+            try
+            {
+                int instructorId = (int)listBoxinstructors.SelectedValue;
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this instructor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (var context = new ExSysContext())
+                    {
+                        // Call the method to delete the instructor
+                        context.DeleteInstructor(instructorId);
+
+                        MessageBox.Show("Instructor Deleted Successfully");
+                        RefreshInstructorList();
+                    }
+                }
+            }
+            catch
+            {
+               MessageBox.Show($"You can't delete this instructor because it's used in another table ", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void btnAddInstructor_Click(object sender, EventArgs e)
+        {
+            // Perform client-side validation
+            if (string.IsNullOrWhiteSpace(tbInstructorNameAdd.Text) ||
+                               string.IsNullOrWhiteSpace(TBInstructorLNameAdd.Text) ||
+                               string.IsNullOrWhiteSpace(TBInstructorMailAdd.Text) ||
+                               string.IsNullOrWhiteSpace(TBInstructorPassAdd.Text))
+            {
+                MessageBox.Show("All fields are required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validate email format
+            if (!IsValidEmail(TBInstructorMailAdd.Text))
+            {
+                MessageBox.Show("Invalid email format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validate password strength
+            if (TBInstructorPassAdd.Text.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 characters long.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Call the method to add the instructor
+            using (var context = new ExSysContext())
+            {
+                try
+                {
+                    context.AddInstructor(tbInstructorNameAdd.Text, TBInstructorLNameAdd.Text, TBInstructorMailAdd.Text, TBInstructorPassAdd.Text);
+
+                    // Save changes to the database
+                    context.SaveChanges();
+
+                    MessageBox.Show("Instructor added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshInstructorList();
+                }
+                catch (DbUpdateException ex)
+                {
+                    // Handle database-related exceptions
+                    MessageBox.Show(ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            
+        }
+        #endregion
+
+
+
+
+
     }
 }

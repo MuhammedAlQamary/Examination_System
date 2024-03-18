@@ -1,6 +1,6 @@
 ﻿{
    "CodeGenerationMode": 4,
-   "ContextClassName": "ExSys",
+   "ContextClassName": "ExSysContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
@@ -9,7 +9,7 @@
    "OutputContextPath": null,
    "OutputPath": "Models",
    "PreserveCasingWithRegex": true,
-   "ProjectRootNamespace": "ExSys",
+   "ProjectRootNamespace": "Data",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 2,
    "SelectedToBeGenerated": 0,
@@ -80,7 +80,11 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[AddCourses]",
+         "Name": "[dbo].[_IsCorrect]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[AddCourse]",
          "ObjectType": 1
       },
       {
@@ -88,7 +92,7 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[AddInstructors]",
+         "Name": "[dbo].[AddInstructor]",
          "ObjectType": 1
       },
       {
@@ -101,6 +105,10 @@
       },
       {
          "Name": "[dbo].[AddNewQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[AddQuestion_Choices]",
          "ObjectType": 1
       },
       {
@@ -136,7 +144,7 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[DeleteInstructors]",
+         "Name": "[dbo].[DeleteInstructor]",
          "ObjectType": 1
       },
       {
@@ -153,6 +161,14 @@
       },
       {
          "Name": "[dbo].[DeleteTrack]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteTrackCourse]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GenerateExam2]",
          "ObjectType": 1
       },
       {
@@ -216,6 +232,10 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[InsertTrackCourse]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[SelectBranches]",
          "ObjectType": 1
       },
@@ -232,7 +252,23 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[SelectStudentsWithTracks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SelectTrackCourses]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[SelectTracks]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ShowStudentCourses]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[SubmitStudentQuestion]",
          "ObjectType": 1
       },
       {
@@ -248,7 +284,7 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[UpdateCourses]",
+         "Name": "[dbo].[UpdateCourse]",
          "ObjectType": 1
       },
       {
@@ -268,11 +304,15 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[UpdateInstructors]",
+         "Name": "[dbo].[UpdateInstructor]",
          "ObjectType": 1
       },
       {
          "Name": "[dbo].[UpdateQuestion]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateStudent]",
          "ObjectType": 1
       },
       {
@@ -281,6 +321,10 @@
       },
       {
          "Name": "[dbo].[UpdateTrack]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateTrackCourse]",
          "ObjectType": 1
       }
    ],

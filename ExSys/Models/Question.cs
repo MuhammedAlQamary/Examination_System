@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Question
 {
@@ -15,7 +15,7 @@ public partial class Question
 
     public string QuestionModelAnswer { get; set; }
 
-    public int? CourseId { get; set; }
+    public int CourseId { get; set; }
 
     public virtual ICollection<Choice> Choices { get; set; } = new List<Choice>();
 
