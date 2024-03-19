@@ -43,51 +43,52 @@
 			TabStdDet2 = new TabPage();
 			groupBox1 = new GroupBox();
 			groupBoxExam = new GroupBox();
-			label13 = new Label();
-			radioButton21 = new RadioButton();
-			radioButton22 = new RadioButton();
-			radioButton23 = new RadioButton();
-			radioButton24 = new RadioButton();
-			label14 = new Label();
-			radioButton25 = new RadioButton();
-			radioButton26 = new RadioButton();
-			radioButton27 = new RadioButton();
-			radioButton28 = new RadioButton();
-			label15 = new Label();
-			radioButton29 = new RadioButton();
-			radioButton30 = new RadioButton();
-			radioButton31 = new RadioButton();
-			radioButton32 = new RadioButton();
-			label16 = new Label();
-			radioButton33 = new RadioButton();
-			radioButton34 = new RadioButton();
-			radioButton35 = new RadioButton();
-			radioButton36 = new RadioButton();
-			label10 = new Label();
-			radioButton9 = new RadioButton();
-			radioButton10 = new RadioButton();
-			radioButton11 = new RadioButton();
-			radioButton12 = new RadioButton();
-			label11 = new Label();
-			radioButton13 = new RadioButton();
-			radioButton14 = new RadioButton();
-			radioButton15 = new RadioButton();
-			radioButton16 = new RadioButton();
-			label12 = new Label();
-			radioButton17 = new RadioButton();
-			radioButton18 = new RadioButton();
-			radioButton19 = new RadioButton();
-			radioButton20 = new RadioButton();
-			label9 = new Label();
-			radioButton5 = new RadioButton();
-			radioButton6 = new RadioButton();
-			radioButton7 = new RadioButton();
-			radioButton8 = new RadioButton();
-			label8 = new Label();
-			radioButton1 = new RadioButton();
-			radioButton2 = new RadioButton();
-			radioButton3 = new RadioButton();
-			radioButton4 = new RadioButton();
+			buttonSubmit = new Button();
+			labelQ10 = new Label();
+			radioButtonQ10A4 = new RadioButton();
+			radioButtonQ10A1 = new RadioButton();
+			radioButtonQ10A3 = new RadioButton();
+			radioButtonQ10A2 = new RadioButton();
+			labelQ9 = new Label();
+			radioButtonQ9A4 = new RadioButton();
+			radioButtonQ9A1 = new RadioButton();
+			radioButtonQ9A3 = new RadioButton();
+			radioButtonQ9A2 = new RadioButton();
+			labelQ8 = new Label();
+			radioButtonQ8A4 = new RadioButton();
+			radioButtonQ8A1 = new RadioButton();
+			radioButtonQ8A3 = new RadioButton();
+			radioButtonQ8A2 = new RadioButton();
+			labelQ7 = new Label();
+			radioButtonQ7A4 = new RadioButton();
+			radioButtonQ7A1 = new RadioButton();
+			radioButtonQ7A3 = new RadioButton();
+			radioButtonQ7A2 = new RadioButton();
+			labelQ6 = new Label();
+			radioButtonQ6A4 = new RadioButton();
+			radioButtonQ6A1 = new RadioButton();
+			radioButtonQ6A3 = new RadioButton();
+			radioButtonQ6A2 = new RadioButton();
+			labelQ5 = new Label();
+			radioButtonQ5A4 = new RadioButton();
+			radioButtonQ5A1 = new RadioButton();
+			radioButtonQ5A3 = new RadioButton();
+			radioButtonQ5A2 = new RadioButton();
+			labelQ4 = new Label();
+			radioButtonQ4A4 = new RadioButton();
+			radioButtonQ4A1 = new RadioButton();
+			radioButtonQ4A3 = new RadioButton();
+			radioButtonQ4A2 = new RadioButton();
+			labelQ3 = new Label();
+			radioButtonQ3A4 = new RadioButton();
+			radioButtonQ3A1 = new RadioButton();
+			radioButtonQ3A3 = new RadioButton();
+			radioButtonQ3A2 = new RadioButton();
+			labelQ2 = new Label();
+			radioButtonQ2A4 = new RadioButton();
+			radioButtonQ2A1 = new RadioButton();
+			radioButtonQ2A3 = new RadioButton();
+			radioButtonQ2A2 = new RadioButton();
 			labelQ1 = new Label();
 			radioButtonQ1A4 = new RadioButton();
 			radioButtonQ1A1 = new RadioButton();
@@ -100,7 +101,6 @@
 			buttonStartExam = new Button();
 			comboBoxCrsExam = new ComboBox();
 			label5 = new Label();
-			button1 = new Button();
 			tabControlStudentForm.SuspendLayout();
 			TabStdDet1.SuspendLayout();
 			groupBoxStdDet.SuspendLayout();
@@ -192,7 +192,6 @@
 			// groupBox1
 			// 
 			groupBox1.Controls.Add(groupBoxExam);
-			groupBox1.Controls.Add(groupBoxRemTime);
 			groupBox1.Controls.Add(groupBoxStartExam);
 			resources.ApplyResources(groupBox1, "groupBox1");
 			groupBox1.Name = "groupBox1";
@@ -200,52 +199,53 @@
 			// 
 			// groupBoxExam
 			// 
-			groupBoxExam.Controls.Add(button1);
-			groupBoxExam.Controls.Add(label13);
-			groupBoxExam.Controls.Add(radioButton21);
-			groupBoxExam.Controls.Add(radioButton22);
-			groupBoxExam.Controls.Add(radioButton23);
-			groupBoxExam.Controls.Add(radioButton24);
-			groupBoxExam.Controls.Add(label14);
-			groupBoxExam.Controls.Add(radioButton25);
-			groupBoxExam.Controls.Add(radioButton26);
-			groupBoxExam.Controls.Add(radioButton27);
-			groupBoxExam.Controls.Add(radioButton28);
-			groupBoxExam.Controls.Add(label15);
-			groupBoxExam.Controls.Add(radioButton29);
-			groupBoxExam.Controls.Add(radioButton30);
-			groupBoxExam.Controls.Add(radioButton31);
-			groupBoxExam.Controls.Add(radioButton32);
-			groupBoxExam.Controls.Add(label16);
-			groupBoxExam.Controls.Add(radioButton33);
-			groupBoxExam.Controls.Add(radioButton34);
-			groupBoxExam.Controls.Add(radioButton35);
-			groupBoxExam.Controls.Add(radioButton36);
-			groupBoxExam.Controls.Add(label10);
-			groupBoxExam.Controls.Add(radioButton9);
-			groupBoxExam.Controls.Add(radioButton10);
-			groupBoxExam.Controls.Add(radioButton11);
-			groupBoxExam.Controls.Add(radioButton12);
-			groupBoxExam.Controls.Add(label11);
-			groupBoxExam.Controls.Add(radioButton13);
-			groupBoxExam.Controls.Add(radioButton14);
-			groupBoxExam.Controls.Add(radioButton15);
-			groupBoxExam.Controls.Add(radioButton16);
-			groupBoxExam.Controls.Add(label12);
-			groupBoxExam.Controls.Add(radioButton17);
-			groupBoxExam.Controls.Add(radioButton18);
-			groupBoxExam.Controls.Add(radioButton19);
-			groupBoxExam.Controls.Add(radioButton20);
-			groupBoxExam.Controls.Add(label9);
-			groupBoxExam.Controls.Add(radioButton5);
-			groupBoxExam.Controls.Add(radioButton6);
-			groupBoxExam.Controls.Add(radioButton7);
-			groupBoxExam.Controls.Add(radioButton8);
-			groupBoxExam.Controls.Add(label8);
-			groupBoxExam.Controls.Add(radioButton1);
-			groupBoxExam.Controls.Add(radioButton2);
-			groupBoxExam.Controls.Add(radioButton3);
-			groupBoxExam.Controls.Add(radioButton4);
+			groupBoxExam.Controls.Add(buttonSubmit);
+			groupBoxExam.Controls.Add(groupBoxRemTime);
+			groupBoxExam.Controls.Add(labelQ10);
+			groupBoxExam.Controls.Add(radioButtonQ10A4);
+			groupBoxExam.Controls.Add(radioButtonQ10A1);
+			groupBoxExam.Controls.Add(radioButtonQ10A3);
+			groupBoxExam.Controls.Add(radioButtonQ10A2);
+			groupBoxExam.Controls.Add(labelQ9);
+			groupBoxExam.Controls.Add(radioButtonQ9A4);
+			groupBoxExam.Controls.Add(radioButtonQ9A1);
+			groupBoxExam.Controls.Add(radioButtonQ9A3);
+			groupBoxExam.Controls.Add(radioButtonQ9A2);
+			groupBoxExam.Controls.Add(labelQ8);
+			groupBoxExam.Controls.Add(radioButtonQ8A4);
+			groupBoxExam.Controls.Add(radioButtonQ8A1);
+			groupBoxExam.Controls.Add(radioButtonQ8A3);
+			groupBoxExam.Controls.Add(radioButtonQ8A2);
+			groupBoxExam.Controls.Add(labelQ7);
+			groupBoxExam.Controls.Add(radioButtonQ7A4);
+			groupBoxExam.Controls.Add(radioButtonQ7A1);
+			groupBoxExam.Controls.Add(radioButtonQ7A3);
+			groupBoxExam.Controls.Add(radioButtonQ7A2);
+			groupBoxExam.Controls.Add(labelQ6);
+			groupBoxExam.Controls.Add(radioButtonQ6A4);
+			groupBoxExam.Controls.Add(radioButtonQ6A1);
+			groupBoxExam.Controls.Add(radioButtonQ6A3);
+			groupBoxExam.Controls.Add(radioButtonQ6A2);
+			groupBoxExam.Controls.Add(labelQ5);
+			groupBoxExam.Controls.Add(radioButtonQ5A4);
+			groupBoxExam.Controls.Add(radioButtonQ5A1);
+			groupBoxExam.Controls.Add(radioButtonQ5A3);
+			groupBoxExam.Controls.Add(radioButtonQ5A2);
+			groupBoxExam.Controls.Add(labelQ4);
+			groupBoxExam.Controls.Add(radioButtonQ4A4);
+			groupBoxExam.Controls.Add(radioButtonQ4A1);
+			groupBoxExam.Controls.Add(radioButtonQ4A3);
+			groupBoxExam.Controls.Add(radioButtonQ4A2);
+			groupBoxExam.Controls.Add(labelQ3);
+			groupBoxExam.Controls.Add(radioButtonQ3A4);
+			groupBoxExam.Controls.Add(radioButtonQ3A1);
+			groupBoxExam.Controls.Add(radioButtonQ3A3);
+			groupBoxExam.Controls.Add(radioButtonQ3A2);
+			groupBoxExam.Controls.Add(labelQ2);
+			groupBoxExam.Controls.Add(radioButtonQ2A4);
+			groupBoxExam.Controls.Add(radioButtonQ2A1);
+			groupBoxExam.Controls.Add(radioButtonQ2A3);
+			groupBoxExam.Controls.Add(radioButtonQ2A2);
 			groupBoxExam.Controls.Add(labelQ1);
 			groupBoxExam.Controls.Add(radioButtonQ1A4);
 			groupBoxExam.Controls.Add(radioButtonQ1A1);
@@ -255,302 +255,308 @@
 			groupBoxExam.Name = "groupBoxExam";
 			groupBoxExam.TabStop = false;
 			// 
-			// label13
+			// buttonSubmit
 			// 
-			resources.ApplyResources(label13, "label13");
-			label13.Name = "label13";
+			resources.ApplyResources(buttonSubmit, "buttonSubmit");
+			buttonSubmit.Name = "buttonSubmit";
+			buttonSubmit.UseVisualStyleBackColor = true;
 			// 
-			// radioButton21
+			// labelQ10
 			// 
-			resources.ApplyResources(radioButton21, "radioButton21");
-			radioButton21.Name = "radioButton21";
-			radioButton21.TabStop = true;
-			radioButton21.UseVisualStyleBackColor = true;
+			resources.ApplyResources(labelQ10, "labelQ10");
+			labelQ10.Name = "labelQ10";
 			// 
-			// radioButton22
+			// radioButtonQ10A4
 			// 
-			resources.ApplyResources(radioButton22, "radioButton22");
-			radioButton22.Name = "radioButton22";
-			radioButton22.TabStop = true;
-			radioButton22.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ10A4, "radioButtonQ10A4");
+			radioButtonQ10A4.Name = "radioButtonQ10A4";
+			radioButtonQ10A4.TabStop = true;
+			radioButtonQ10A4.UseVisualStyleBackColor = true;
 			// 
-			// radioButton23
+			// radioButtonQ10A1
 			// 
-			resources.ApplyResources(radioButton23, "radioButton23");
-			radioButton23.Name = "radioButton23";
-			radioButton23.TabStop = true;
-			radioButton23.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ10A1, "radioButtonQ10A1");
+			radioButtonQ10A1.Name = "radioButtonQ10A1";
+			radioButtonQ10A1.TabStop = true;
+			radioButtonQ10A1.UseVisualStyleBackColor = true;
 			// 
-			// radioButton24
+			// radioButtonQ10A3
 			// 
-			resources.ApplyResources(radioButton24, "radioButton24");
-			radioButton24.Name = "radioButton24";
-			radioButton24.TabStop = true;
-			radioButton24.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ10A3, "radioButtonQ10A3");
+			radioButtonQ10A3.Name = "radioButtonQ10A3";
+			radioButtonQ10A3.TabStop = true;
+			radioButtonQ10A3.UseVisualStyleBackColor = true;
 			// 
-			// label14
+			// radioButtonQ10A2
 			// 
-			resources.ApplyResources(label14, "label14");
-			label14.Name = "label14";
+			resources.ApplyResources(radioButtonQ10A2, "radioButtonQ10A2");
+			radioButtonQ10A2.Name = "radioButtonQ10A2";
+			radioButtonQ10A2.TabStop = true;
+			radioButtonQ10A2.UseVisualStyleBackColor = true;
 			// 
-			// radioButton25
+			// labelQ9
 			// 
-			resources.ApplyResources(radioButton25, "radioButton25");
-			radioButton25.Name = "radioButton25";
-			radioButton25.TabStop = true;
-			radioButton25.UseVisualStyleBackColor = true;
+			resources.ApplyResources(labelQ9, "labelQ9");
+			labelQ9.Name = "labelQ9";
 			// 
-			// radioButton26
+			// radioButtonQ9A4
 			// 
-			resources.ApplyResources(radioButton26, "radioButton26");
-			radioButton26.Name = "radioButton26";
-			radioButton26.TabStop = true;
-			radioButton26.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ9A4, "radioButtonQ9A4");
+			radioButtonQ9A4.Name = "radioButtonQ9A4";
+			radioButtonQ9A4.TabStop = true;
+			radioButtonQ9A4.UseVisualStyleBackColor = true;
 			// 
-			// radioButton27
+			// radioButtonQ9A1
 			// 
-			resources.ApplyResources(radioButton27, "radioButton27");
-			radioButton27.Name = "radioButton27";
-			radioButton27.TabStop = true;
-			radioButton27.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ9A1, "radioButtonQ9A1");
+			radioButtonQ9A1.Name = "radioButtonQ9A1";
+			radioButtonQ9A1.TabStop = true;
+			radioButtonQ9A1.UseVisualStyleBackColor = true;
 			// 
-			// radioButton28
+			// radioButtonQ9A3
 			// 
-			resources.ApplyResources(radioButton28, "radioButton28");
-			radioButton28.Name = "radioButton28";
-			radioButton28.TabStop = true;
-			radioButton28.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ9A3, "radioButtonQ9A3");
+			radioButtonQ9A3.Name = "radioButtonQ9A3";
+			radioButtonQ9A3.TabStop = true;
+			radioButtonQ9A3.UseVisualStyleBackColor = true;
 			// 
-			// label15
+			// radioButtonQ9A2
 			// 
-			resources.ApplyResources(label15, "label15");
-			label15.Name = "label15";
+			resources.ApplyResources(radioButtonQ9A2, "radioButtonQ9A2");
+			radioButtonQ9A2.Name = "radioButtonQ9A2";
+			radioButtonQ9A2.TabStop = true;
+			radioButtonQ9A2.UseVisualStyleBackColor = true;
 			// 
-			// radioButton29
+			// labelQ8
 			// 
-			resources.ApplyResources(radioButton29, "radioButton29");
-			radioButton29.Name = "radioButton29";
-			radioButton29.TabStop = true;
-			radioButton29.UseVisualStyleBackColor = true;
+			resources.ApplyResources(labelQ8, "labelQ8");
+			labelQ8.Name = "labelQ8";
 			// 
-			// radioButton30
+			// radioButtonQ8A4
 			// 
-			resources.ApplyResources(radioButton30, "radioButton30");
-			radioButton30.Name = "radioButton30";
-			radioButton30.TabStop = true;
-			radioButton30.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ8A4, "radioButtonQ8A4");
+			radioButtonQ8A4.Name = "radioButtonQ8A4";
+			radioButtonQ8A4.TabStop = true;
+			radioButtonQ8A4.UseVisualStyleBackColor = true;
 			// 
-			// radioButton31
+			// radioButtonQ8A1
 			// 
-			resources.ApplyResources(radioButton31, "radioButton31");
-			radioButton31.Name = "radioButton31";
-			radioButton31.TabStop = true;
-			radioButton31.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ8A1, "radioButtonQ8A1");
+			radioButtonQ8A1.Name = "radioButtonQ8A1";
+			radioButtonQ8A1.TabStop = true;
+			radioButtonQ8A1.UseVisualStyleBackColor = true;
 			// 
-			// radioButton32
+			// radioButtonQ8A3
 			// 
-			resources.ApplyResources(radioButton32, "radioButton32");
-			radioButton32.Name = "radioButton32";
-			radioButton32.TabStop = true;
-			radioButton32.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ8A3, "radioButtonQ8A3");
+			radioButtonQ8A3.Name = "radioButtonQ8A3";
+			radioButtonQ8A3.TabStop = true;
+			radioButtonQ8A3.UseVisualStyleBackColor = true;
 			// 
-			// label16
+			// radioButtonQ8A2
 			// 
-			resources.ApplyResources(label16, "label16");
-			label16.Name = "label16";
+			resources.ApplyResources(radioButtonQ8A2, "radioButtonQ8A2");
+			radioButtonQ8A2.Name = "radioButtonQ8A2";
+			radioButtonQ8A2.TabStop = true;
+			radioButtonQ8A2.UseVisualStyleBackColor = true;
 			// 
-			// radioButton33
+			// labelQ7
 			// 
-			resources.ApplyResources(radioButton33, "radioButton33");
-			radioButton33.Name = "radioButton33";
-			radioButton33.TabStop = true;
-			radioButton33.UseVisualStyleBackColor = true;
+			resources.ApplyResources(labelQ7, "labelQ7");
+			labelQ7.Name = "labelQ7";
 			// 
-			// radioButton34
+			// radioButtonQ7A4
 			// 
-			resources.ApplyResources(radioButton34, "radioButton34");
-			radioButton34.Name = "radioButton34";
-			radioButton34.TabStop = true;
-			radioButton34.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ7A4, "radioButtonQ7A4");
+			radioButtonQ7A4.Name = "radioButtonQ7A4";
+			radioButtonQ7A4.TabStop = true;
+			radioButtonQ7A4.UseVisualStyleBackColor = true;
 			// 
-			// radioButton35
+			// radioButtonQ7A1
 			// 
-			resources.ApplyResources(radioButton35, "radioButton35");
-			radioButton35.Name = "radioButton35";
-			radioButton35.TabStop = true;
-			radioButton35.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ7A1, "radioButtonQ7A1");
+			radioButtonQ7A1.Name = "radioButtonQ7A1";
+			radioButtonQ7A1.TabStop = true;
+			radioButtonQ7A1.UseVisualStyleBackColor = true;
 			// 
-			// radioButton36
+			// radioButtonQ7A3
 			// 
-			resources.ApplyResources(radioButton36, "radioButton36");
-			radioButton36.Name = "radioButton36";
-			radioButton36.TabStop = true;
-			radioButton36.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ7A3, "radioButtonQ7A3");
+			radioButtonQ7A3.Name = "radioButtonQ7A3";
+			radioButtonQ7A3.TabStop = true;
+			radioButtonQ7A3.UseVisualStyleBackColor = true;
 			// 
-			// label10
+			// radioButtonQ7A2
 			// 
-			resources.ApplyResources(label10, "label10");
-			label10.Name = "label10";
+			resources.ApplyResources(radioButtonQ7A2, "radioButtonQ7A2");
+			radioButtonQ7A2.Name = "radioButtonQ7A2";
+			radioButtonQ7A2.TabStop = true;
+			radioButtonQ7A2.UseVisualStyleBackColor = true;
 			// 
-			// radioButton9
+			// labelQ6
 			// 
-			resources.ApplyResources(radioButton9, "radioButton9");
-			radioButton9.Name = "radioButton9";
-			radioButton9.TabStop = true;
-			radioButton9.UseVisualStyleBackColor = true;
+			resources.ApplyResources(labelQ6, "labelQ6");
+			labelQ6.Name = "labelQ6";
 			// 
-			// radioButton10
+			// radioButtonQ6A4
 			// 
-			resources.ApplyResources(radioButton10, "radioButton10");
-			radioButton10.Name = "radioButton10";
-			radioButton10.TabStop = true;
-			radioButton10.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ6A4, "radioButtonQ6A4");
+			radioButtonQ6A4.Name = "radioButtonQ6A4";
+			radioButtonQ6A4.TabStop = true;
+			radioButtonQ6A4.UseVisualStyleBackColor = true;
 			// 
-			// radioButton11
+			// radioButtonQ6A1
 			// 
-			resources.ApplyResources(radioButton11, "radioButton11");
-			radioButton11.Name = "radioButton11";
-			radioButton11.TabStop = true;
-			radioButton11.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ6A1, "radioButtonQ6A1");
+			radioButtonQ6A1.Name = "radioButtonQ6A1";
+			radioButtonQ6A1.TabStop = true;
+			radioButtonQ6A1.UseVisualStyleBackColor = true;
 			// 
-			// radioButton12
+			// radioButtonQ6A3
 			// 
-			resources.ApplyResources(radioButton12, "radioButton12");
-			radioButton12.Name = "radioButton12";
-			radioButton12.TabStop = true;
-			radioButton12.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ6A3, "radioButtonQ6A3");
+			radioButtonQ6A3.Name = "radioButtonQ6A3";
+			radioButtonQ6A3.TabStop = true;
+			radioButtonQ6A3.UseVisualStyleBackColor = true;
 			// 
-			// label11
+			// radioButtonQ6A2
 			// 
-			resources.ApplyResources(label11, "label11");
-			label11.Name = "label11";
+			resources.ApplyResources(radioButtonQ6A2, "radioButtonQ6A2");
+			radioButtonQ6A2.Name = "radioButtonQ6A2";
+			radioButtonQ6A2.TabStop = true;
+			radioButtonQ6A2.UseVisualStyleBackColor = true;
 			// 
-			// radioButton13
+			// labelQ5
 			// 
-			resources.ApplyResources(radioButton13, "radioButton13");
-			radioButton13.Name = "radioButton13";
-			radioButton13.TabStop = true;
-			radioButton13.UseVisualStyleBackColor = true;
+			resources.ApplyResources(labelQ5, "labelQ5");
+			labelQ5.Name = "labelQ5";
 			// 
-			// radioButton14
+			// radioButtonQ5A4
 			// 
-			resources.ApplyResources(radioButton14, "radioButton14");
-			radioButton14.Name = "radioButton14";
-			radioButton14.TabStop = true;
-			radioButton14.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ5A4, "radioButtonQ5A4");
+			radioButtonQ5A4.Name = "radioButtonQ5A4";
+			radioButtonQ5A4.TabStop = true;
+			radioButtonQ5A4.UseVisualStyleBackColor = true;
 			// 
-			// radioButton15
+			// radioButtonQ5A1
 			// 
-			resources.ApplyResources(radioButton15, "radioButton15");
-			radioButton15.Name = "radioButton15";
-			radioButton15.TabStop = true;
-			radioButton15.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ5A1, "radioButtonQ5A1");
+			radioButtonQ5A1.Name = "radioButtonQ5A1";
+			radioButtonQ5A1.TabStop = true;
+			radioButtonQ5A1.UseVisualStyleBackColor = true;
 			// 
-			// radioButton16
+			// radioButtonQ5A3
 			// 
-			resources.ApplyResources(radioButton16, "radioButton16");
-			radioButton16.Name = "radioButton16";
-			radioButton16.TabStop = true;
-			radioButton16.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ5A3, "radioButtonQ5A3");
+			radioButtonQ5A3.Name = "radioButtonQ5A3";
+			radioButtonQ5A3.TabStop = true;
+			radioButtonQ5A3.UseVisualStyleBackColor = true;
 			// 
-			// label12
+			// radioButtonQ5A2
 			// 
-			resources.ApplyResources(label12, "label12");
-			label12.Name = "label12";
+			resources.ApplyResources(radioButtonQ5A2, "radioButtonQ5A2");
+			radioButtonQ5A2.Name = "radioButtonQ5A2";
+			radioButtonQ5A2.TabStop = true;
+			radioButtonQ5A2.UseVisualStyleBackColor = true;
 			// 
-			// radioButton17
+			// labelQ4
 			// 
-			resources.ApplyResources(radioButton17, "radioButton17");
-			radioButton17.Name = "radioButton17";
-			radioButton17.TabStop = true;
-			radioButton17.UseVisualStyleBackColor = true;
+			resources.ApplyResources(labelQ4, "labelQ4");
+			labelQ4.Name = "labelQ4";
 			// 
-			// radioButton18
+			// radioButtonQ4A4
 			// 
-			resources.ApplyResources(radioButton18, "radioButton18");
-			radioButton18.Name = "radioButton18";
-			radioButton18.TabStop = true;
-			radioButton18.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ4A4, "radioButtonQ4A4");
+			radioButtonQ4A4.Name = "radioButtonQ4A4";
+			radioButtonQ4A4.TabStop = true;
+			radioButtonQ4A4.UseVisualStyleBackColor = true;
 			// 
-			// radioButton19
+			// radioButtonQ4A1
 			// 
-			resources.ApplyResources(radioButton19, "radioButton19");
-			radioButton19.Name = "radioButton19";
-			radioButton19.TabStop = true;
-			radioButton19.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ4A1, "radioButtonQ4A1");
+			radioButtonQ4A1.Name = "radioButtonQ4A1";
+			radioButtonQ4A1.TabStop = true;
+			radioButtonQ4A1.UseVisualStyleBackColor = true;
 			// 
-			// radioButton20
+			// radioButtonQ4A3
 			// 
-			resources.ApplyResources(radioButton20, "radioButton20");
-			radioButton20.Name = "radioButton20";
-			radioButton20.TabStop = true;
-			radioButton20.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ4A3, "radioButtonQ4A3");
+			radioButtonQ4A3.Name = "radioButtonQ4A3";
+			radioButtonQ4A3.TabStop = true;
+			radioButtonQ4A3.UseVisualStyleBackColor = true;
 			// 
-			// label9
+			// radioButtonQ4A2
 			// 
-			resources.ApplyResources(label9, "label9");
-			label9.Name = "label9";
+			resources.ApplyResources(radioButtonQ4A2, "radioButtonQ4A2");
+			radioButtonQ4A2.Name = "radioButtonQ4A2";
+			radioButtonQ4A2.TabStop = true;
+			radioButtonQ4A2.UseVisualStyleBackColor = true;
 			// 
-			// radioButton5
+			// labelQ3
 			// 
-			resources.ApplyResources(radioButton5, "radioButton5");
-			radioButton5.Name = "radioButton5";
-			radioButton5.TabStop = true;
-			radioButton5.UseVisualStyleBackColor = true;
+			resources.ApplyResources(labelQ3, "labelQ3");
+			labelQ3.Name = "labelQ3";
 			// 
-			// radioButton6
+			// radioButtonQ3A4
 			// 
-			resources.ApplyResources(radioButton6, "radioButton6");
-			radioButton6.Name = "radioButton6";
-			radioButton6.TabStop = true;
-			radioButton6.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ3A4, "radioButtonQ3A4");
+			radioButtonQ3A4.Name = "radioButtonQ3A4";
+			radioButtonQ3A4.TabStop = true;
+			radioButtonQ3A4.UseVisualStyleBackColor = true;
 			// 
-			// radioButton7
+			// radioButtonQ3A1
 			// 
-			resources.ApplyResources(radioButton7, "radioButton7");
-			radioButton7.Name = "radioButton7";
-			radioButton7.TabStop = true;
-			radioButton7.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ3A1, "radioButtonQ3A1");
+			radioButtonQ3A1.Name = "radioButtonQ3A1";
+			radioButtonQ3A1.TabStop = true;
+			radioButtonQ3A1.UseVisualStyleBackColor = true;
 			// 
-			// radioButton8
+			// radioButtonQ3A3
 			// 
-			resources.ApplyResources(radioButton8, "radioButton8");
-			radioButton8.Name = "radioButton8";
-			radioButton8.TabStop = true;
-			radioButton8.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ3A3, "radioButtonQ3A3");
+			radioButtonQ3A3.Name = "radioButtonQ3A3";
+			radioButtonQ3A3.TabStop = true;
+			radioButtonQ3A3.UseVisualStyleBackColor = true;
 			// 
-			// label8
+			// radioButtonQ3A2
 			// 
-			resources.ApplyResources(label8, "label8");
-			label8.Name = "label8";
+			resources.ApplyResources(radioButtonQ3A2, "radioButtonQ3A2");
+			radioButtonQ3A2.Name = "radioButtonQ3A2";
+			radioButtonQ3A2.TabStop = true;
+			radioButtonQ3A2.UseVisualStyleBackColor = true;
 			// 
-			// radioButton1
+			// labelQ2
 			// 
-			resources.ApplyResources(radioButton1, "radioButton1");
-			radioButton1.Name = "radioButton1";
-			radioButton1.TabStop = true;
-			radioButton1.UseVisualStyleBackColor = true;
+			resources.ApplyResources(labelQ2, "labelQ2");
+			labelQ2.Name = "labelQ2";
 			// 
-			// radioButton2
+			// radioButtonQ2A4
 			// 
-			resources.ApplyResources(radioButton2, "radioButton2");
-			radioButton2.Name = "radioButton2";
-			radioButton2.TabStop = true;
-			radioButton2.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ2A4, "radioButtonQ2A4");
+			radioButtonQ2A4.Name = "radioButtonQ2A4";
+			radioButtonQ2A4.TabStop = true;
+			radioButtonQ2A4.UseVisualStyleBackColor = true;
 			// 
-			// radioButton3
+			// radioButtonQ2A1
 			// 
-			resources.ApplyResources(radioButton3, "radioButton3");
-			radioButton3.Name = "radioButton3";
-			radioButton3.TabStop = true;
-			radioButton3.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ2A1, "radioButtonQ2A1");
+			radioButtonQ2A1.Name = "radioButtonQ2A1";
+			radioButtonQ2A1.TabStop = true;
+			radioButtonQ2A1.UseVisualStyleBackColor = true;
 			// 
-			// radioButton4
+			// radioButtonQ2A3
 			// 
-			resources.ApplyResources(radioButton4, "radioButton4");
-			radioButton4.Name = "radioButton4";
-			radioButton4.TabStop = true;
-			radioButton4.UseVisualStyleBackColor = true;
+			resources.ApplyResources(radioButtonQ2A3, "radioButtonQ2A3");
+			radioButtonQ2A3.Name = "radioButtonQ2A3";
+			radioButtonQ2A3.TabStop = true;
+			radioButtonQ2A3.UseVisualStyleBackColor = true;
+			// 
+			// radioButtonQ2A2
+			// 
+			resources.ApplyResources(radioButtonQ2A2, "radioButtonQ2A2");
+			radioButtonQ2A2.Name = "radioButtonQ2A2";
+			radioButtonQ2A2.TabStop = true;
+			radioButtonQ2A2.UseVisualStyleBackColor = true;
 			// 
 			// labelQ1
 			// 
@@ -614,6 +620,7 @@
 			// 
 			// buttonStartExam
 			// 
+			buttonStartExam.Cursor = Cursors.Hand;
 			resources.ApplyResources(buttonStartExam, "buttonStartExam");
 			buttonStartExam.Name = "buttonStartExam";
 			buttonStartExam.UseVisualStyleBackColor = true;
@@ -629,12 +636,6 @@
 			// 
 			resources.ApplyResources(label5, "label5");
 			label5.Name = "label5";
-			// 
-			// button1
-			// 
-			resources.ApplyResources(button1, "button1");
-			button1.Name = "button1";
-			button1.UseVisualStyleBackColor = true;
 			// 
 			// StudentForm
 			// 
@@ -689,51 +690,51 @@
 		private RadioButton radioButtonQ1A3;
 		private RadioButton radioButtonQ1A2;
 		private GroupBox groupBoxExam;
-		private Label label10;
-		private RadioButton radioButton9;
-		private RadioButton radioButton10;
-		private RadioButton radioButton11;
-		private RadioButton radioButton12;
-		private Label label11;
-		private RadioButton radioButton13;
-		private RadioButton radioButton14;
-		private RadioButton radioButton15;
-		private RadioButton radioButton16;
-		private Label label12;
-		private RadioButton radioButton17;
-		private RadioButton radioButton18;
-		private RadioButton radioButton19;
-		private RadioButton radioButton20;
-		private Label label9;
-		private RadioButton radioButton5;
-		private RadioButton radioButton6;
-		private RadioButton radioButton7;
-		private RadioButton radioButton8;
-		private Label label8;
-		private RadioButton radioButton1;
-		private RadioButton radioButton2;
-		private RadioButton radioButton3;
-		private RadioButton radioButton4;
-		private Label label13;
-		private RadioButton radioButton21;
-		private RadioButton radioButton22;
-		private RadioButton radioButton23;
-		private RadioButton radioButton24;
-		private Label label14;
-		private RadioButton radioButton25;
-		private RadioButton radioButton26;
-		private RadioButton radioButton27;
-		private RadioButton radioButton28;
-		private Label label15;
-		private RadioButton radioButton29;
-		private RadioButton radioButton30;
-		private RadioButton radioButton31;
-		private RadioButton radioButton32;
-		private Label label16;
-		private RadioButton radioButton33;
-		private RadioButton radioButton34;
-		private RadioButton radioButton35;
-		private RadioButton radioButton36;
-		private Button button1;
+		private Label labelQ6;
+		private RadioButton radioButtonQ6A4;
+		private RadioButton radioButtonQ6A1;
+		private RadioButton radioButtonQ6A3;
+		private RadioButton radioButtonQ6A2;
+		private Label labelQ5;
+		private RadioButton radioButtonQ5A4;
+		private RadioButton radioButtonQ5A1;
+		private RadioButton radioButtonQ5A3;
+		private RadioButton radioButtonQ5A2;
+		private Label labelQ4;
+		private RadioButton radioButtonQ4A4;
+		private RadioButton radioButtonQ4A1;
+		private RadioButton radioButtonQ4A3;
+		private RadioButton radioButtonQ4A2;
+		private Label labelQ3;
+		private RadioButton radioButtonQ3A4;
+		private RadioButton radioButtonQ3A1;
+		private RadioButton radioButtonQ3A3;
+		private RadioButton radioButtonQ3A2;
+		private Label labelQ2;
+		private RadioButton radioButtonQ2A4;
+		private RadioButton radioButtonQ2A1;
+		private RadioButton radioButtonQ2A3;
+		private RadioButton radioButtonQ2A2;
+		private Label labelQ10;
+		private RadioButton radioButtonQ10A4;
+		private RadioButton radioButtonQ10A1;
+		private RadioButton radioButtonQ10A3;
+		private RadioButton radioButtonQ10A2;
+		private Label labelQ9;
+		private RadioButton radioButtonQ9A4;
+		private RadioButton radioButtonQ9A1;
+		private RadioButton radioButtonQ9A3;
+		private RadioButton radioButtonQ9A2;
+		private Label labelQ8;
+		private RadioButton radioButtonQ8A4;
+		private RadioButton radioButtonQ8A1;
+		private RadioButton radioButtonQ8A3;
+		private RadioButton radioButtonQ8A2;
+		private Label labelQ7;
+		private RadioButton radioButtonQ7A4;
+		private RadioButton radioButtonQ7A1;
+		private RadioButton radioButtonQ7A3;
+		private RadioButton radioButtonQ7A2;
+		private Button buttonSubmit;
 	}
 }
