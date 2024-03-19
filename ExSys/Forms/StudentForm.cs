@@ -18,115 +18,123 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ExSys.Forms
 {
-    public partial class StudentForm : Form
-    {
-        private int studentid;
-        private ExSysContext dbContext;
+	public partial class StudentForm : Form
+	{
+		private int studentid;
+		private ExSysContext dbContext;
 
-        public StudentForm(int id)
-        {
-            studentid = id;
-            InitializeComponent();
-            topFormControl topFormControl = new topFormControl();
-            topFormControl.Dock = DockStyle.Top;
-            this.Controls.Add(topFormControl);
-        }
+		public StudentForm(int id)
+		{
+			studentid = id;
+			InitializeComponent();
+			topFormControl topFormControl = new topFormControl();
+			topFormControl.Dock = DockStyle.Top;
+			this.Controls.Add(topFormControl);
+		}
 
-        private void StudentForm_Load(object sender, EventArgs e)
-        {
-            try
-            {
+		private void StudentForm_Load(object sender, EventArgs e)
+		{
+			try
+			{
 
-               
-                dbContext = new ExSysContext();
 
-                //get the full name using the id 
-                var student = dbContext.Students.FirstOrDefault(s => s.StudentId == studentid);
-                if (student != null)
-                {
-                    LBLStudentName.Text = student.StudentFname + " " + student.StudentLname;
+				dbContext = new ExSysContext();
 
-                    //get all the courses from the student course relation and put it in a list 
-                    var studentCourses = dbContext.StudentCourses
-                                                 .Where(sc => sc.StudentId == studentid)
-                                                 .Select(sc => sc.Course.CourseName)
-                                                 .ToList();
+				//get the full name using the id 
+				var student = dbContext.Students.FirstOrDefault(s => s.StudentId == studentid);
+				if (student != null)
+				{
+					LBLStudentName.Text = student.StudentFname + " " + student.StudentLname;
 
-                    // Populate the combo box with the courses
-                    comboBoxStdCrs.DataSource = studentCourses;
+					//get all the courses from the student course relation and put it in a list 
+					var studentCourses = dbContext.StudentCourses
+												 .Where(sc => sc.StudentId == studentid)
+												 .Select(sc => sc.Course.CourseName)
+												 .ToList();
 
-                    //get the track name from students and tracks relation by the id of track 
-                    var studentTrack = dbContext.Students
-                                                 .Include(s => s.Track) 
-                                                 .FirstOrDefault(sc => sc.StudentId == studentid);
+					// Populate the combo box with the courses
+					comboBoxStdCrs.DataSource = studentCourses;
 
-                    if (studentTrack != null)
-                    {
-                        Console.WriteLine("Student found with ID: " + studentTrack.StudentId);
-                        if (studentTrack.Track != null)
-                        {
-                            Console.WriteLine("Track found for student: " + studentTrack.Track.TrackName);
-                            LBLStudentTrack.Text = studentTrack.Track.TrackName;
-                        }
-                        else
-                        {
-                            Console.WriteLine("No track found for student.");
-                            MessageBox.Show("No track found for student.");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Student not found with ID: " + studentid);
-                        MessageBox.Show("Student not found with ID: " + studentid);
-                    }
-                }
-                else
-                {
-                    // Handle case when student is not found
-                    MessageBox.Show("Student not found.");
-                }
-            }
-            catch (Exception ex)
-            {
-                // Handle any exceptions
-                MessageBox.Show("An error occurred: " + ex.Message);
-                Console.WriteLine("An error occurred: " + ex.Message);
-            }
-        }
+					//get the track name from students and tracks relation by the id of track 
+					var studentTrack = dbContext.Students
+												 .Include(s => s.Track)
+												 .FirstOrDefault(sc => sc.StudentId == studentid);
 
-        private void comboBoxStdCrs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var selectedCourse = comboBoxStdCrs.SelectedItem.ToString();
-                var course = dbContext.Courses
-                                    .Include(c => c.StudentCourses)
-                                    .FirstOrDefault(c => c.CourseName == selectedCourse);
-                if (course != null)
-                {
-                    // Assuming studentid is of type Int16
-                    var studentCourse = course.StudentCourses.FirstOrDefault(sc => sc.StudentId == Convert.ToInt16(studentid));
-                    if (studentCourse != null)
-                    {
-                        LBLStudentCrsDegree.Text = studentCourse.StudentGrade.ToString();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Student grade not found for selected course.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Course not found.");
-                }
-            }
-            catch (Exception ex)
-            {
-                // Handle any exceptions
-                MessageBox.Show("An error قق occurred: " + ex.Message);
-                Console.WriteLine("An error occurred: " + ex.Message);
-            }
-        }
+					if (studentTrack != null)
+					{
+						Console.WriteLine("Student found with ID: " + studentTrack.StudentId);
+						if (studentTrack.Track != null)
+						{
+							Console.WriteLine("Track found for student: " + studentTrack.Track.TrackName);
+							LBLStudentTrack.Text = studentTrack.Track.TrackName;
+						}
+						else
+						{
+							Console.WriteLine("No track found for student.");
+							MessageBox.Show("No track found for student.");
+						}
+					}
+					else
+					{
+						Console.WriteLine("Student not found with ID: " + studentid);
+						MessageBox.Show("Student not found with ID: " + studentid);
+					}
+				}
+				else
+				{
+					// Handle case when student is not found
+					MessageBox.Show("Student not found.");
+				}
+			}
+			catch (Exception ex)
+			{
+				// Handle any exceptions
+				MessageBox.Show("An error occurred: " + ex.Message);
+				Console.WriteLine("An error occurred: " + ex.Message);
+			}
+		}
 
-    }
+		private void comboBoxStdCrs_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				var selectedCourse = comboBoxStdCrs.SelectedItem.ToString();
+				var course = dbContext.Courses
+									.Include(c => c.StudentCourses)
+									.FirstOrDefault(c => c.CourseName == selectedCourse);
+				if (course != null)
+				{
+					// Assuming studentid is of type Int16
+					var studentCourse = course.StudentCourses.FirstOrDefault(sc => sc.StudentId == Convert.ToInt16(studentid));
+					if (studentCourse != null)
+					{
+						LBLStudentCrsDegree.Text = studentCourse.StudentGrade.ToString();
+					}
+					else
+					{
+						MessageBox.Show("Student grade not found for selected course.");
+					}
+				}
+				else
+				{
+					MessageBox.Show("Course not found.");
+				}
+			}
+			catch (Exception ex)
+			{
+				// Handle any exceptions
+				MessageBox.Show("An error  occurred: " + ex.Message);
+				Console.WriteLine("An error occurred: " + ex.Message);
+			}
+		}
+
+		private void buttonStartExam_Click(object sender, EventArgs e)
+		{
+			label6.Visible = true;
+			groupBoxStartExam.Visible = false;
+			groupBoxRemTime.Visible = true;
+			groupBoxExam.Visible = true;
+
+		}
+	}
 }
