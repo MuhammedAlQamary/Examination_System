@@ -123,10 +123,10 @@ namespace ExSys.Forms
             string studentPassword = TBStudentPassword.Text;
             int trackId = int.Parse(TBStudentTrack.Text);
 
-            using (var context = new ExSysContext())
+            using (var db = new ExSysContext())
             {
                 // Call the method to update the student
-                context.UpdateStudent(studentId, studentFname, studentLname, studentEmail, studentPassword, trackId);
+                db.UpdateStudent(studentId, studentFname, studentLname, studentEmail, studentPassword, trackId);
 
                 MessageBox.Show("Student Updated Successfully");
             }
@@ -644,20 +644,12 @@ namespace ExSys.Forms
 
         private void btn_report_Click(object sender, EventArgs e)
         {
-            int instructorId = (int)listBoxinstructors.SelectedValue; // Get the selected instructor ID
+            // Set up the ReportViewer
 
-            using (var context = new ExSysContext())
-            {
-                var parameter = new SqlParameter("@Instructor_ID", instructorId);
-                var result = context.Database.SqlQueryRaw<InstructorCourseReport>("EXEC GetInstructor_Courses_Students @Instructor_ID", parameter).ToList();
-
-                // Do something with the result
-                foreach (var item in result)
-                {
-                    Console.WriteLine($"Course ID: {item.Course_ID}, Course Name: {item.Course_Name}, Number of Students: {item.Number_Of_Students}");
-                }
-            }
+           
+           
         }
+
 
     }
 }

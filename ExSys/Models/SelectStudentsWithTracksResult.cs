@@ -7,8 +7,5 @@ namespace Data.Models
 {
     public partial class SelectStudentsWithTracksResult
     {
-        public string Student_FName { get; set; }
-        public string Student_LName { get; set; }
-        public string Track_Name { get; set; }
     }
 }

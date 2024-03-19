@@ -34,7 +34,8 @@ namespace Data.Models
         Task<int> DeleteTopicAsync(int? Topic_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> DeleteTrackAsync(int? Track_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> DeleteTrackCourseAsync(int? Track_ID, int? Course_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
-        Task<int> GenerateExam2Async(DateTime? Exam_date, int? duration, int? Crs_id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GenerateExam2Result>> GenerateExam2Async(DateOnly? Exam_date, int? duration, int? Crs_id, int? BrTr_id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> Get_Course_ID_BrTr_IDAsync(string Branch_Name, string Track_Name, string Course_Name, OutputParameter<int?> Course_ID, OutputParameter<int?> BranchTrack_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetAllChoicesResult>> GetAllChoicesAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetAllExamQuestionsResult>> GetAllExamQuestionsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetAllQuestionsResult>> GetAllQuestionsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);

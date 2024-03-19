@@ -5,12 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Models
 {
-    public partial class GetExamsResult
+    public partial class GenerateExam2Result
     {
-        public int Exam_ID { get; set; }
+        public int? Exam_ID { get; set; }
+        public int? Course_ID { get; set; }
         public DateOnly? Exam_Date { get; set; }
         public int? Exam_Duration { get; set; }
-        public int? Course_ID { get; set; }
-        public int? BrTr_ID { get; set; }
     }
 }
