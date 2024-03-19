@@ -17,11 +17,11 @@ public partial class Student
 
     public string StudentPassword { get; set; }
 
-    public int TrackId { get; set; }
+    public int? BrTrId { get; set; }
+
+    public virtual BranchTrack BrTr { get; set; }
 
     public virtual ICollection<StudentCourse> StudentCourses { get; set; } = new List<StudentCourse>();
 
     public virtual ICollection<StudentExamQuestion> StudentExamQuestions { get; set; } = new List<StudentExamQuestion>();
-
-    public virtual Track Track { get; set; }
 }

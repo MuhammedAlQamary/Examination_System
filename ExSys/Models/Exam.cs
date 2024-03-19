@@ -15,6 +15,10 @@ public partial class Exam
 
     public int? CourseId { get; set; }
 
+    public int? BrTrId { get; set; }
+
+    public virtual BranchTrack BrTr { get; set; }
+
     public virtual Course Course { get; set; }
 
     public virtual ICollection<StudentExamQuestion> StudentExamQuestions { get; set; } = new List<StudentExamQuestion>();

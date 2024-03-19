@@ -38,6 +38,7 @@ namespace Data.Models
             modelBuilder.Entity<AddNewExamQuestionResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<AddQuestion_ChoicesResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<DeleteInstructor_CourseResult>().HasNoKey().ToView(null);
+            modelBuilder.Entity<GenerateExam2Result>().HasNoKey().ToView(null);
             modelBuilder.Entity<GetAllChoicesResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<GetAllExamQuestionsResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<GetAllQuestionsResult>().HasNoKey().ToView(null);
@@ -826,7 +827,7 @@ namespace Data.Models
             return _;
         }
 
-        public virtual async Task<int> GenerateExam2Async(DateTime? Exam_date, int? duration, int? Crs_id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        public virtual async Task<List<GenerateExam2Result>> GenerateExam2Async(DateOnly? Exam_date, int? duration, int? Crs_id, int? BrTr_id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
             {
@@ -841,7 +842,7 @@ namespace Data.Models
                 {
                     ParameterName = "Exam_date",
                     Value = Exam_date ?? Convert.DBNull,
-                    SqlDbType = System.Data.SqlDbType.DateTime,
+                    SqlDbType = System.Data.SqlDbType.Date,
                 },
                 new SqlParameter
                 {
@@ -855,10 +856,75 @@ namespace Data.Models
                     Value = Crs_id ?? Convert.DBNull,
                     SqlDbType = System.Data.SqlDbType.Int,
                 },
+                new SqlParameter
+                {
+                    ParameterName = "BrTr_id",
+                    Value = BrTr_id ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
                 parameterreturnValue,
             };
-            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[GenerateExam2] @Exam_date, @duration, @Crs_id", sqlParameters, cancellationToken);
+            var _ = await _context.SqlQueryAsync<GenerateExam2Result>("EXEC @returnValue = [dbo].[GenerateExam2] @Exam_date, @duration, @Crs_id, @BrTr_id", sqlParameters, cancellationToken);
 
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<int> Get_Course_ID_BrTr_IDAsync(string Branch_Name, string Track_Name, string Course_Name, OutputParameter<int?> Course_ID, OutputParameter<int?> BranchTrack_ID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterCourse_ID = new SqlParameter
+            {
+                ParameterName = "Course_ID",
+                Direction = System.Data.ParameterDirection.InputOutput,
+                Value = Course_ID?._value ?? Convert.DBNull,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+            var parameterBranchTrack_ID = new SqlParameter
+            {
+                ParameterName = "BranchTrack_ID",
+                Direction = System.Data.ParameterDirection.InputOutput,
+                Value = BranchTrack_ID?._value ?? Convert.DBNull,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "Branch_Name",
+                    Size = 20,
+                    Value = Branch_Name ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "Track_Name",
+                    Size = 50,
+                    Value = Track_Name ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "Course_Name",
+                    Size = 20,
+                    Value = Course_Name ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                },
+                parameterCourse_ID,
+                parameterBranchTrack_ID,
+                parameterreturnValue,
+            };
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[Get_Course_ID_BrTr_ID] @Branch_Name, @Track_Name, @Course_Name, @Course_ID OUTPUT, @BranchTrack_ID OUTPUT", sqlParameters, cancellationToken);
+
+            Course_ID.SetValue(parameterCourse_ID.Value);
+            BranchTrack_ID.SetValue(parameterBranchTrack_ID.Value);
             returnValue?.SetValue(parameterreturnValue.Value);
 
             return _;
