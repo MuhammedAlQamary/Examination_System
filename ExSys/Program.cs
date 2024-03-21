@@ -18,7 +18,7 @@ namespace ExSys
            // Application.Run(new loginForm());
            // Application.Run(new adminForm());
             Application.Run(new StudentForm(1));
-
+///dsadas
           
 
         }
