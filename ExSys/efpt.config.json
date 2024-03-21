@@ -172,6 +172,10 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[Get_Course_ID_BrTr_ID]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[GetAllChoices]",
          "ObjectType": 1
       },

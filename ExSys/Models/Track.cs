@@ -13,11 +13,9 @@ public partial class Track
 
     public int SupervisorId { get; set; }
 
-    public virtual ICollection<Student> Students { get; set; } = new List<Student>();
+    public virtual ICollection<BranchTrack> BranchTracks { get; set; } = new List<BranchTrack>();
 
     public virtual Instructor Supervisor { get; set; }
-
-    public virtual ICollection<Branch> Branches { get; set; } = new List<Branch>();
 
     public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
 }

@@ -22,6 +22,8 @@ public partial class ExSysContext : DbContext
 
     public virtual DbSet<Branch> Branches { get; set; }
 
+    public virtual DbSet<BranchTrack> BranchTracks { get; set; }
+
     public virtual DbSet<Choice> Choices { get; set; }
 
     public virtual DbSet<Course> Courses { get; set; }
@@ -199,25 +201,27 @@ public partial class ExSysContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("Branch_Name");
+        });
 
-            entity.HasMany(d => d.Tracks).WithMany(p => p.Branches)
-                .UsingEntity<Dictionary<string, object>>(
-                    "BranchTrack",
-                    r => r.HasOne<Track>().WithMany()
-                        .HasForeignKey("TrackId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Branch_Tracks_Tracks"),
-                    l => l.HasOne<Branch>().WithMany()
-                        .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_Branch_Tracks_Branches"),
-                    j =>
-                    {
-                        j.HasKey("BranchId", "TrackId");
-                        j.ToTable("Branch_Tracks");
-                        j.IndexerProperty<int>("BranchId").HasColumnName("Branch_ID");
-                        j.IndexerProperty<int>("TrackId").HasColumnName("Track_ID");
-                    });
+        modelBuilder.Entity<BranchTrack>(entity =>
+        {
+            entity.HasKey(e => e.BrTrId).HasName("PK_Branch_Tracks_1");
+
+            entity.ToTable("Branch_Tracks");
+
+            entity.Property(e => e.BrTrId).HasColumnName("BrTr_ID");
+            entity.Property(e => e.BranchId).HasColumnName("Branch_ID");
+            entity.Property(e => e.TrackId).HasColumnName("Track_ID");
+
+            entity.HasOne(d => d.Branch).WithMany(p => p.BranchTracks)
+                .HasForeignKey(d => d.BranchId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Branch_Tracks_Branches");
+
+            entity.HasOne(d => d.Track).WithMany(p => p.BranchTracks)
+                .HasForeignKey(d => d.TrackId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Branch_Tracks_Tracks");
         });
 
         modelBuilder.Entity<Choice>(entity =>
@@ -270,10 +274,16 @@ public partial class ExSysContext : DbContext
         {
             entity.HasKey(e => e.Exam_ID).HasName("PK__Exams__C782CA79C8552B80");
 
+            entity.Property(e => e.ExamId).HasColumnName("Exam_ID");
+            entity.Property(e => e.BrTrId).HasColumnName("BrTr_ID");
             entity.Property(e => e.Exam_ID).HasColumnName("Exam_ID");
             entity.Property(e => e.CourseId).HasColumnName("Course_ID");
             entity.Property(e => e.ExamDate).HasColumnName("Exam_Date");
             entity.Property(e => e.ExamDuration).HasColumnName("Exam_Duration");
+
+            entity.HasOne(d => d.BrTr).WithMany(p => p.Exams)
+                .HasForeignKey(d => d.BrTrId)
+                .HasConstraintName("FK_Exams_Branch_Tracks");
 
             entity.HasOne(d => d.Course).WithMany(p => p.Exams)
                 .HasForeignKey(d => d.CourseId)
@@ -383,6 +393,7 @@ public partial class ExSysContext : DbContext
             entity.Property(e => e.StudentId)
                 .HasDefaultValueSql("(NEXT VALUE FOR [StudentIDSequence])")
                 .HasColumnName("Student_ID");
+            entity.Property(e => e.BrTrId).HasColumnName("BrTr_ID");
             entity.Property(e => e.StudentEmail)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -399,12 +410,10 @@ public partial class ExSysContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("Student_Password");
-            entity.Property(e => e.TrackId).HasColumnName("Track_ID");
 
-            entity.HasOne(d => d.Track).WithMany(p => p.Students)
-                .HasForeignKey(d => d.TrackId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Students_Tracks");
+            entity.HasOne(d => d.BrTr).WithMany(p => p.Students)
+                .HasForeignKey(d => d.BrTrId)
+                .HasConstraintName("FK_Students_Branch_Tracks");
         });
 
         modelBuilder.Entity<StudentCourse>(entity =>
