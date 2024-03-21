@@ -24,4 +24,9 @@ public partial class Instructor
     public virtual Track Track { get; set; }
 
     public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
+
+    public override string ToString()
+    {
+        return$"{InstructorFname}:{InstructorLname}:{InstructorId}";
+    }
 }

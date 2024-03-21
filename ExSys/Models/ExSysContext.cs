@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using ExSys.Dtos;
+using ExSys.MyModels;
 
 namespace Data.Models;
 
@@ -39,6 +41,12 @@ public partial class ExSysContext : DbContext
     public virtual DbSet<Topic> Topics { get; set; }
 
     public virtual DbSet<Track> Tracks { get; set; }
+
+    public DbSet<Branch_Tracks>BranchTracks { get; set; }
+
+    
+
+    
 
     #region functions for stored procedures for course
     //  make function for this stored procedure
@@ -260,9 +268,9 @@ public partial class ExSysContext : DbContext
 
         modelBuilder.Entity<Exam>(entity =>
         {
-            entity.HasKey(e => e.ExamId).HasName("PK__Exams__C782CA79C8552B80");
+            entity.HasKey(e => e.Exam_ID).HasName("PK__Exams__C782CA79C8552B80");
 
-            entity.Property(e => e.ExamId).HasColumnName("Exam_ID");
+            entity.Property(e => e.Exam_ID).HasColumnName("Exam_ID");
             entity.Property(e => e.CourseId).HasColumnName("Course_ID");
             entity.Property(e => e.ExamDate).HasColumnName("Exam_Date");
             entity.Property(e => e.ExamDuration).HasColumnName("Exam_Duration");
