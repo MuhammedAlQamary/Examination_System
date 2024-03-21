@@ -17,7 +17,7 @@ public partial class Exam
 
     public int? CourseId { get; set; }
 
-    public int? BrTrId { get; set; }
+    public int? BrTr_ID { get; set; }
 
     public virtual BranchTrack BrTr { get; set; }
 

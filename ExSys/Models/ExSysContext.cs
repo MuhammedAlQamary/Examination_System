@@ -44,11 +44,9 @@ public partial class ExSysContext : DbContext
 
     public virtual DbSet<Track> Tracks { get; set; }
 
-    public DbSet<Branch_Tracks>BranchTracks { get; set; }
 
-    
+    //public DbSet<Branch_Tracks>BranchTrack { get; set; }
 
-    
 
     #region functions for stored procedures for course
     //  make function for this stored procedure
@@ -274,15 +272,18 @@ public partial class ExSysContext : DbContext
         {
             entity.HasKey(e => e.Exam_ID).HasName("PK__Exams__C782CA79C8552B80");
 
-            entity.Property(e => e.ExamId).HasColumnName("Exam_ID");
-            entity.Property(e => e.BrTrId).HasColumnName("BrTr_ID");
+
             entity.Property(e => e.Exam_ID).HasColumnName("Exam_ID");
+
+           
+            entity.Property(e => e.BrTr_ID).HasColumnName("BrTr_ID");
+
             entity.Property(e => e.CourseId).HasColumnName("Course_ID");
             entity.Property(e => e.ExamDate).HasColumnName("Exam_Date");
             entity.Property(e => e.ExamDuration).HasColumnName("Exam_Duration");
 
             entity.HasOne(d => d.BrTr).WithMany(p => p.Exams)
-                .HasForeignKey(d => d.BrTrId)
+                .HasForeignKey(d => d.BrTr_ID)
                 .HasConstraintName("FK_Exams_Branch_Tracks");
 
             entity.HasOne(d => d.Course).WithMany(p => p.Exams)

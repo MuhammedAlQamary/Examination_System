@@ -73,7 +73,7 @@ namespace ExSys.Forms
             ExamDuration.Text = "Exam Duration: "+ExDuration.ToString()+"minutes" ;
             ExamDuration.Location = new Point(20, 40);
             ExamDuration.AutoSize = false;
-            ExamDuration.Width = 150;
+            ExamDuration.Width = 400;
             this.Controls.Add(ExamDuration);
 
            

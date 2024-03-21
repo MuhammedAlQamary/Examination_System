@@ -129,7 +129,7 @@ namespace ExSys.Forms
             // Display courseId and branchTrackId
             if (courseId.HasValue && branchTrackId.HasValue)
             {
-               // MessageBox.Show($"Course ID: {courseId}, Branch Track ID: {branchTrackId}");
+                MessageBox.Show($"Course ID: {courseId}, Branch Track ID: {branchTrackId}");
                 DateOnly currentDate = DateOnly.FromDateTime(DateTime.Now);
                 // Define parameters
                 var examDateParam = new Microsoft.Data.SqlClient.SqlParameter("@Exam_date", currentDate);
@@ -137,26 +137,26 @@ namespace ExSys.Forms
                 var crsIdParam = new Microsoft.Data.SqlClient.SqlParameter("@Crs_id", courseId);
                 var brTrIdParam = new Microsoft.Data.SqlClient.SqlParameter("@branchTrack_id", branchTrackId);
                 var exam_id = new Microsoft.Data.SqlClient.SqlParameter("@exam_id", SqlDbType.Int) { Direction = ParameterDirection.Output };
+                //exec GenerateExam2 '1/2/2023' ,2,@course_id,@branchTrack_id,@id out
+                //var result = db.Exams
+                //        .FromSqlRaw("exec GenerateExam2 @Exam_date, @duration, @Crs_id,@branchTrack_id,@exam_id out", examDateParam, durationParam, crsIdParam, brTrIdParam, exam_id)
+                //        .ToList();
+                //int Passed_EX_ID = (int)exam_id.Value;
+                //GenerateExam GExam = new GenerateExam(Passed_EX_ID, currentDate, ExamDuration);
+                //GExam.Show();
                 try
                 {
                     var result = db.Exams
                         .FromSqlRaw("exec GenerateExam2 @Exam_date, @duration, @Crs_id,@branchTrack_id,@exam_id out", examDateParam, durationParam, crsIdParam, brTrIdParam, exam_id)
                         .ToList();
 
-                    if (result.Any() && result.First().GetType().GetProperty("Exam_ID") != null)
-                    {
-                        int Passed_EX_ID = (int)exam_id.Value;
-                        GenerateExam GExam = new GenerateExam(Passed_EX_ID, currentDate, ExamDuration);
-                        GExam.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No questions found for this course.");
-                    }
+                    int Passed_EX_ID = (int)exam_id.Value;
+                    GenerateExam GExam = new GenerateExam(Passed_EX_ID, currentDate, ExamDuration);
+                    GExam.Show();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"No questions found for this course");
+                    MessageBox.Show("you cant generate exam.");
                 }
             }
             else

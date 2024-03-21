@@ -29,7 +29,7 @@ namespace ExSys.MyModels
     }
 
     public class ExamQuestion{
-        public int Exam_ID { get; set; }
+        public int Exam_Id { get; set; }
         public int Question_ID { get; set;}
     }
 }
