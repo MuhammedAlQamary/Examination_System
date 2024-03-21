@@ -24,7 +24,7 @@ namespace ExSys.Forms
         int duration = 0;
         Label labelRemainingTime { get; set; }
 
-        public GenerateExam(int x, DateOnly _date, int _durtion)
+        public GenerateExam(int ExamId, DateOnly _date, int _durtion)
         {
 
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace ExSys.Forms
             timer.Start();
 
             // Assign parameters
-            Exam_ID = x;
+            Exam_ID = ExamId;
             ExDuration = _durtion;
             ExamDate = _date;
             duration = ExDuration * 60 * 1000; // Convert hours to milliseconds
