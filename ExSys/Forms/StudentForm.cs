@@ -41,7 +41,10 @@ namespace ExSys.Forms
 				dbContext = new ExSysContext();
 
 				//get the full name using the id 
-				var student = dbContext.Students.FirstOrDefault(s => s.StudentId == studentid);
+				var student = dbContext.Students
+								.Include(s => s.BrTr)
+								.ThenInclude(bt => bt.Track)
+								.FirstOrDefault(sc => sc.StudentId == studentid);
 				if (student != null)
 				{
 					LBLStudentName.Text = student.StudentFname + " " + student.StudentLname;
@@ -54,31 +57,21 @@ namespace ExSys.Forms
 
 					// Populate the combo box with the courses
 					comboBoxStdCrs.DataSource = studentCourses;
-
+					// Populate the combo box with the courses to take exam	
+					comboBoxCrsExam.DataSource = studentCourses;
 					//get the track name from students and tracks relation by the id of track 
-					var studentTrack = dbContext.Students
-												 .Include(s => s.Track)
-												 .FirstOrDefault(sc => sc.StudentId == studentid);
 
-					if (studentTrack != null)
-					{
-						Console.WriteLine("Student found with ID: " + studentTrack.StudentId);
-						if (studentTrack.Track != null)
+					var branchTrackStudent = student.BrTr;
+					var studentTrack = branchTrackStudent.Track;
+					
+						if (studentTrack != null)
 						{
-							Console.WriteLine("Track found for student: " + studentTrack.Track.TrackName);
-							LBLStudentTrack.Text = studentTrack.Track.TrackName;
+							LBLStudentTrack.Text = studentTrack.TrackName;
 						}
 						else
 						{
-							Console.WriteLine("No track found for student.");
 							MessageBox.Show("No track found for student.");
-						}
-					}
-					else
-					{
-						Console.WriteLine("Student not found with ID: " + studentid);
-						MessageBox.Show("Student not found with ID: " + studentid);
-					}
+						}	
 				}
 				else
 				{
