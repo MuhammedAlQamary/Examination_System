@@ -20,9 +20,12 @@ namespace ExSys.Forms
 {
 	public partial class StudentForm : Form
 	{
-		private int studentid;
-		private ExSysContext dbContext;
+		private int studentid = 55;
+		 int courseid;
 
+		ExSysContext dbContext = new ExSysContext();
+
+		List<string> studentCourses;
 		public StudentForm(int id)
 		{
 			studentid = id;
@@ -30,6 +33,8 @@ namespace ExSys.Forms
 			topFormControl topFormControl = new topFormControl();
 			topFormControl.Dock = DockStyle.Top;
 			this.Controls.Add(topFormControl);
+
+
 		}
 
 		private void StudentForm_Load(object sender, EventArgs e)
@@ -38,7 +43,7 @@ namespace ExSys.Forms
 			{
 
 
-				dbContext = new ExSysContext();
+				//dbContext = new ExSysContext();
 
 				//get the full name using the id 
 				var student = dbContext.Students
@@ -50,10 +55,11 @@ namespace ExSys.Forms
 					LBLStudentName.Text = student.StudentFname + " " + student.StudentLname;
 
 					//get all the courses from the student course relation and put it in a list 
-					var studentCourses = dbContext.StudentCourses
-												 .Where(sc => sc.StudentId == studentid)
-												 .Select(sc => sc.Course.CourseName)
-												 .ToList();
+
+					studentCourses = dbContext.StudentCourses
+												.Where(sc => sc.StudentId == studentid)
+												.Select(sc => sc.Course.CourseName)
+												.ToList();
 
 					// Populate the combo box with the courses
 					comboBoxStdCrs.DataSource = studentCourses;
@@ -63,15 +69,18 @@ namespace ExSys.Forms
 
 					var branchTrackStudent = student.BrTr;
 					var studentTrack = branchTrackStudent.Track;
-					
-						if (studentTrack != null)
-						{
-							LBLStudentTrack.Text = studentTrack.TrackName;
-						}
-						else
-						{
-							MessageBox.Show("No track found for student.");
-						}	
+					var barnchID = branchTrackStudent.BranchId;
+					var BranchName = dbContext.Branches.FirstOrDefault(b => b.BranchId == barnchID).BranchName;
+					LBLBranchName.Text = BranchName;
+
+					if (studentTrack != null)
+					{
+						LBLStudentTrack.Text = studentTrack.TrackName;
+					}
+					else
+					{
+						MessageBox.Show("No track found for student.");
+					}
 				}
 				else
 				{
@@ -123,11 +132,75 @@ namespace ExSys.Forms
 
 		private void buttonStartExam_Click(object sender, EventArgs e)
 		{
-			label6.Visible = true;
 			groupBoxStartExam.Visible = false;
-			groupBoxRemTime.Visible = true;
-			groupBoxExam.Visible = true;
+			try
+			{
+				var student = dbContext.Students
+								.Include(s => s.BrTr)
+								.ThenInclude(bt => bt.Track)
+								.FirstOrDefault(sc => sc.StudentId == studentid);
+
+				int branchID = student.BrTr.BranchId;
+				int trackID = student.BrTr.TrackId;
+				MessageBox.Show($"BranchID_{student.BrTr.BranchId}:TrackID_{student.BrTr.TrackId}:StudentID_{studentid}:Course_Id{courseid}");
+				
+				var examIdParam = new SqlParameter("@Exam_ID", SqlDbType.Int) { Direction = ParameterDirection.Output };
+
+				dbContext.Database.ExecuteSqlRaw("EXEC GetStudentExam @Track_ID, @Branch_ID, @Course_ID, @Exam_ID OUT",
+			   new SqlParameter("@Branch_ID", branchID),
+			   new SqlParameter("@Track_ID", trackID),
+			   new SqlParameter("@Course_ID", courseid),
+			   examIdParam);
+				int examID = (int)examIdParam.Value;
+
+
+				var exam = dbContext.Exams
+			    .Include(e => e.Questions)
+				.ThenInclude(a => a.Choices)
+				.FirstOrDefault(a => a.Exam_ID == examID);
+				var questions = exam.Questions;
+				int counter = 1;
+				int yPos = 40;
+				foreach (var q in questions)
+				{
+                    Console.WriteLine(q.ToString());
+                }
+				foreach (var question in questions)
+				{
+					// Display question text
+					var labelQuestion = new Label();
+					labelQuestion.Text = $"{question.QuestionText}";
+					labelQuestion.AutoSize = true;
+					labelQuestion.Location = new Point(20, yPos);
+					panelExam.Controls.Add(labelQuestion);
+
+					// Display answer choices
+					yPos += 30;
+					foreach (var choice in question.Choices)
+					{
+						var radioButtonChoice = new RadioButton();
+						radioButtonChoice.Text = $"{choice.ChoiceText}";
+						radioButtonChoice.AutoSize = true;
+						radioButtonChoice.Location = new Point(40, yPos);
+						panelExam.Controls.Add(radioButtonChoice);
+						yPos += 20;
+					}
+					yPos += 10; // Add some spacing between questions
+				}
+
+			}
+			catch
+			{
+			MessageBox.Show("An error occurred while getting the exam.");
+				
+			}
 
 		}
+
+		private void comboBoxCrsExam_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			courseid = dbContext.Courses.FirstOrDefault(c => c.CourseName == comboBoxCrsExam.SelectedItem.ToString()).CourseId;
+
+			}
 	}
 }

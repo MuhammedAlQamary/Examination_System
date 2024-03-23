@@ -130,7 +130,6 @@ namespace ExSys.Forms
             labelRemainingTime.Text = string.Format("Time remaining: {0:00}:{1:00}:{2:00}",
                 timeRemaining.Hours, timeRemaining.Minutes, timeRemaining.Seconds);
         }
-
         private async void GenerateExam_Load(object sender, EventArgs e)
         {
             try
