@@ -2,12 +2,14 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Models;
 
 public partial class Exam
 {
-    public int ExamId { get; set; }
+   
+    public int Exam_ID { get; set; }
 
     public DateOnly? ExamDate { get; set; }
 
@@ -15,7 +17,7 @@ public partial class Exam
 
     public int? CourseId { get; set; }
 
-    public int? BrTrId { get; set; }
+    public int? BrTr_ID { get; set; }
 
     public virtual BranchTrack BrTr { get; set; }
 

@@ -22,4 +22,9 @@ public partial class Course
     public virtual ICollection<Topic> Topics { get; set; } = new List<Topic>();
 
     public virtual ICollection<Track> Tracks { get; set; } = new List<Track>();
+
+    public override string ToString()
+    {
+        return $"{CourseId}:{CourseName}";
+    }
 }
