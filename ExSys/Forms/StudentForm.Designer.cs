@@ -49,14 +49,14 @@
 			buttonStartExam = new Button();
 			comboBoxCrsExam = new ComboBox();
 			label5 = new Label();
-			exam_System_Generate_DatabaseDataSet1 = new Exam_System_Generate_DatabaseDataSet();
+			//exam_System_Generate_DatabaseDataSet1 = new Exam_System_Generate_DatabaseDataSet();
 			tabControlStudentForm.SuspendLayout();
 			TabStdDet1.SuspendLayout();
 			groupBoxStdDet.SuspendLayout();
 			TabStdDet2.SuspendLayout();
 			groupBox1.SuspendLayout();
 			groupBoxStartExam.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)exam_System_Generate_DatabaseDataSet1).BeginInit();
+		//	((System.ComponentModel.ISupportInitialize)exam_System_Generate_DatabaseDataSet1).BeginInit();
 			SuspendLayout();
 			// 
 			// tabControlStudentForm
@@ -193,10 +193,10 @@
 			// 
 			// exam_System_Generate_DatabaseDataSet1
 			// 
-			exam_System_Generate_DatabaseDataSet1.DataSetName = "Exam_System_Generate_DatabaseDataSet";
-			exam_System_Generate_DatabaseDataSet1.Namespace = "http://tempuri.org/Exam_System_Generate_DatabaseDataSet.xsd";
-			exam_System_Generate_DatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
+			//exam_System_Generate_DatabaseDataSet1.DataSetName = "Exam_System_Generate_DatabaseDataSet";
+			//exam_System_Generate_DatabaseDataSet1.Namespace = "http://tempuri.org/Exam_System_Generate_DatabaseDataSet.xsd";
+			//exam_System_Generate_DatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+
 			// StudentForm
 			// 
 			resources.ApplyResources(this, "$this");
@@ -215,7 +215,7 @@
 			groupBox1.ResumeLayout(false);
 			groupBoxStartExam.ResumeLayout(false);
 			groupBoxStartExam.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)exam_System_Generate_DatabaseDataSet1).EndInit();
+			//((System.ComponentModel.ISupportInitialize)exam_System_Generate_DatabaseDataSet1).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -241,6 +241,6 @@
 		private Label LBLBranchName;
 		private Label label8;
 		private Panel panelExam;
-		private Exam_System_Generate_DatabaseDataSet exam_System_Generate_DatabaseDataSet1;
+		//private Exam_System_Generate_DatabaseDataSet exam_System_Generate_DatabaseDataSet1;
 	}
 }

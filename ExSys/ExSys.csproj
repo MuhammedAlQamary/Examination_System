@@ -9,16 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Exam_System_Generate_DatabaseDataSet.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Exam_System_Generate_DatabaseDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Update="Exam_System_Generate_DatabaseDataSet1.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Exam_System_Generate_DatabaseDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -34,27 +24,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Dapper" Version="2.1.35" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.WebForms" Version="150.1620.0" />
-    <PackageReference Include="Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="150.1620.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Exam_System_Generate_DatabaseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Exam_System_Generate_DatabaseDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Update="Exam_System_Generate_DatabaseDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Exam_System_Generate_DatabaseDataSet1.Designer.cs</LastGenOutput>
-    </None>
+    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="25.1.35" />
   </ItemGroup>
 
 </Project>
