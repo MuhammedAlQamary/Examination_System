@@ -3,25 +3,25 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Question
 {
-    public int Question_ID { get; set; }
+    public int QuestionId { get; set; }
 
-    public string Question_Type { get; set; }
+    public string QuestionType { get; set; }
 
-    public string Question_Text { get; set; }
+    public string QuestionText { get; set; }
 
-    public string Question_ModelAnswer { get; set; }
+    public string QuestionModelAnswer { get; set; }
 
-    public int? Course_ID { get; set; }
+    public int CourseId { get; set; }
 
     public virtual ICollection<Choice> Choices { get; set; } = new List<Choice>();
 
     public virtual Course Course { get; set; }
 
-    public virtual ICollection<Student_Exam_Question> Student_Exam_Questions { get; set; } = new List<Student_Exam_Question>();
+    public virtual ICollection<StudentExamQuestion> StudentExamQuestions { get; set; } = new List<StudentExamQuestion>();
 
     public virtual ICollection<Exam> Exams { get; set; } = new List<Exam>();
 }

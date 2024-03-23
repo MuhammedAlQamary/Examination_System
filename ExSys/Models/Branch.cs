@@ -2,14 +2,21 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Branch
 {
-    public int Branch_ID { get; set; }
+    
+    public int BranchId { get; set; }
 
-    public string Branch_Name { get; set; }
+    public string BranchName { get; set; }
 
-    public virtual ICollection<Track> Tracks { get; set; } = new List<Track>();
+    public virtual ICollection<BranchTrack> BranchTracks { get; set; } = new List<BranchTrack>();
+
+    public virtual ICollection<Instructor> Instructors { get; set; } = new List<Instructor>();
+
+
 }

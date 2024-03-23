@@ -3,25 +3,25 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Student
 {
-    public int Student_ID { get; set; }
+    public int StudentId { get; set; }
 
-    public string Student_FName { get; set; }
+    public string StudentFname { get; set; }
 
-    public string Student_LName { get; set; }
+    public string StudentLname { get; set; }
 
-    public string Student_Email { get; set; }
+    public string StudentEmail { get; set; }
 
-    public string Student_Password { get; set; }
+    public string StudentPassword { get; set; }
 
-    public int Track_ID { get; set; }
+    public int? BrTrId { get; set; }
 
-    public virtual ICollection<Student_Course> Student_Courses { get; set; } = new List<Student_Course>();
+    public virtual BranchTrack BrTr { get; set; }
 
-    public virtual ICollection<Student_Exam_Question> Student_Exam_Questions { get; set; } = new List<Student_Exam_Question>();
+    public virtual ICollection<StudentCourse> StudentCourses { get; set; } = new List<StudentCourse>();
 
-    public virtual Track Track { get; set; }
+    public virtual ICollection<StudentExamQuestion> StudentExamQuestions { get; set; } = new List<StudentExamQuestion>();
 }

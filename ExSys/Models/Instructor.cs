@@ -3,21 +3,30 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Instructor
 {
-    public int Instructor_ID { get; set; }
+    public int InstructorId { get; set; }
 
-    public string Instructor_Fname { get; set; }
+    public string InstructorFname { get; set; }
 
-    public string Instructor_Lname { get; set; }
+    public string InstructorLname { get; set; }
 
-    public string Instructor_Email { get; set; }
+    public string InstructorEmail { get; set; }
 
-    public string Instructor_Password { get; set; }
+    public string InstructorPassword { get; set; }
+
+    public int? BranchId { get; set; }
+
+    public virtual Branch Branch { get; set; }
 
     public virtual Track Track { get; set; }
 
     public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
+
+    public override string ToString()
+    {
+        return$"{InstructorFname}:{InstructorLname}:{InstructorId}";
+    }
 }

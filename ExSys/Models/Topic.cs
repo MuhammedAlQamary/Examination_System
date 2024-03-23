@@ -3,13 +3,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Topic
 {
-    public int Topic_ID { get; set; }
+    public int TopicId { get; set; }
 
-    public string To_Name { get; set; }
+    public string ToName { get; set; }
 
     public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
 }

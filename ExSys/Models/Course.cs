@@ -3,23 +3,28 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Course
 {
-    public int Course_ID { get; set; }
+    public int CourseId { get; set; }
 
-    public string Course_Name { get; set; }
+    public string CourseName { get; set; }
 
     public virtual ICollection<Exam> Exams { get; set; } = new List<Exam>();
 
     public virtual ICollection<Question> Questions { get; set; } = new List<Question>();
 
-    public virtual ICollection<Student_Course> Student_Courses { get; set; } = new List<Student_Course>();
+    public virtual ICollection<StudentCourse> StudentCourses { get; set; } = new List<StudentCourse>();
 
     public virtual ICollection<Instructor> Instructors { get; set; } = new List<Instructor>();
 
     public virtual ICollection<Topic> Topics { get; set; } = new List<Topic>();
 
     public virtual ICollection<Track> Tracks { get; set; } = new List<Track>();
+
+    public override string ToString()
+    {
+        return $"{CourseId}:{CourseName}";
+    }
 }

@@ -3,15 +3,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Choice
 {
-    public int Choice_ID { get; set; }
+    public int ChoiceId { get; set; }
 
-    public string Choice_Text { get; set; }
+    public string ChoiceText { get; set; }
 
-    public int? Question_ID { get; set; }
+    public int? QuestionId { get; set; }
 
     public virtual Question Question { get; set; }
 }

@@ -3,21 +3,19 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Track
 {
-    public int Track_ID { get; set; }
+    public int TrackId { get; set; }
 
-    public string Track_Name { get; set; }
+    public string TrackName { get; set; }
 
-    public int Supervisor_ID { get; set; }
+    public int? SupervisorId { get; set; }
 
-    public virtual ICollection<Student> Students { get; set; } = new List<Student>();
+    public virtual ICollection<BranchTrack> BranchTracks { get; set; } = new List<BranchTrack>();
 
     public virtual Instructor Supervisor { get; set; }
-
-    public virtual ICollection<Branch> Branches { get; set; } = new List<Branch>();
 
     public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
 }

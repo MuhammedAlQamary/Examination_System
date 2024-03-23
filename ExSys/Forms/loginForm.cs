@@ -1,8 +1,8 @@
 using ExSys.Forms;
 using System.Linq;
 using Microsoft.VisualBasic.ApplicationServices;
-using ExSys.Models;
 using Microsoft.EntityFrameworkCore;
+using Data.Models;
 
 namespace ExSys
 {
@@ -34,19 +34,26 @@ namespace ExSys
             string email = txtEmail.Text.Trim();
             string password = txtPass.Text;
 
-            using (var context = new Exam_System_Generate_DatabaseContext())
+            using (var context = new ExSysContext())
             {
-                var instructor = context.Instructors.FirstOrDefault(i => i.Instructor_Email == email && i.Instructor_Password == password);
+                var instructor = context.Instructors.FirstOrDefault(i => i.InstructorEmail == email && i.InstructorPassword == password);
+                var student = context.Students.FirstOrDefault(s => s.StudentEmail == email && s.StudentPassword == password);
+
                 if (email == "admin@admin.com" && password == "admin12345")
                 {
                     OpenAdminForm();
                 }
-                if (instructor != null)
+                else if (instructor != null)
                 {
-                    Formteacher teacherForm = new Formteacher(instructor.Instructor_Fname + " " + instructor.Instructor_Lname, instructor.Instructor_Email);
+                    Formteacher teacherForm = new Formteacher(instructor.InstructorFname + " " + instructor.InstructorLname, instructor.InstructorEmail);
                     teacherForm.Show();
                     this.Hide();
-
+                }
+                else if (student != null)
+                {
+                    StudentForm studentForm = new StudentForm(student.StudentId);
+                    studentForm.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -64,7 +71,6 @@ namespace ExSys
             adminForm.Show();
             this.Hide();
         }
-
 
 
         private void ShowErrorMessage(string message)

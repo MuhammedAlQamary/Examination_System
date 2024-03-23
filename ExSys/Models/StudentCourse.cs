@@ -3,15 +3,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
-public partial class Student_Course
+public partial class StudentCourse
 {
-    public int Student_ID { get; set; }
+    public int StudentId { get; set; }
 
-    public int Course_ID { get; set; }
+    public int CourseId { get; set; }
 
-    public short? Student_Grade { get; set; }
+    public int? StudentGrade { get; set; }
 
     public virtual Course Course { get; set; }
 

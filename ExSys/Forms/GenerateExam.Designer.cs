@@ -1,6 +1,6 @@
-﻿namespace ExSys
+﻿namespace ExSys.Forms
 {
-    partial class Form1
+    partial class GenerateExam
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
             SuspendLayout();
             // 
-            // button1
+            // GenerateExam
             // 
-            button1.Location = new Point(125, 112);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // Form1
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "GenerateExam";
+            Text = "GenerateExam";
+            Load += GenerateExam_Load;
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button button1;
     }
 }

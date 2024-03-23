@@ -2,22 +2,28 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
 public partial class Exam
 {
+   
     public int Exam_ID { get; set; }
 
-    public DateOnly? Exam_Date { get; set; }
+    public DateOnly? ExamDate { get; set; }
 
-    public int? Exam_Duration { get; set; }
+    public int? ExamDuration { get; set; }
 
-    public int? Course_ID { get; set; }
+    public int? CourseId { get; set; }
+
+    public int? BrTr_ID { get; set; }
+
+    public virtual BranchTrack BrTr { get; set; }
 
     public virtual Course Course { get; set; }
 
-    public virtual ICollection<Student_Exam_Question> Student_Exam_Questions { get; set; } = new List<Student_Exam_Question>();
+    public virtual ICollection<StudentExamQuestion> StudentExamQuestions { get; set; } = new List<StudentExamQuestion>();
 
     public virtual ICollection<Question> Questions { get; set; } = new List<Question>();
 }

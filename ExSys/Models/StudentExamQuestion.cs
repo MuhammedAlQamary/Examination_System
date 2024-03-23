@@ -3,19 +3,19 @@
 using System;
 using System.Collections.Generic;
 
-namespace ExSys.Models;
+namespace Data.Models;
 
-public partial class Student_Exam_Question
+public partial class StudentExamQuestion
 {
-    public int Student_ID { get; set; }
+    public int StudentId { get; set; }
 
-    public int Exam_ID { get; set; }
+    public int ExamId { get; set; }
 
-    public int Question_ID { get; set; }
+    public int QuestionId { get; set; }
 
-    public string Student_QAnswers { get; set; }
+    public string StudentQanswers { get; set; }
 
-    public string Student_QCorrection { get; set; }
+    public string StudentQcorrection { get; set; }
 
     public virtual Exam Exam { get; set; }
 
