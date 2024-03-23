@@ -43,7 +43,7 @@ namespace ExSys.Forms
 
         private void adminForm_Load(object sender, EventArgs e)
         {
-            
+
 
 
             // Create a list of Branches
@@ -79,11 +79,6 @@ namespace ExSys.Forms
 
         }
 
-
-
-
-
-
         #region students CRUD
         private void tabٍStudents_Enter(object sender, EventArgs e)
         {
@@ -96,41 +91,141 @@ namespace ExSys.Forms
                 listBoxStd.DisplayMember = "StudentFname";
                 listBoxStd.ValueMember = "StudentId";
             }
+            //populate the combobox of tracks in the add student tab
+            using (var context = new ExSysContext())
+            {
+                var tracks = context.Tracks.ToList();
+                comboBoxTracks.DataSource = tracks;
+                comboBoxTracks.DisplayMember = "TrackName";
+                comboBoxTracks.ValueMember = "TrackId";
+            }
+            //populate the combobox of branches  in the add student tab
+            using (var context = new ExSysContext())
+            {
+                var branches = context.Branches.ToList();
+                comboBoxBranches.DataSource = branches;
+                comboBoxBranches.DisplayMember = "BranchName";
+                comboBoxBranches.ValueMember = "BranchId";
+            }
+            SetStudentBranchInComboBox();
+           SetStudentTrackInComboBox();
         }
+
+        
 
         private void listBoxStd_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             TBStudentFName.DataBindings.Clear();
             TBStudentLName.DataBindings.Clear();
             TBStudentMail.DataBindings.Clear();
             TBStudentPassword.DataBindings.Clear();
-            TBStudentTrack.DataBindings.Clear();
+            labelStdBranch.DataBindings.Clear();
+            labelStdTrack.DataBindings.Clear();
+
 
             TBStudentFName.DataBindings.Add("Text", listBoxStd.DataSource, "StudentFname");
             TBStudentLName.DataBindings.Add("Text", listBoxStd.DataSource, "StudentLname");
             TBStudentMail.DataBindings.Add("Text", listBoxStd.DataSource, "StudentEmail");
             TBStudentPassword.DataBindings.Add("Text", listBoxStd.DataSource, "StudentPassword");
-            TBStudentTrack.DataBindings.Add("Text", listBoxStd.DataSource, "TrackId");
+            //bind the label student track and label student branch from the branchtrack table and the track table and the branch table
+            if (listBoxStd.SelectedItem is Student selectedStudent)
+            {
+                using (var context = new ExSysContext())
+                {
+                    var branchTrack = context.BranchTracks
+                                             .Include(bt => bt.Branch)
+                                             .Include(bt => bt.Track)
+                                             .FirstOrDefault(bt => bt.BrTrId == selectedStudent.BrTrId);
+
+                    if (branchTrack != null)
+                    {
+                        labelStdBranch.Text = branchTrack.Branch.BranchName;
+                        labelStdTrack.Text = branchTrack.Track.TrackName;
+                    }
+                }
+            }
+
+            SetStudentBranchInComboBox();
+             SetStudentTrackInComboBox();
+
+
+        }
+        private void SetStudentTrackInComboBox()
+        {
+            using (var context = new ExSysContext())
+            {
+                var tracks = context.Tracks.ToList();
+                comboBoxStdTrack.DataSource = tracks;
+                comboBoxStdTrack.DisplayMember = "TrackName";
+                comboBoxStdTrack.ValueMember = "TrackId";
+
+                if (listBoxStd.SelectedItem is Student selectedStudent)
+                {
+                    var branchTrack = context.BranchTracks
+                                             .FirstOrDefault(bt => bt.BrTrId == selectedStudent.BrTrId);
+                    if (branchTrack != null)
+                    {
+                        comboBoxStdTrack.SelectedValue = branchTrack.TrackId;
+                    }
+                    else
+                    {
+                        comboBoxStdTrack.SelectedIndex = -1;
+                    }
+                }
+            }
+        }
+
+        private void SetStudentBranchInComboBox()
+        {
+            using (var context = new ExSysContext())
+            {
+                var branches = context.Branches.ToList();
+                comboBoxStdBranch.DataSource = branches;
+                comboBoxStdBranch.DisplayMember = "BranchName";
+                comboBoxStdBranch.ValueMember = "BranchId";
+
+                if (listBoxStd.SelectedItem is Student selectedStudent)
+                {
+                    var branchTrack = context.BranchTracks
+                                             .FirstOrDefault(bt => bt.BrTrId == selectedStudent.BrTrId);
+                    if (branchTrack != null)
+                    {
+                        comboBoxStdBranch.SelectedValue = branchTrack.BranchId;
+                    }
+                    else
+                    {
+                        comboBoxStdBranch.SelectedIndex = -1;
+                    }
+                }
+            }
         }
 
         private void btn_UpdateStd_Click(object sender, EventArgs e)
         {
-
-            int studentId = (int)listBoxStd.SelectedValue;
-            string studentFname = TBStudentFName.Text;
-            string studentLname = TBStudentLName.Text;
-            string studentEmail = TBStudentMail.Text;
-            string studentPassword = TBStudentPassword.Text;
-            int trackId = int.Parse(TBStudentTrack.Text);
-
-            using (var db = new ExSysContext())
+            try
             {
-                // Call the method to update the student
-                db.UpdateStudent(studentId, studentFname, studentLname, studentEmail, studentPassword, trackId);
-
-                MessageBox.Show("Student Updated Successfully");
+                int studentId = (int)listBoxStd.SelectedValue;
+                string studentFname = TBStudentFName.Text;
+                string studentLname = TBStudentLName.Text;
+                string studentEmail = TBStudentMail.Text;
+                string studentPassword = TBStudentPassword.Text;
+                int trackId = (int)comboBoxStdTrack.SelectedValue;
+                int branchId = (int)comboBoxStdBranch.SelectedValue;
+                using (var context = new ExSysContext())
+                {
+                    int brtrId = context.GetOrCreateBranchTrack(trackId, branchId);
+                    context.UpdateStudent(studentId, studentFname, studentLname, studentEmail, studentPassword, brtrId);
+                    context.SaveChanges();
+                    MessageBox.Show("Student Updated Successfully");
+                    RefreshStudentList();
+                }
             }
-
+            catch (DbUpdateException ex)
+            {
+                // Handle database-related exceptions
+                MessageBox.Show(ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -161,17 +256,13 @@ namespace ExSys.Forms
                 MessageBox.Show("You can't delete this student because it's used in another table", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        // Method to refresh the list of students
-
         private void btn_AddStudent_Click(object sender, EventArgs e)
         {
             // Perform client-side validation
             if (string.IsNullOrWhiteSpace(TBStudentFNameAdd.Text) ||
                 string.IsNullOrWhiteSpace(TBStudentLNameAdd.Text) ||
                 string.IsNullOrWhiteSpace(TBStudentMailAdd.Text) ||
-                string.IsNullOrWhiteSpace(TBStudentPasswordAdd.Text) ||
-                string.IsNullOrWhiteSpace(TBStudentTrackAdd.Text))
+                string.IsNullOrWhiteSpace(TBStudentPasswordAdd.Text))
             {
                 MessageBox.Show("All fields are required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -191,20 +282,17 @@ namespace ExSys.Forms
                 return;
             }
 
-            // Convert track ID to integer
-            if (!int.TryParse(TBStudentTrackAdd.Text, out int trackId))
-            {
-                MessageBox.Show("Invalid track ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             // Call the method to add the student
             using (var context = new ExSysContext())
             {
                 try
                 {
-                    context.AddStudent(TBStudentFNameAdd.Text, TBStudentLNameAdd.Text, TBStudentMailAdd.Text, TBStudentPasswordAdd.Text, trackId);
+                    int trackId = (int)comboBoxTracks.SelectedValue;
+                    int branchId = (int)comboBoxBranches.SelectedValue;
+                    int brtrId = context.GetOrCreateBranchTrack(trackId, branchId);
 
+
+                    context.AddStudent(TBStudentFNameAdd.Text, TBStudentLNameAdd.Text, TBStudentMailAdd.Text, TBStudentPasswordAdd.Text, brtrId);
                     // Save changes to the database
                     context.SaveChanges();
 
@@ -217,6 +305,7 @@ namespace ExSys.Forms
                     MessageBox.Show(ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
         }
 
         // Method to validate email format
@@ -371,16 +460,19 @@ namespace ExSys.Forms
                 listBoxinstructors.DataSource = instructors;
                 listBoxinstructors.DisplayMember = "InstructorFname";
                 listBoxinstructors.ValueMember = "InstructorId";
+                
             }
-
+            SetBranchesInComboBox();
         }
         private void listBoxinstructors_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             //data binding 
             TBInstructorFName.DataBindings.Clear();
             TBInstructorLName.DataBindings.Clear();
             TBInstructorMail.DataBindings.Clear();
             TBInstructorPass.DataBindings.Clear();
+            labelIssBranch.DataBindings.Clear();
 
 
             TBInstructorFName.DataBindings.Add("Text", listBoxinstructors.DataSource, "InstructorFname");
@@ -388,8 +480,41 @@ namespace ExSys.Forms
             TBInstructorMail.DataBindings.Add("Text", listBoxinstructors.DataSource, "InstructorEmail");
             TBInstructorPass.DataBindings.Add("Text", listBoxinstructors.DataSource, "InstructorPassword");
 
+            if (listBoxinstructors.SelectedItem is Instructor selectedInstructor)
+            {
+                using (var context = new ExSysContext())
+                {
+                    var branch = context.Branches
+                                        .FirstOrDefault(b => b.BranchId == selectedInstructor.BranchId);
+
+                    if (branch != null)
+                    {
+                        labelIssBranch.Text = branch.BranchName;
+                    }
+                }
+            }
+            SetBranchesInComboBox();
         }
-        private void btn_updateIns_Click(object sender, EventArgs e)
+       private void SetBranchesInComboBox()
+{
+    using (var context = new ExSysContext())
+    {
+        var branches = context.Branches.ToList();
+        comboBoxInsBranches.DataSource = branches;
+        comboBoxInsBranches.DisplayMember = "BranchName";
+        comboBoxInsBranches.ValueMember = "BranchId";
+
+        if (listBoxinstructors.SelectedItem is Instructor selectedInstructor)
+        {
+            comboBoxInsBranches.SelectedValue = selectedInstructor.BranchId;
+        }
+        else
+        {
+            comboBoxInsBranches.SelectedIndex = -1;
+        }
+    }
+}
+ private void btn_updateIns_Click(object sender, EventArgs e)
         {
             //get the selected instructor id
             int instructorId = (int)listBoxinstructors.SelectedValue;
@@ -403,9 +528,17 @@ namespace ExSys.Forms
                 // Call the method to update the instructor
                 context.UpdateInstructor(instructorId, instructorFname, instructorLname, instructorEmail, instructorPassword);
                 context.SaveChanges();
+                if (comboBoxInsBranches.SelectedValue is int branchId)
+                {
+                    context.UpdateInstructorBranch(instructorId, branchId);
+                    context.SaveChanges();
+                    labelIssBranch.Text = branchId.ToString();
+                }
                 MessageBox.Show("Instructor Updated Successfully");
                 RefreshInstructorList();
             }
+
+
 
         }
         public void RefreshInstructorList()
@@ -446,6 +579,17 @@ namespace ExSys.Forms
 
         }
 
+        private void gbAddInstructor_Enter(object sender, EventArgs e)
+        {
+            //populate the combobox of branches in the add instructor tab
+            using (var context = new ExSysContext())
+            {
+                var branches = context.Branches.ToList();
+                comboBoxINSBRCH.DataSource = branches;
+                comboBoxINSBRCH.DisplayMember = "BranchName";
+                comboBoxINSBRCH.ValueMember = "BranchId";
+            }
+        }
         private void btnAddInstructor_Click(object sender, EventArgs e)
         {
             // Perform client-side validation
@@ -477,8 +621,7 @@ namespace ExSys.Forms
             {
                 try
                 {
-                    context.AddInstructor(tbInstructorNameAdd.Text, TBInstructorLNameAdd.Text, TBInstructorMailAdd.Text, TBInstructorPassAdd.Text);
-
+                    context.AddInstructor(tbInstructorNameAdd.Text, TBInstructorLNameAdd.Text, TBInstructorMailAdd.Text, TBInstructorPassAdd.Text, (int)comboBoxINSBRCH.SelectedValue);
                     // Save changes to the database
                     context.SaveChanges();
 
@@ -490,6 +633,8 @@ namespace ExSys.Forms
                     // Handle database-related exceptions
                     MessageBox.Show(ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+
             }
 
         }
@@ -642,14 +787,11 @@ namespace ExSys.Forms
         }
         #endregion
 
-        private void btn_report_Click(object sender, EventArgs e)
+
+
+        private void groupBoxUpdateStd_Enter(object sender, EventArgs e)
         {
-            // Set up the ReportViewer
 
-           
-           
         }
-
-
     }
 }

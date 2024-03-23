@@ -44,6 +44,8 @@
             tdUpdateInstructor = new TabControl();
             tpAddInstructor = new TabPage();
             gbAddInstructor = new GroupBox();
+            comboBoxINSBRCH = new ComboBox();
+            label28 = new Label();
             TBInstructorPassAdd = new TextBox();
             label3 = new Label();
             TBInstructorMailAdd = new TextBox();
@@ -55,7 +57,9 @@
             lblInstructorName = new Label();
             tpUpdateInstructor = new TabPage();
             groupBoxupIns = new GroupBox();
-            btn_report = new Button();
+            labelIssBranch = new Label();
+            comboBoxInsBranches = new ComboBox();
+            label27 = new Label();
             btn_AssignNewCrs = new Button();
             btn_delIns = new Button();
             listBoxinstructors = new ListBox();
@@ -83,7 +87,9 @@
             tabٍStudents = new TabControl();
             tabAddStudent = new TabPage();
             groupBox1 = new GroupBox();
-            TBStudentTrackAdd = new TextBox();
+            comboBoxBranches = new ComboBox();
+            comboBoxTracks = new ComboBox();
+            label31 = new Label();
             label14 = new Label();
             TBStudentPasswordAdd = new TextBox();
             label4 = new Label();
@@ -96,7 +102,11 @@
             label7 = new Label();
             tabUpdateStudent = new TabPage();
             groupBoxUpdateStd = new GroupBox();
-            TBStudentTrack = new TextBox();
+            comboBoxStdBranch = new ComboBox();
+            comboBoxStdTrack = new ComboBox();
+            labelStdBranch = new Label();
+            labelStdTrack = new Label();
+            label32 = new Label();
             btn_DeleteStd = new Button();
             label13 = new Label();
             label12 = new Label();
@@ -261,6 +271,8 @@
             // 
             // gbAddInstructor
             // 
+            gbAddInstructor.Controls.Add(comboBoxINSBRCH);
+            gbAddInstructor.Controls.Add(label28);
             gbAddInstructor.Controls.Add(TBInstructorPassAdd);
             gbAddInstructor.Controls.Add(label3);
             gbAddInstructor.Controls.Add(TBInstructorMailAdd);
@@ -273,6 +285,18 @@
             resources.ApplyResources(gbAddInstructor, "gbAddInstructor");
             gbAddInstructor.Name = "gbAddInstructor";
             gbAddInstructor.TabStop = false;
+            gbAddInstructor.Enter += gbAddInstructor_Enter;
+            // 
+            // comboBoxINSBRCH
+            // 
+            comboBoxINSBRCH.FormattingEnabled = true;
+            resources.ApplyResources(comboBoxINSBRCH, "comboBoxINSBRCH");
+            comboBoxINSBRCH.Name = "comboBoxINSBRCH";
+            // 
+            // label28
+            // 
+            resources.ApplyResources(label28, "label28");
+            label28.Name = "label28";
             // 
             // TBInstructorPassAdd
             // 
@@ -330,7 +354,9 @@
             // 
             // groupBoxupIns
             // 
-            groupBoxupIns.Controls.Add(btn_report);
+            groupBoxupIns.Controls.Add(labelIssBranch);
+            groupBoxupIns.Controls.Add(comboBoxInsBranches);
+            groupBoxupIns.Controls.Add(label27);
             groupBoxupIns.Controls.Add(btn_AssignNewCrs);
             groupBoxupIns.Controls.Add(btn_delIns);
             groupBoxupIns.Controls.Add(listBoxinstructors);
@@ -349,12 +375,21 @@
             groupBoxupIns.Name = "groupBoxupIns";
             groupBoxupIns.TabStop = false;
             // 
-            // btn_report
+            // labelIssBranch
             // 
-            resources.ApplyResources(btn_report, "btn_report");
-            btn_report.Name = "btn_report";
-            btn_report.UseVisualStyleBackColor = true;
-            btn_report.Click += btn_report_Click;
+            resources.ApplyResources(labelIssBranch, "labelIssBranch");
+            labelIssBranch.Name = "labelIssBranch";
+            // 
+            // comboBoxInsBranches
+            // 
+            comboBoxInsBranches.FormattingEnabled = true;
+            resources.ApplyResources(comboBoxInsBranches, "comboBoxInsBranches");
+            comboBoxInsBranches.Name = "comboBoxInsBranches";
+            // 
+            // label27
+            // 
+            resources.ApplyResources(label27, "label27");
+            label27.Name = "label27";
             // 
             // btn_AssignNewCrs
             // 
@@ -525,7 +560,9 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(TBStudentTrackAdd);
+            groupBox1.Controls.Add(comboBoxBranches);
+            groupBox1.Controls.Add(comboBoxTracks);
+            groupBox1.Controls.Add(label31);
             groupBox1.Controls.Add(label14);
             groupBox1.Controls.Add(TBStudentPasswordAdd);
             groupBox1.Controls.Add(label4);
@@ -540,10 +577,22 @@
             groupBox1.Name = "groupBox1";
             groupBox1.TabStop = false;
             // 
-            // TBStudentTrackAdd
+            // comboBoxBranches
             // 
-            resources.ApplyResources(TBStudentTrackAdd, "TBStudentTrackAdd");
-            TBStudentTrackAdd.Name = "TBStudentTrackAdd";
+            comboBoxBranches.FormattingEnabled = true;
+            resources.ApplyResources(comboBoxBranches, "comboBoxBranches");
+            comboBoxBranches.Name = "comboBoxBranches";
+            // 
+            // comboBoxTracks
+            // 
+            comboBoxTracks.FormattingEnabled = true;
+            resources.ApplyResources(comboBoxTracks, "comboBoxTracks");
+            comboBoxTracks.Name = "comboBoxTracks";
+            // 
+            // label31
+            // 
+            resources.ApplyResources(label31, "label31");
+            label31.Name = "label31";
             // 
             // label14
             // 
@@ -606,7 +655,11 @@
             // 
             // groupBoxUpdateStd
             // 
-            groupBoxUpdateStd.Controls.Add(TBStudentTrack);
+            groupBoxUpdateStd.Controls.Add(comboBoxStdBranch);
+            groupBoxUpdateStd.Controls.Add(comboBoxStdTrack);
+            groupBoxUpdateStd.Controls.Add(labelStdBranch);
+            groupBoxUpdateStd.Controls.Add(labelStdTrack);
+            groupBoxUpdateStd.Controls.Add(label32);
             groupBoxUpdateStd.Controls.Add(btn_DeleteStd);
             groupBoxUpdateStd.Controls.Add(label13);
             groupBoxUpdateStd.Controls.Add(label12);
@@ -623,11 +676,34 @@
             resources.ApplyResources(groupBoxUpdateStd, "groupBoxUpdateStd");
             groupBoxUpdateStd.Name = "groupBoxUpdateStd";
             groupBoxUpdateStd.TabStop = false;
+            groupBoxUpdateStd.Enter += groupBoxUpdateStd_Enter;
             // 
-            // TBStudentTrack
+            // comboBoxStdBranch
             // 
-            resources.ApplyResources(TBStudentTrack, "TBStudentTrack");
-            TBStudentTrack.Name = "TBStudentTrack";
+            comboBoxStdBranch.FormattingEnabled = true;
+            resources.ApplyResources(comboBoxStdBranch, "comboBoxStdBranch");
+            comboBoxStdBranch.Name = "comboBoxStdBranch";
+            // 
+            // comboBoxStdTrack
+            // 
+            comboBoxStdTrack.FormattingEnabled = true;
+            resources.ApplyResources(comboBoxStdTrack, "comboBoxStdTrack");
+            comboBoxStdTrack.Name = "comboBoxStdTrack";
+            // 
+            // labelStdBranch
+            // 
+            resources.ApplyResources(labelStdBranch, "labelStdBranch");
+            labelStdBranch.Name = "labelStdBranch";
+            // 
+            // labelStdTrack
+            // 
+            resources.ApplyResources(labelStdTrack, "labelStdTrack");
+            labelStdTrack.Name = "labelStdTrack";
+            // 
+            // label32
+            // 
+            resources.ApplyResources(label32, "label32");
+            label32.Name = "label32";
             // 
             // btn_DeleteStd
             // 
@@ -911,9 +987,7 @@
         private Label label11;
         private Label label13;
         private Button btn_DeleteStd;
-        private TextBox TBStudentTrackAdd;
         private Label label14;
-        private TextBox TBStudentTrack;
         private TabPage tabPageCourses;
         private TabControl tabControlforcourses;
         private TabPage tabPageAddcourse;
@@ -954,6 +1028,18 @@
         private Label label25;
         private Label label24;
         private ComboBox comboBoxInstructors;
-        private Button btn_report;
+        private ComboBox comboBoxInsBranches;
+        private Label label27;
+        private Label labelIssBranch;
+        private ComboBox comboBoxINSBRCH;
+        private Label label28;
+        private Label label31;
+        private ComboBox comboBoxBranches;
+        private ComboBox comboBoxTracks;
+        private Label label32;
+        private Label labelStdTrack;
+        private ComboBox comboBoxStdBranch;
+        private ComboBox comboBoxStdTrack;
+        private Label labelStdBranch;
     }
 }
