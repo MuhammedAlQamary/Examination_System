@@ -15,13 +15,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Timer = System.Windows.Forms.Timer;
 
 namespace ExSys.Forms
 {
 	public partial class StudentForm : Form
 	{
 		private int studentid = 55;
-		 int courseid;
+		int courseid;
+        Timer examTimer;
+		int examDurationMinutes = 60;
+		DateTime examStartTime;
+		 Label labelTimer;
 
 		ExSysContext dbContext = new ExSysContext();
 
@@ -34,7 +39,10 @@ namespace ExSys.Forms
 			topFormControl.Dock = DockStyle.Top;
 			this.Controls.Add(topFormControl);
 
-
+			// Initialize timer
+			examTimer = new Timer();
+			examTimer.Interval = 1000; // Timer ticks every second
+			examTimer.Tick += ExamTimer_Tick;
 		}
 
 		private void StudentForm_Load(object sender, EventArgs e)
@@ -95,7 +103,6 @@ namespace ExSys.Forms
 				Console.WriteLine("An error occurred: " + ex.Message);
 			}
 		}
-
 		private void comboBoxStdCrs_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			try
@@ -133,38 +140,48 @@ namespace ExSys.Forms
 		private void buttonStartExam_Click(object sender, EventArgs e)
 		{
 			groupBoxStartExam.Visible = false;
+			StartExam();
+		}
+
+		private void comboBoxCrsExam_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			courseid = dbContext.Courses.FirstOrDefault(c => c.CourseName == comboBoxCrsExam.SelectedItem.ToString()).CourseId;
+
+		}
+
+		private void StartExam()
+		{
 			try
 			{
 				var student = dbContext.Students
-								.Include(s => s.BrTr)
-								.ThenInclude(bt => bt.Track)
-								.FirstOrDefault(sc => sc.StudentId == studentid);
+									.Include(s => s.BrTr)
+									.ThenInclude(bt => bt.Track)
+									.FirstOrDefault(sc => sc.StudentId == studentid);
 
-				int branchID = student.BrTr.BranchId;
-				int trackID = student.BrTr.TrackId;
-				MessageBox.Show($"BranchID_{student.BrTr.BranchId}:TrackID_{student.BrTr.TrackId}:StudentID_{studentid}:Course_Id{courseid}");
-				
-				var examIdParam = new SqlParameter("@Exam_ID", SqlDbType.Int) { Direction = ParameterDirection.Output };
+					int branchID = student.BrTr.BranchId;
+					int trackID = student.BrTr.TrackId;
+					MessageBox.Show($"BranchID_{student.BrTr.BranchId}:TrackID_{student.BrTr.TrackId}:StudentID_{studentid}:Course_Id{courseid}");
 
-				dbContext.Database.ExecuteSqlRaw("EXEC GetStudentExam @Track_ID, @Branch_ID, @Course_ID, @Exam_ID OUT",
-			   new SqlParameter("@Branch_ID", branchID),
-			   new SqlParameter("@Track_ID", trackID),
-			   new SqlParameter("@Course_ID", courseid),
-			   examIdParam);
-				int examID = (int)examIdParam.Value;
+					var examIdParam = new SqlParameter("@Exam_ID", SqlDbType.Int) { Direction = ParameterDirection.Output };
 
+					dbContext.Database.ExecuteSqlRaw("EXEC GetStudentExam @Track_ID, @Branch_ID, @Course_ID, @Exam_ID OUT",
+				   new SqlParameter("@Branch_ID", branchID),
+				   new SqlParameter("@Track_ID", trackID),
+				   new SqlParameter("@Course_ID", courseid),
+				   examIdParam);
+					int examID = (int)examIdParam.Value;
 
-				var exam = dbContext.Exams
-			    .Include(e => e.Questions)
-				.ThenInclude(a => a.Choices)
-				.FirstOrDefault(a => a.Exam_ID == examID);
-				var questions = exam.Questions;
-				int counter = 1;
-				int yPos = 40;
-				foreach (var q in questions)
-				{
-                    Console.WriteLine(q.ToString());
-                }
+					var exam = dbContext.Exams
+					.Include(e => e.Questions)
+					.ThenInclude(a => a.Choices)
+					.FirstOrDefault(a => a.Exam_ID == examID);
+					var questions = exam.Questions;
+					int counter = 1;
+					int yPos = 40;
+					foreach (var q in questions)
+					{
+						Console.WriteLine(q.ToString());
+					}
 				foreach (var question in questions)
 				{
 					// Display question text
@@ -174,33 +191,139 @@ namespace ExSys.Forms
 					labelQuestion.Location = new Point(20, yPos);
 					panelExam.Controls.Add(labelQuestion);
 
+					// Create a panel for the question answers 
+					var panelAnswers = new Panel();
+					panelAnswers.Name = $"panelAnswers_{question.QuestionId}";
+					panelAnswers.AutoSize = true;
+					panelAnswers.Location = new Point(20, yPos + labelQuestion.Height + 10); // Adjust position relative to the question label
+					panelExam.Controls.Add(panelAnswers);
+
 					// Display answer choices
-					yPos += 30;
 					foreach (var choice in question.Choices)
 					{
 						var radioButtonChoice = new RadioButton();
 						radioButtonChoice.Text = $"{choice.ChoiceText}";
 						radioButtonChoice.AutoSize = true;
-						radioButtonChoice.Location = new Point(40, yPos);
-						panelExam.Controls.Add(radioButtonChoice);
-						yPos += 20;
+						radioButtonChoice.Location = new Point(0, panelAnswers.Controls.Count * (radioButtonChoice.Height + 5)); // Adjust position within the panel
+						panelAnswers.Controls.Add(radioButtonChoice);
 					}
-					yPos += 10; // Add some spacing between questions
+
+					yPos += labelQuestion.Height + panelAnswers.Height + 20; // Increment yPos to accommodate the next question and its answers
 				}
 
+				// Create a timer label
+				labelTimer = new Label();
+				labelTimer.Text = "Remaining time : 00:60:00"; // Initial timer value
+				labelTimer.AutoSize = true;
+				labelTimer.Name = "labelTimer";
+				labelTimer.Font = new Font("Arial", 12, FontStyle.Bold);
+				labelTimer.Location = new Point((panelExam.Width / 2), 40); // Adjust the position as needed
+				panelExam.Controls.Add(labelTimer); // Add the label to the form
+
+				// Create a submit button
+				Button buttonSubmitExam = new Button();
+				buttonSubmitExam.Text = "Submit Exam";
+				buttonSubmitExam.AutoSize = true;
+				buttonSubmitExam.Name = "buttonSubmitExam";
+				buttonSubmitExam.Font = new Font("Arial", 12, FontStyle.Bold);
+				buttonSubmitExam.BackColor = Color.Red;
+				buttonSubmitExam.ForeColor = Color.White;
+				buttonSubmitExam.Cursor = Cursors.Hand;
+				buttonSubmitExam.FlatStyle = FlatStyle.Flat;
+				buttonSubmitExam.Location = new Point((panelExam.Width/2), yPos+20); // Adjust the position as needed
+				buttonSubmitExam.Click += ButtonSubmitExam_Click; // Attach event handler
+				panelExam.Controls.Add(buttonSubmitExam); // Add the button to the form
+				// Start the timer
+				examStartTime = DateTime.Now;
+				examTimer.Start();
 			}
 			catch
 			{
-			MessageBox.Show("An error occurred while getting the exam.");
-				
+				MessageBox.Show("An error occurred while starting the exam.");
 			}
-
 		}
 
-		private void comboBoxCrsExam_SelectedIndexChanged(object sender, EventArgs e)
+		private void ButtonSubmitExam_Click(object? sender, EventArgs e)
 		{
-			courseid = dbContext.Courses.FirstOrDefault(c => c.CourseName == comboBoxCrsExam.SelectedItem.ToString()).CourseId;
+			// Ask for confirmation before submitting the exam
+			DialogResult result = MessageBox.Show("Are you sure you want to submit the exam?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+			// Check if the user clicked Yes
+			if (result == DialogResult.Yes)
+			{
+				// Iterate through each question panel
+				foreach (var control in panelExam.Controls)
+				{
+					if (control is Panel questionPanel && questionPanel.Name.StartsWith("panelAnswers_"))
+					{
+						// Extract the question ID from the panel name
+						int questionId = int.Parse(questionPanel.Name.Split('_')[1]);
+
+						// Find the selected answer
+						string selectedAnswer = "";
+						foreach (var answerControl in questionPanel.Controls)
+						{
+							if (answerControl is RadioButton radioButton && radioButton.Checked)
+							{
+								selectedAnswer = radioButton.Text;
+								break;
+							}
+						}
+
+						// Output the question ID and the selected answer
+						Console.WriteLine($"Question ID: {questionId}, Selected Answer: {selectedAnswer}");
+					}
+				}
 			}
+		}
+
+
+		//private void ButtonSubmitExam_Click(object? sender, EventArgs e)
+		//{
+
+		//	foreach (var control in panelExam.Controls)
+		//	{
+		//		if (control is Panel questionPanel && questionPanel.Name.StartsWith("panelAnswers_"))
+		//		{
+		//			// Extract the question ID from the panel name
+		//			int questionId = int.Parse(questionPanel.Name.Split('_')[1]);
+
+		//			// Find the selected answer
+		//			string selectedAnswer = "";
+		//			foreach (var answerControl in questionPanel.Controls)
+		//			{
+		//				if (answerControl is RadioButton radioButton && radioButton.Checked)
+		//				{
+		//					selectedAnswer = radioButton.Text;
+		//					break;
+		//				}
+		//			}
+
+		//			// Output the question ID and the selected answer
+		//			Console.WriteLine($"Question ID: {questionId}, Selected Answer: {selectedAnswer}");
+		//		}
+		//	}
+		//}
+
+		private void ExamTimer_Tick(object sender, EventArgs e)
+		{
+			// Calculate remaining time
+			TimeSpan elapsedTime = DateTime.Now - examStartTime;
+			TimeSpan remainingTime = TimeSpan.FromMinutes(examDurationMinutes) - elapsedTime;
+
+			// Update timer label
+			TimeSpan formattedTime = remainingTime.Duration();
+			labelTimer.Text = $"Remaining time : {formattedTime.Hours:00}:{formattedTime.Minutes:00}:{formattedTime.Seconds:00}";
+
+			// Check if time is up
+			if (elapsedTime.TotalMinutes >= examDurationMinutes)
+			{
+				examTimer.Stop();
+				MessageBox.Show("Time's up! Your exam has ended.");
+				// Optionally, automatically submit the exam here.
+			}
+		}
+
 	}
+
 }
