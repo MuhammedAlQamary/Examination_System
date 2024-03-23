@@ -196,7 +196,7 @@
 			//exam_System_Generate_DatabaseDataSet1.DataSetName = "Exam_System_Generate_DatabaseDataSet";
 			//exam_System_Generate_DatabaseDataSet1.Namespace = "http://tempuri.org/Exam_System_Generate_DatabaseDataSet.xsd";
 			//exam_System_Generate_DatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-			// 
+
 			// StudentForm
 			// 
 			resources.ApplyResources(this, "$this");
