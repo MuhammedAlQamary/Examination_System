@@ -33,6 +33,7 @@
             tabControlStudentForm = new TabControl();
             TabStdDet1 = new TabPage();
             groupBoxStdDet = new GroupBox();
+            courseBindingSource = new BindingSource(components);
             LBLBranchName = new Label();
             label8 = new Label();
             LBLStudentCrsDegree = new Label();
@@ -50,20 +51,13 @@
             buttonStartExam = new Button();
             comboBoxCrsExam = new ComboBox();
             label5 = new Label();
-            exam_System_Generate_DatabaseDataSet1 = new Exam_System_Generate_DatabaseDataSet();
-            dataGridView1 = new DataGridView();
-            courseBindingSource = new BindingSource(components);
-            courseNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            studentCoursesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             tabControlStudentForm.SuspendLayout();
             TabStdDet1.SuspendLayout();
             groupBoxStdDet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)courseBindingSource).BeginInit();
             TabStdDet2.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBoxStartExam.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)exam_System_Generate_DatabaseDataSet1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)courseBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tabControlStudentForm
@@ -83,7 +77,6 @@
             // 
             // groupBoxStdDet
             // 
-            groupBoxStdDet.Controls.Add(dataGridView1);
             groupBoxStdDet.Controls.Add(LBLBranchName);
             groupBoxStdDet.Controls.Add(label8);
             groupBoxStdDet.Controls.Add(LBLStudentCrsDegree);
@@ -97,6 +90,10 @@
             resources.ApplyResources(groupBoxStdDet, "groupBoxStdDet");
             groupBoxStdDet.Name = "groupBoxStdDet";
             groupBoxStdDet.TabStop = false;
+            // 
+            // courseBindingSource
+            // 
+            courseBindingSource.DataSource = typeof(Data.Models.Course);
             // 
             // LBLBranchName
             // 
@@ -200,43 +197,6 @@
             resources.ApplyResources(label5, "label5");
             label5.Name = "label5";
             // 
-            // exam_System_Generate_DatabaseDataSet1
-            // 
-            exam_System_Generate_DatabaseDataSet1.DataSetName = "Exam_System_Generate_DatabaseDataSet";
-            exam_System_Generate_DatabaseDataSet1.Namespace = "http://tempuri.org/Exam_System_Generate_DatabaseDataSet.xsd";
-            exam_System_Generate_DatabaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToOrderColumns = true;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { courseNameDataGridViewTextBoxColumn, studentCoursesDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = courseBindingSource;
-            resources.ApplyResources(dataGridView1, "dataGridView1");
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            // 
-            // courseBindingSource
-            // 
-            courseBindingSource.DataSource = typeof(Data.Models.Course);
-            // 
-            // courseNameDataGridViewTextBoxColumn
-            // 
-            courseNameDataGridViewTextBoxColumn.DataPropertyName = "CourseName";
-            resources.ApplyResources(courseNameDataGridViewTextBoxColumn, "courseNameDataGridViewTextBoxColumn");
-            courseNameDataGridViewTextBoxColumn.Name = "courseNameDataGridViewTextBoxColumn";
-            courseNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // studentCoursesDataGridViewTextBoxColumn
-            // 
-            studentCoursesDataGridViewTextBoxColumn.DataPropertyName = "StudentCourses";
-            resources.ApplyResources(studentCoursesDataGridViewTextBoxColumn, "studentCoursesDataGridViewTextBoxColumn");
-            studentCoursesDataGridViewTextBoxColumn.Name = "studentCoursesDataGridViewTextBoxColumn";
-            studentCoursesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // StudentForm
             // 
             resources.ApplyResources(this, "$this");
@@ -251,13 +211,11 @@
             TabStdDet1.ResumeLayout(false);
             groupBoxStdDet.ResumeLayout(false);
             groupBoxStdDet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)courseBindingSource).EndInit();
             TabStdDet2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBoxStartExam.ResumeLayout(false);
             groupBoxStartExam.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)exam_System_Generate_DatabaseDataSet1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)courseBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -283,10 +241,6 @@
 		private Label LBLBranchName;
 		private Label label8;
 		private Panel panelExam;
-		private Exam_System_Generate_DatabaseDataSet exam_System_Generate_DatabaseDataSet1;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn courseNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn studentCoursesDataGridViewTextBoxColumn;
         private BindingSource courseBindingSource;
     }
 }

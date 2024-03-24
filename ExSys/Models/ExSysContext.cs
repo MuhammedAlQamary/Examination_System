@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeVie
 using ExSys.Dtos;
 using ExSys.MyModels;
 
@@ -92,25 +93,26 @@ public partial class ExSysContext : DbContext
     #endregion
 
     #region functions for stored procedures for instructor
-    public void AddInstructor(string instructorFname, string instructorLname, string instructorEmail, string instructorPassword)
+    public void AddInstructor(string instructorFname, string instructorLname, string instructorEmail, string instructorPassword, int branchId)
     {
         // Call the stored procedure using raw SQL query
-        Database.ExecuteSqlRaw("EXEC dbo.AddInstructor @Instructor_Fname, @Instructor_Lname, @Instructor_Email, @Instructor_Password",
+        Database.ExecuteSqlRaw("EXEC dbo.AddInstructor @Instructor_Fname, @Instructor_Lname, @Instructor_Email, @Instructor_Password , @Branch_ID",
                                       new SqlParameter("@Instructor_Fname", instructorFname),
                                       new SqlParameter("@Instructor_Lname", instructorLname),
                                       new SqlParameter("@Instructor_Email", instructorEmail),
-                                      new SqlParameter("@Instructor_Password", instructorPassword));
+                                      new SqlParameter("@Instructor_Password", instructorPassword),
+                                      new SqlParameter("@Branch_ID", branchId));
     }
 
     public void UpdateInstructor(int instructorId, string instructorFname, string instructorLname, string instructorEmail, string instructorPassword)
     {
         // Call the stored procedure using Entity Framework
-        Database.ExecuteSqlRaw("EXEC dbo.UpdateInstructor @Instructor_ID, @Instructor_Fname, @Instructor_Lname, @Instructor_Email, @Instructor_Password",
+        Database.ExecuteSqlRaw("EXEC dbo.UpdateInstructor @Instructor_ID, @Instructor_Fname, @Instructor_Lname, @Instructor_Email, @Instructor_Password ",
                                      new SqlParameter("@Instructor_ID", instructorId),
                                      new SqlParameter("@Instructor_Fname", instructorFname),
                                      new SqlParameter("@Instructor_Lname", instructorLname),
-                                                                                                                                                                                                                                                                                                                            new SqlParameter("@Instructor_Email", instructorEmail),
-                                                                                                                                                                                                                                                                                                                                                                                                                                                         new SqlParameter("@Instructor_Password", instructorPassword));
+                                     new SqlParameter("@Instructor_Email", instructorEmail),
+                                     new SqlParameter("@Instructor_Password", instructorPassword));
     }
 
     public void DeleteInstructor(int instructorId)
@@ -119,6 +121,14 @@ public partial class ExSysContext : DbContext
         Database.ExecuteSqlRaw("EXEC dbo.DeleteInstructor @Instructor_ID",
                                      new SqlParameter("@Instructor_ID", instructorId));
     }
+    public void UpdateInstructorBranch(int instructorId, int branchId)
+    {
+        // Call the stored procedure using Entity Framework
+        Database.ExecuteSqlRaw("EXEC dbo.UpdateInstructorBranch @Instructor_ID, @Branch_ID",
+                                            new SqlParameter("@Instructor_ID", instructorId),
+                                            new SqlParameter("@Branch_ID", branchId));
+    }
+   
 
     #region functions for stored procedures for instructor course
 
@@ -152,27 +162,51 @@ public partial class ExSysContext : DbContext
     #endregion
 
     #region functions for stored procedures for student
-    public void AddStudent(string studentFname, string studentLname, string studentEmail, string studentPassword, int trackId)
+
+    public int GetOrCreateBranchTrack(int trackId, int branchId)
     {
-        // Call the stored procedure using raw SQL query
-        Database.ExecuteSqlRaw("EXEC dbo.AddStudent @Student_FName, @Student_LName, @Student_Email, @Student_Password, @Track_ID",
-                                                 new SqlParameter("@Student_FName", studentFname),
-                                                                                      new SqlParameter("@Student_LName", studentLname),
-                                                                                                                           new SqlParameter("@Student_Email", studentEmail),
-                                                                                                                                                                new SqlParameter("@Student_Password", studentPassword),
-                                                                                                                                                                                                     new SqlParameter("@Track_ID", trackId));
+        using (var context = new ExSysContext())
+        {
+            // Check if there is a value of the combined of the two comboboxes in the branchtrack table
+            var branchTrack = context.BranchTracks
+                .FirstOrDefault(bt => bt.TrackId == trackId && bt.BranchId == branchId);
+
+            if (branchTrack == null)
+            {
+                // If there is no value in the branchtrack table, add a new row
+                branchTrack = new BranchTrack { TrackId = trackId, BranchId = branchId };
+                context.BranchTracks.Add(branchTrack);
+                context.SaveChanges();
+            }
+
+            // Return the brtrid value
+            return branchTrack.BrTrId;
+        }
     }
 
-    public void UpdateStudent(int studentId, string studentFname, string studentLname, string studentEmail, string studentPassword, int trackId)
+
+    public void AddStudent(string studentFname, string studentLname, string studentEmail, string studentPassword, int BrTrID)
+    {
+        // Call the stored procedure using raw SQL query
+        Database.ExecuteSqlRaw("EXEC dbo.AddStudent @Student_FName, @Student_LName, @Student_Email, @Student_Password, @BrTr_ID",
+                                              new SqlParameter("@Student_FName", studentFname),
+                                              new SqlParameter("@Student_LName", studentLname),
+                                              new SqlParameter("@Student_Email", studentEmail),
+                                              new SqlParameter("@Student_Password", studentPassword),
+                                              new SqlParameter("@BrTr_ID", BrTrID));
+    }
+
+
+   public void UpdateStudent(int studentId, string studentFname, string studentLname, string studentEmail, string studentPassword , int brtrid)
     {
         // Call the stored procedure using Entity Framework
-        Database.ExecuteSqlRaw("EXEC dbo.UpdateStudent @Student_ID, @Student_FName, @Student_LName, @Student_Email, @Student_Password, @Track_ID",
-                                                            new SqlParameter("@Student_ID", studentId),
-                                                                                                                                                 new SqlParameter("@Student_FName", studentFname),
-                                                                                                                                                                                                                                                                           new SqlParameter("@Student_LName", studentLname),
-                                                                                                                                                                                                                                                                                                                                                                                                                          new SqlParameter("@Student_Email", studentEmail),
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              new SqlParameter("@Student_Password", studentPassword),
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       new SqlParameter("@Track_ID", trackId));
+        Database.ExecuteSqlRaw("EXEC dbo.UpdateStudent @Student_ID, @Student_FName, @Student_LName, @Student_Email, @Student_Password , @BrTr_ID",
+                                            new SqlParameter("@Student_ID", studentId),
+                                            new SqlParameter("@Student_FName", studentFname),
+                                            new SqlParameter("@Student_LName", studentLname),
+                                            new SqlParameter("@Student_Email", studentEmail),
+                                            new SqlParameter("@Student_Password", studentPassword),
+                                            new SqlParameter("@BrTr_ID", brtrid));
     }
 
     public void DeleteStudent(int studentId)
