@@ -117,53 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="courseNameDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>CourseName</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="courseNameDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="courseNameDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <data name="studentCoursesDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>StudentCourses</value>
-  </data>
-  <data name="studentCoursesDataGridViewTextBoxColumn.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="studentCoursesDataGridViewTextBoxColumn.Width" type="System.Int32, mscorlib">
-    <value>125</value>
-  </data>
-  <metadata name="courseBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>358, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 259</value>
-  </data>
-  <data name="dataGridView1.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>51</value>
-  </data>
-  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>911, 188</value>
-  </data>
-  <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Name" xml:space="preserve">
-    <value>dataGridView1</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.Parent" xml:space="preserve">
-    <value>groupBoxStdDet</value>
-  </data>
-  <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="LBLBranchName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -171,6 +125,7 @@
   <data name="LBLBranchName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="LBLBranchName.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 139</value>
   </data>
@@ -190,7 +145,7 @@
     <value>groupBoxStdDet</value>
   </data>
   <data name="&gt;&gt;LBLBranchName.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -220,7 +175,7 @@
     <value>groupBoxStdDet</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="LBLStudentCrsDegree.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -244,7 +199,7 @@
     <value>groupBoxStdDet</value>
   </data>
   <data name="&gt;&gt;LBLStudentCrsDegree.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -271,7 +226,7 @@
     <value>groupBoxStdDet</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="comboBoxStdCrs.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 180</value>
@@ -296,7 +251,7 @@
     <value>groupBoxStdDet</value>
   </data>
   <data name="&gt;&gt;comboBoxStdCrs.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -323,7 +278,7 @@
     <value>groupBoxStdDet</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="LBLStudentTrack.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -347,7 +302,7 @@
     <value>groupBoxStdDet</value>
   </data>
   <data name="&gt;&gt;LBLStudentTrack.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -374,7 +329,7 @@
     <value>groupBoxStdDet</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="LBLStudentName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -398,7 +353,7 @@
     <value>groupBoxStdDet</value>
   </data>
   <data name="&gt;&gt;LBLStudentName.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -425,7 +380,7 @@
     <value>groupBoxStdDet</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="groupBoxStdDet.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -712,11 +667,14 @@
   <data name="&gt;&gt;tabControlStudentForm.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="exam_System_Generate_DatabaseDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="courseBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>358, 17</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>65</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>8, 20</value>
@@ -736,29 +694,11 @@
   <data name="$this.Text" xml:space="preserve">
     <value>StudentForm</value>
   </data>
-  <data name="&gt;&gt;exam_System_Generate_DatabaseDataSet1.Name" xml:space="preserve">
-    <value>exam_System_Generate_DatabaseDataSet1</value>
-  </data>
-  <data name="&gt;&gt;exam_System_Generate_DatabaseDataSet1.Type" xml:space="preserve">
-    <value>ExSys.Exam_System_Generate_DatabaseDataSet, ExSys, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="&gt;&gt;courseBindingSource.Name" xml:space="preserve">
     <value>courseBindingSource</value>
   </data>
   <data name="&gt;&gt;courseBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;courseNameDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>courseNameDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;courseNameDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;studentCoursesDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>studentCoursesDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;studentCoursesDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>StudentForm</value>

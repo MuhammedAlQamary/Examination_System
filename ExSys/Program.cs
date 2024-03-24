@@ -20,9 +20,9 @@ namespace ExSys
             // see https://aka.ms/applicationconfiguration.
             //ApplicationConfiguration.Initialize();
             //Application.Run(new Formteacher());
-            // Application.Run(new loginForm());
+             Application.Run(new loginForm());
             // Application.Run(new adminForm());
-           Application.Run(new StudentForm(55));
+           //Application.Run(new StudentForm());
 
 
 
