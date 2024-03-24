@@ -23,6 +23,7 @@ namespace ExSys.Forms
 	{
 		private int studentid = 55;
 		int courseid;
+		int examID;
         Timer examTimer;
 		int examDurationMinutes = 60;
 		DateTime examStartTime;
@@ -31,7 +32,9 @@ namespace ExSys.Forms
 		ExSysContext dbContext = new ExSysContext();
 
 		List<string> studentCourses;
-		public StudentForm(int id)
+        List<string> studentTakeExam;
+
+        public StudentForm(int id)
 		{
 			studentid = id;
 			InitializeComponent();
@@ -69,10 +72,17 @@ namespace ExSys.Forms
 												.Select(sc => sc.Course.CourseName)
 												.ToList();
 
-					// Populate the combo box with the courses
-					comboBoxStdCrs.DataSource = studentCourses;
+                    comboBoxStdCrs.DataSource = studentCourses;
+
+                    studentTakeExam = dbContext.StudentCourses
+                                            .Where(sc => sc.StudentId == studentid && sc.StudentGrade==0 )
+                                            .Select(sc => sc.Course.CourseName)
+                                            .ToList();
+					comboBoxCrsExam.DataSource = studentTakeExam;
+                    // Populate the combo box with the courses
 					// Populate the combo box with the courses to take exam	
-					comboBoxCrsExam.DataSource = studentCourses;
+					//
+
 					//get the track name from students and tracks relation by the id of track 
 
 					var branchTrackStudent = student.BrTr;
@@ -169,7 +179,7 @@ namespace ExSys.Forms
 				   new SqlParameter("@Track_ID", trackID),
 				   new SqlParameter("@Course_ID", courseid),
 				   examIdParam);
-					int examID = (int)examIdParam.Value;
+					 examID = (int)examIdParam.Value;
 
 					var exam = dbContext.Exams
 					.Include(e => e.Questions)
@@ -247,7 +257,9 @@ namespace ExSys.Forms
 		{
 			// Ask for confirmation before submitting the exam
 			DialogResult result = MessageBox.Show("Are you sure you want to submit the exam?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
+			//create array of string to store the selected answers
+			List<string> selectedAnswers = new List<string>();
+			int flag = 0;
 			// Check if the user clicked Yes
 			if (result == DialogResult.Yes)
 			{
@@ -259,52 +271,54 @@ namespace ExSys.Forms
 						// Extract the question ID from the panel name
 						int questionId = int.Parse(questionPanel.Name.Split('_')[1]);
 
-						// Find the selected answer
-						string selectedAnswer = "";
+						// Find the selected answer						
+						int choiceNumber= 0;
 						foreach (var answerControl in questionPanel.Controls)
 						{
 							if (answerControl is RadioButton radioButton && radioButton.Checked)
 							{
-								selectedAnswer = radioButton.Text;
+								selectedAnswers.Add(radioButton.Text);
+								choiceNumber++;
 								break;
 							}
 						}
-
+						if (choiceNumber == 0)
+						{
+							flag++;
+                            selectedAnswers.Add("");
+                        }
 						// Output the question ID and the selected answer
-						Console.WriteLine($"Question ID: {questionId}, Selected Answer: {selectedAnswer}");
 					}
 				}
-			}
-		}
+				//print the selected answers
+				//run the following stored procedure to submit the answers
+				if (flag>0)
+				{
+                    DialogResult result1 = MessageBox.Show($"There are {flag} qustions not answered, do you want to submit!", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+					if (result1 == DialogResult.No)
+					{
+						flag = 0;
+						selectedAnswers.Clear();
+                        return;
+                    }
+                }
+					dbContext.Database.ExecuteSqlRaw($"SubmitStudentQuestion {studentid}, {examID} , '{selectedAnswers[0]}','{selectedAnswers[1]}','{selectedAnswers[2]}','{selectedAnswers[3]}','{selectedAnswers[4]}','{selectedAnswers[5]}','{selectedAnswers[6]}','{selectedAnswers[7]}','{selectedAnswers[8]}','{selectedAnswers[9]}'");
+
+				MessageBox.Show("Exam submitted successfully.");
+               // panelExam.Visible = false;
+				panelExam.Controls.Clear();
+				groupBoxStartExam.Visible = true;
+                studentTakeExam = dbContext.StudentCourses
+                                           .Where(sc => sc.StudentId == studentid && sc.StudentGrade == 0)
+                                           .Select(sc => sc.Course.CourseName)
+                                           .ToList();
+                comboBoxCrsExam.DataSource = studentTakeExam;
+
+                examTimer.Stop();
+            }
 
 
-		//private void ButtonSubmitExam_Click(object? sender, EventArgs e)
-		//{
-
-		//	foreach (var control in panelExam.Controls)
-		//	{
-		//		if (control is Panel questionPanel && questionPanel.Name.StartsWith("panelAnswers_"))
-		//		{
-		//			// Extract the question ID from the panel name
-		//			int questionId = int.Parse(questionPanel.Name.Split('_')[1]);
-
-		//			// Find the selected answer
-		//			string selectedAnswer = "";
-		//			foreach (var answerControl in questionPanel.Controls)
-		//			{
-		//				if (answerControl is RadioButton radioButton && radioButton.Checked)
-		//				{
-		//					selectedAnswer = radioButton.Text;
-		//					break;
-		//				}
-		//			}
-
-		//			// Output the question ID and the selected answer
-		//			Console.WriteLine($"Question ID: {questionId}, Selected Answer: {selectedAnswer}");
-		//		}
-		//	}
-		//}
-
+        }
 		private void ExamTimer_Tick(object sender, EventArgs e)
 		{
 			// Calculate remaining time
