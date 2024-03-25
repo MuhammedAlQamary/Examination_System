@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
             tabControlStudentForm = new TabControl();
             TabStdDet1 = new TabPage();
             groupBoxStdDet = new GroupBox();
+            courseBindingSource = new BindingSource(components);
+            LBLBranchName = new Label();
+            label8 = new Label();
             LBLStudentCrsDegree = new Label();
             label4 = new Label();
             comboBoxStdCrs = new ComboBox();
@@ -42,10 +46,18 @@
             label1 = new Label();
             TabStdDet2 = new TabPage();
             groupBox1 = new GroupBox();
+            panelExam = new Panel();
+            groupBoxStartExam = new GroupBox();
+            buttonStartExam = new Button();
+            comboBoxCrsExam = new ComboBox();
+            label5 = new Label();
             tabControlStudentForm.SuspendLayout();
             TabStdDet1.SuspendLayout();
             groupBoxStdDet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)courseBindingSource).BeginInit();
             TabStdDet2.SuspendLayout();
+            groupBox1.SuspendLayout();
+            groupBoxStartExam.SuspendLayout();
             SuspendLayout();
             // 
             // tabControlStudentForm
@@ -65,6 +77,8 @@
             // 
             // groupBoxStdDet
             // 
+            groupBoxStdDet.Controls.Add(LBLBranchName);
+            groupBoxStdDet.Controls.Add(label8);
             groupBoxStdDet.Controls.Add(LBLStudentCrsDegree);
             groupBoxStdDet.Controls.Add(label4);
             groupBoxStdDet.Controls.Add(comboBoxStdCrs);
@@ -76,6 +90,20 @@
             resources.ApplyResources(groupBoxStdDet, "groupBoxStdDet");
             groupBoxStdDet.Name = "groupBoxStdDet";
             groupBoxStdDet.TabStop = false;
+            // 
+            // courseBindingSource
+            // 
+            courseBindingSource.DataSource = typeof(Data.Models.Course);
+            // 
+            // LBLBranchName
+            // 
+            resources.ApplyResources(LBLBranchName, "LBLBranchName");
+            LBLBranchName.Name = "LBLBranchName";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(label8, "label8");
+            label8.Name = "label8";
             // 
             // LBLStudentCrsDegree
             // 
@@ -89,6 +117,7 @@
             // 
             // comboBoxStdCrs
             // 
+            comboBoxStdCrs.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxStdCrs.FormattingEnabled = true;
             resources.ApplyResources(comboBoxStdCrs, "comboBoxStdCrs");
             comboBoxStdCrs.Name = "comboBoxStdCrs";
@@ -128,9 +157,45 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(panelExam);
+            groupBox1.Controls.Add(groupBoxStartExam);
             resources.ApplyResources(groupBox1, "groupBox1");
             groupBox1.Name = "groupBox1";
             groupBox1.TabStop = false;
+            // 
+            // panelExam
+            // 
+            resources.ApplyResources(panelExam, "panelExam");
+            panelExam.Name = "panelExam";
+            // 
+            // groupBoxStartExam
+            // 
+            groupBoxStartExam.Controls.Add(buttonStartExam);
+            groupBoxStartExam.Controls.Add(comboBoxCrsExam);
+            groupBoxStartExam.Controls.Add(label5);
+            resources.ApplyResources(groupBoxStartExam, "groupBoxStartExam");
+            groupBoxStartExam.Name = "groupBoxStartExam";
+            groupBoxStartExam.TabStop = false;
+            // 
+            // buttonStartExam
+            // 
+            buttonStartExam.Cursor = Cursors.Hand;
+            resources.ApplyResources(buttonStartExam, "buttonStartExam");
+            buttonStartExam.Name = "buttonStartExam";
+            buttonStartExam.UseVisualStyleBackColor = true;
+            buttonStartExam.Click += buttonStartExam_Click;
+            // 
+            // comboBoxCrsExam
+            // 
+            comboBoxCrsExam.FormattingEnabled = true;
+            resources.ApplyResources(comboBoxCrsExam, "comboBoxCrsExam");
+            comboBoxCrsExam.Name = "comboBoxCrsExam";
+            comboBoxCrsExam.SelectedIndexChanged += comboBoxCrsExam_SelectedIndexChanged;
+            // 
+            // label5
+            // 
+            resources.ApplyResources(label5, "label5");
+            label5.Name = "label5";
             // 
             // StudentForm
             // 
@@ -146,7 +211,11 @@
             TabStdDet1.ResumeLayout(false);
             groupBoxStdDet.ResumeLayout(false);
             groupBoxStdDet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)courseBindingSource).EndInit();
             TabStdDet2.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBoxStartExam.ResumeLayout(false);
+            groupBoxStartExam.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -165,5 +234,13 @@
         private Label LBLStudentTrack;
         private Label LBLStudentCrsDegree;
         private Label label4;
+		private ComboBox comboBoxCrsExam;
+		private Label label5;
+		private Button buttonStartExam;
+		private GroupBox groupBoxStartExam;
+		private Label LBLBranchName;
+		private Label label8;
+		private Panel panelExam;
+        private BindingSource courseBindingSource;
     }
 }

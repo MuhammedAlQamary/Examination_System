@@ -24,7 +24,7 @@ namespace ExSys.Forms
         int duration = 0;
         Label labelRemainingTime { get; set; }
 
-        public GenerateExam(int x, DateOnly _date, int _durtion)
+        public GenerateExam(int ExamId, DateOnly _date, int _durtion)
         {
 
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace ExSys.Forms
             timer.Start();
 
             // Assign parameters
-            Exam_ID = x;
+            Exam_ID = ExamId;
             ExDuration = _durtion;
             ExamDate = _date;
             duration = ExDuration * 60 * 1000; // Convert hours to milliseconds
@@ -130,7 +130,6 @@ namespace ExSys.Forms
             labelRemainingTime.Text = string.Format("Time remaining: {0:00}:{1:00}:{2:00}",
                 timeRemaining.Hours, timeRemaining.Minutes, timeRemaining.Seconds);
         }
-
         private async void GenerateExam_Load(object sender, EventArgs e)
         {
             try

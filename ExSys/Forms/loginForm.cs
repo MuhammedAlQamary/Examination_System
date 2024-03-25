@@ -37,16 +37,23 @@ namespace ExSys
             using (var context = new ExSysContext())
             {
                 var instructor = context.Instructors.FirstOrDefault(i => i.InstructorEmail == email && i.InstructorPassword == password);
+                var student = context.Students.FirstOrDefault(s => s.StudentEmail == email && s.StudentPassword == password);   
                 if (email == "admin@admin.com" && password == "admin12345")
                 {
                     OpenAdminForm();
                 }
-                if (instructor != null)
+                else if (instructor != null)
                 {
-                    Formteacher teacherForm = new Formteacher(instructor.InstructorFname + " " + instructor.InstructorLname , instructor.InstructorEmail);
+                    Formteacher teacherForm = new Formteacher(instructor.InstructorId);
                     teacherForm.Show();
                     this.Hide();
 
+                }
+                else if(student != null)
+                {
+                    StudentForm studentForm = new StudentForm(student.StudentId);
+                    studentForm.Show();
+                    this.Hide();
                 }
                 else
                 {

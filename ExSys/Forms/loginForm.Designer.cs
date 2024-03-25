@@ -39,8 +39,12 @@
             Login = new Button();
             lblError = new Label();
             chkBoxPass = new CheckBox();
+            panel1 = new Panel();
+            panel2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)BtnClose).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BtnMinus).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -110,29 +114,43 @@
             chkBoxPass.UseVisualStyleBackColor = true;
             chkBoxPass.CheckedChanged += chkBoxPass_CheckedChanged;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(BtnMinus);
+            panel1.Controls.Add(BtnClose);
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Name = "panel1";
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(chkBoxPass);
+            panel2.Controls.Add(txtEmail);
+            panel2.Controls.Add(lblError);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(Login);
+            panel2.Controls.Add(txtPass);
+            resources.ApplyResources(panel2, "panel2");
+            panel2.Name = "panel2";
+            // 
             // loginForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(chkBoxPass);
-            Controls.Add(lblError);
-            Controls.Add(Login);
-            Controls.Add(BtnMinus);
-            Controls.Add(BtnClose);
-            Controls.Add(txtPass);
-            Controls.Add(label3);
-            Controls.Add(txtEmail);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "loginForm";
             WindowState = FormWindowState.Maximized;
             Load += loginForm_Load;
             ((System.ComponentModel.ISupportInitialize)BtnClose).EndInit();
             ((System.ComponentModel.ISupportInitialize)BtnMinus).EndInit();
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -147,5 +165,7 @@
         private Button Login;
         private Label lblError;
         private CheckBox chkBoxPass;
+        private Panel panel1;
+        private Panel panel2;
     }
 }
