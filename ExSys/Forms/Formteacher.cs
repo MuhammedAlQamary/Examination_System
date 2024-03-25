@@ -17,22 +17,21 @@ namespace ExSys.Forms
 {
     public partial class Formteacher : Form
     {
-        int id = 30;
+        int id ;
         ExSysContext db = new ExSysContext();
         public Instructor instructor;
         int? courseId;
         int? branchTrackId;
         string trackName;
         int ExamDuration;
-        public Formteacher(string name, string email)
+        public Formteacher(int ID)
         {
 
             InitializeComponent();
             topFormControl topFormControl = new topFormControl();
             topFormControl.Dock = DockStyle.Top;
             this.Controls.Add(topFormControl);
-            txtName.Text = name;
-            txtEmail.Text = email;
+            id = ID;
         }
         public Formteacher()
         {

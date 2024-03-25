@@ -44,7 +44,7 @@ namespace ExSys
                 }
                 else if (instructor != null)
                 {
-                    Formteacher teacherForm = new Formteacher(instructor.InstructorFname + " " + instructor.InstructorLname , instructor.InstructorEmail);
+                    Formteacher teacherForm = new Formteacher(instructor.InstructorId);
                     teacherForm.Show();
                     this.Hide();
 
