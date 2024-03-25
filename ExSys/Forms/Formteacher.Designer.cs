@@ -172,6 +172,8 @@
             // 
             // TeacherCourses
             // 
+            TeacherCourses.BackgroundColor = SystemColors.Window;
+            TeacherCourses.BorderStyle = BorderStyle.None;
             TeacherCourses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TeacherCourses.Location = new Point(5, 218);
             TeacherCourses.Name = "TeacherCourses";
@@ -361,7 +363,6 @@
             qType.TabIndex = 18;
             qType.Tag = " ";
             qType.Text = "Question Type :";
-          
             // 
             // TxtAnswer
             // 
@@ -389,7 +390,6 @@
             RadioMcq.TabStop = true;
             RadioMcq.Text = "Mcq";
             RadioMcq.UseVisualStyleBackColor = true;
-           // RadioMcq.CheckedChanged += this.RadioMcq_CheckedChanged;
             // 
             // RadioTF
             // 
