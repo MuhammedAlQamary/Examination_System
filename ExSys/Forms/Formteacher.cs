@@ -386,5 +386,27 @@ namespace ExSys.Forms
             report1.ShowDialog();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnShowTopics_Click(object sender, EventArgs e)
+        {
+            // render the report form
+            if (ShowCourses.SelectedValue == null)
+            {
+                MessageBox.Show("Please select a course to show the report");
+                return;
+            }
+            // get the selected course id by course name 
+            var selectedCourse = db.Courses.SingleOrDefault(a => a.CourseName == ShowCourses.SelectedValue);
+            ShowCourseID = selectedCourse.CourseId;
+
+            Report1 report1 = new Report1("Report4", ShowCourseID);
+            report1.ShowDialog();
+
+        }
     }
 }

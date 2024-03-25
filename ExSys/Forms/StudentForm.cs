@@ -122,13 +122,22 @@ namespace ExSys.Forms
                 var course = dbContext.Courses
                                     .Include(c => c.StudentCourses)
                                     .FirstOrDefault(c => c.CourseName == selectedCourse);
+                var grad = dbContext.StudentCourses.FirstOrDefault(a => a.CourseId == course.CourseId && a.StudentId == studentid).StudentGrade;
                 if (course != null)
                 {
                     // Assuming studentid is of type Int16
                     var studentCourse = course.StudentCourses.FirstOrDefault(sc => sc.StudentId == Convert.ToInt16(studentid));
                     if (studentCourse != null)
                     {
-                        LBLStudentCrsDegree.Text = studentCourse.StudentGrade.ToString();
+                        LBLStudentCrsDegree.Text = grad.ToString();
+                        if (studentCourse.StudentGrade == 0)
+                        {
+                            button2.Enabled = false;
+                        }
+                        else
+                        {
+                            button2.Enabled = true;
+                        }
                     }
                     else
                     {
@@ -345,6 +354,34 @@ namespace ExSys.Forms
             Report1 report1 = new Report1("Report2", studentid);
             report1.ShowDialog();
 
+        }
+
+        private void btnShowReports_Click(object sender, EventArgs e)
+        {
+            // render the report form
+            if (comboBoxStdCrs.SelectedValue == null)
+            {
+                MessageBox.Show("Please select a course to show the report");
+                return;
+            }
+            // get the course id from the selected course name
+            var selectedCourse = dbContext.Courses.SingleOrDefault(a => a.CourseName == comboBoxStdCrs.SelectedValue);
+            int ShowCourseID = selectedCourse.CourseId;
+
+            Report1 report1 = new Report1("Report4", ShowCourseID);
+            report1.ShowDialog();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            courseid = dbContext.Courses.FirstOrDefault(c => c.CourseName == comboBoxStdCrs.SelectedItem.ToString()).CourseId;
+            // get the exam id by include the student id and course id
+            var examID = dbContext.Exams.FirstOrDefault(a=>a.CourseId==courseid).Exam_ID;
+
+            // render the report form
+            Report2 report1 = new Report2("Report6", examID, studentid);
+            report1.ShowDialog();
         }
     }
 

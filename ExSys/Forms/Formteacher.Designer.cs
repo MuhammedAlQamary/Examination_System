@@ -31,6 +31,7 @@
             TeacherTabs = new TabControl();
             tabPage1 = new TabPage();
             groupBox1 = new GroupBox();
+            btnShowCourses = new Button();
             pictureBox1 = new PictureBox();
             label4 = new Label();
             label5 = new Label();
@@ -79,7 +80,7 @@
             TrackExam = new TextBox();
             Generate_Exam = new Button();
             BranchExam = new TextBox();
-            btnShowCourses = new Button();
+            btnShowTopics = new Button();
             TeacherTabs.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -134,10 +135,20 @@
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(724, 349);
+            groupBox1.Size = new Size(724, 375);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Profile";
+            // 
+            // btnShowCourses
+            // 
+            btnShowCourses.Location = new Point(506, 282);
+            btnShowCourses.Name = "btnShowCourses";
+            btnShowCourses.Size = new Size(141, 23);
+            btnShowCourses.TabIndex = 13;
+            btnShowCourses.Text = "Show Courses Report";
+            btnShowCourses.UseVisualStyleBackColor = true;
+            btnShowCourses.Click += btnShowCourses_Click;
             // 
             // pictureBox1
             // 
@@ -217,7 +228,7 @@
             tabPage3.Margin = new Padding(3, 2, 3, 2);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3, 2, 3, 2);
-            tabPage3.Size = new Size(1336, 620);
+            tabPage3.Size = new Size(1205, 563);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Question";
             tabPage3.UseVisualStyleBackColor = true;
@@ -232,7 +243,7 @@
             tabControl1.Name = "tabControl1";
             tabControl1.Padding = new Point(0, 0);
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1330, 616);
+            tabControl1.Size = new Size(1199, 559);
             tabControl1.TabIndex = 0;
             // 
             // Question
@@ -259,7 +270,7 @@
             Question.Margin = new Padding(3, 2, 3, 2);
             Question.Name = "Question";
             Question.Padding = new Padding(3, 2, 3, 2);
-            Question.Size = new Size(1322, 588);
+            Question.Size = new Size(1191, 531);
             Question.TabIndex = 0;
             Question.Text = "Add Question";
             Question.UseVisualStyleBackColor = true;
@@ -437,6 +448,7 @@
             // 
             // tabPage8
             // 
+            tabPage8.Controls.Add(btnShowTopics);
             tabPage8.Controls.Add(ShowCourses);
             tabPage8.Controls.Add(label14);
             tabPage8.Controls.Add(btnShowQ_Ans);
@@ -445,7 +457,7 @@
             tabPage8.Margin = new Padding(3, 2, 3, 2);
             tabPage8.Name = "tabPage8";
             tabPage8.Padding = new Padding(3, 2, 3, 2);
-            tabPage8.Size = new Size(1324, 591);
+            tabPage8.Size = new Size(1191, 531);
             tabPage8.TabIndex = 2;
             tabPage8.Text = "ViewQuestion";
             tabPage8.UseVisualStyleBackColor = true;
@@ -489,7 +501,7 @@
             QuestionsAnswers.Margin = new Padding(3, 2, 3, 2);
             QuestionsAnswers.Name = "QuestionsAnswers";
             QuestionsAnswers.RowHeadersWidth = 51;
-            QuestionsAnswers.Size = new Size(1318, 202);
+            QuestionsAnswers.Size = new Size(1185, 202);
             QuestionsAnswers.TabIndex = 0;
             // 
             // Reports
@@ -521,7 +533,7 @@
             Exam.Margin = new Padding(3, 2, 3, 2);
             Exam.Name = "Exam";
             Exam.Padding = new Padding(3, 2, 3, 2);
-            Exam.Size = new Size(1336, 620);
+            Exam.Size = new Size(1205, 563);
             Exam.TabIndex = 4;
             Exam.Text = "Exam";
             Exam.UseVisualStyleBackColor = true;
@@ -634,15 +646,17 @@
             BranchExam.Size = new Size(110, 23);
             BranchExam.TabIndex = 0;
             // 
-            // btnShowCourses
+            // btnShowTopics
             // 
-            btnShowCourses.Location = new Point(200, 153);
-            btnShowCourses.Name = "btnShowCourses";
-            btnShowCourses.Size = new Size(141, 23);
-            btnShowCourses.TabIndex = 13;
-            btnShowCourses.Text = "btnShowCourses";
-            btnShowCourses.UseVisualStyleBackColor = true;
-            btnShowCourses.Click += btnShowCourses_Click;
+            btnShowTopics.BackColor = SystemColors.ActiveCaption;
+            btnShowTopics.Location = new Point(462, 290);
+            btnShowTopics.Margin = new Padding(3, 2, 3, 2);
+            btnShowTopics.Name = "btnShowTopics";
+            btnShowTopics.Size = new Size(169, 37);
+            btnShowTopics.TabIndex = 37;
+            btnShowTopics.Text = "Show Courses Topics Report";
+            btnShowTopics.UseVisualStyleBackColor = false;
+            btnShowTopics.Click += btnShowTopics_Click;
             // 
             // Formteacher
             // 
@@ -733,5 +747,6 @@
         private PictureBox pictureBox1;
         private GroupBox groupBox1;
         private Button btnShowCourses;
+        private Button btnShowTopics;
     }
 }

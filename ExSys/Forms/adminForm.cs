@@ -73,6 +73,15 @@ namespace ExSys.Forms
 
             // assign 
 
+            // add exams into the list box CBExams
+            using (var context = new ExSysContext())
+            {
+                var exams = context.Exams.Select(a=>a.Exam_ID).ToList();
+                CBExams.DataSource = exams;
+                // CBExams.DisplayMember = "Exam_ID";
+                // CBExams.ValueMember = "Exam_ID";
+            }
+
         }
 
         private void buttonAddBranch_Click(object sender, EventArgs e)
@@ -1155,6 +1164,38 @@ namespace ExSys.Forms
             Report1 report1 = new Report1("Report3", (int)listBoxinstructors.SelectedValue);
             report1.ShowDialog();
 
+        }
+
+        private void btnShowTopics_Click(object sender, EventArgs e)
+        {
+            // render the report form
+            Report1 report1 = new Report1("Report4", (int)listBoxCourses.SelectedValue);
+            report1.ShowDialog();
+
+        }
+
+        private void btnShowExamReport_Click(object sender, EventArgs e)
+        {
+
+
+            Report1 report1 = new Report1("Report5", (int)CBExams.SelectedValue);
+            report1.ShowDialog();
+
+        }
+
+        private void CBExams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ExSysContext db = new ExSysContext();
+
+            var examID = CBExams.SelectedValue;
+            var exam = db.Exams.FirstOrDefault(a=>a.Exam_ID == (int)examID);
+            var courseID = exam.CourseId;
+            string courseName = db.Courses.FirstOrDefault(a => a.CourseId == courseID).CourseName;
+
+
+            label39.Text = courseName;
+
+            // var selectedCourse = db.Courses.SingleOrDefault(a => a.CourseName == CoursesComb.SelectedValue);
         }
     }
 }

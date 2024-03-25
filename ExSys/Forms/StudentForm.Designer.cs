@@ -33,6 +33,8 @@
             tabControlStudentForm = new TabControl();
             TabStdDet1 = new TabPage();
             groupBoxStdDet = new GroupBox();
+            btnShowReports = new Button();
+            button1 = new Button();
             LBLBranchName = new Label();
             label8 = new Label();
             LBLStudentCrsDegree = new Label();
@@ -51,7 +53,7 @@
             comboBoxCrsExam = new ComboBox();
             label5 = new Label();
             courseBindingSource = new BindingSource(components);
-            button1 = new Button();
+            button2 = new Button();
             tabControlStudentForm.SuspendLayout();
             TabStdDet1.SuspendLayout();
             groupBoxStdDet.SuspendLayout();
@@ -78,6 +80,8 @@
             // 
             // groupBoxStdDet
             // 
+            groupBoxStdDet.Controls.Add(button2);
+            groupBoxStdDet.Controls.Add(btnShowReports);
             groupBoxStdDet.Controls.Add(button1);
             groupBoxStdDet.Controls.Add(LBLBranchName);
             groupBoxStdDet.Controls.Add(label8);
@@ -92,6 +96,20 @@
             resources.ApplyResources(groupBoxStdDet, "groupBoxStdDet");
             groupBoxStdDet.Name = "groupBoxStdDet";
             groupBoxStdDet.TabStop = false;
+            // 
+            // btnShowReports
+            // 
+            resources.ApplyResources(btnShowReports, "btnShowReports");
+            btnShowReports.Name = "btnShowReports";
+            btnShowReports.UseVisualStyleBackColor = true;
+            btnShowReports.Click += btnShowReports_Click;
+            // 
+            // button1
+            // 
+            resources.ApplyResources(button1, "button1");
+            button1.Name = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // LBLBranchName
             // 
@@ -199,12 +217,12 @@
             // 
             courseBindingSource.DataSource = typeof(Data.Models.Course);
             // 
-            // button1
+            // button2
             // 
-            resources.ApplyResources(button1, "button1");
-            button1.Name = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            resources.ApplyResources(button2, "button2");
+            button2.Name = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // StudentForm
             // 
@@ -252,5 +270,7 @@
 		private Panel panelExam;
         private BindingSource courseBindingSource;
         private Button button1;
+        private Button btnShowReports;
+        private Button button2;
     }
 }
