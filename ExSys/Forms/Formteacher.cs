@@ -150,20 +150,28 @@ namespace ExSys.Forms
                 var crsIdParam = new Microsoft.Data.SqlClient.SqlParameter("@Crs_id", courseId);
                 var brTrIdParam = new Microsoft.Data.SqlClient.SqlParameter("@branchTrack_id", branchTrackId);
                 var exam_id = new Microsoft.Data.SqlClient.SqlParameter("@exam_id", SqlDbType.Int) { Direction = ParameterDirection.Output };
-                try
+                var exam = db.Exams.FirstOrDefault(a => a.BrTr_ID == branchTrackId && a.CourseId == courseId);
+                if (exam == null)
                 {
-                    var result = db.Exams
-                        .FromSqlRaw("exec GenerateExam2 @Exam_date, @duration, @Crs_id,@branchTrack_id,@exam_id out", examDateParam, durationParam, crsIdParam, brTrIdParam, exam_id)
-                        .ToList();
-
-                    int Passed_EX_ID = (int)exam_id.Value;
-                    GenerateExam GExam = new GenerateExam(Passed_EX_ID, currentDate, ExamDuration);
-                    GExam.Show();
+                    try
+                    {
+                        var result = db.Exams
+                            .FromSqlRaw("exec GenerateExam2 @Exam_date, @duration, @Crs_id,@branchTrack_id,@exam_id out", examDateParam, durationParam, crsIdParam, brTrIdParam, exam_id)
+                            .ToList();
+                        int Passed_EX_ID = (int)exam_id.Value;
+                        GenerateExam GExam = new GenerateExam(Passed_EX_ID, currentDate, ExamDuration);
+                        GExam.Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("you cant generate exam.");
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("you cant generate exam.");
+                    MessageBox.Show("this exam has been generated before"); 
                 }
+               
             }
             else
             {
