@@ -150,7 +150,7 @@
             btnShowCourses.UseVisualStyleBackColor = true;
             btnShowCourses.Click += btnShowCourses_Click;
             // 
-            // pictureBox1
+            // label5
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(418, 17);

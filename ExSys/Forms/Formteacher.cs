@@ -151,20 +151,28 @@ namespace ExSys.Forms
                 var crsIdParam = new Microsoft.Data.SqlClient.SqlParameter("@Crs_id", courseId);
                 var brTrIdParam = new Microsoft.Data.SqlClient.SqlParameter("@branchTrack_id", branchTrackId);
                 var exam_id = new Microsoft.Data.SqlClient.SqlParameter("@exam_id", SqlDbType.Int) { Direction = ParameterDirection.Output };
-                try
+                var exam = db.Exams.FirstOrDefault(a => a.BrTr_ID == branchTrackId && a.CourseId == courseId);
+                if (exam == null)
                 {
-                    var result = db.Exams
-                        .FromSqlRaw("exec GenerateExam2 @Exam_date, @duration, @Crs_id,@branchTrack_id,@exam_id out", examDateParam, durationParam, crsIdParam, brTrIdParam, exam_id)
-                        .ToList();
+                    try
+                    {
+                        var result = db.Exams
+                            .FromSqlRaw("exec GenerateExam2 @Exam_date, @duration, @Crs_id,@branchTrack_id,@exam_id out", examDateParam, durationParam, crsIdParam, brTrIdParam, exam_id)
+                            .ToList();
+                        int Passed_EX_ID = (int)exam_id.Value;
+                        GenerateExam GExam = new GenerateExam(Passed_EX_ID, currentDate, ExamDuration);
+                        GExam.Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("you cant generate exam.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("this exam has been generated before");
+                }
 
-                    int Passed_EX_ID = (int)exam_id.Value;
-                    GenerateExam GExam = new GenerateExam(Passed_EX_ID, currentDate, ExamDuration);
-                    GExam.Show();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("you cant generate exam.");
-                }
             }
             else
             {
@@ -336,6 +344,8 @@ namespace ExSys.Forms
         {
             choice3.Visible = false;
             choice4.Visible = false;
+            label12.Visible = false;
+            label13.Visible = false;
         }
 
         private void ShowQuestionWithAnswers()
@@ -378,7 +388,6 @@ namespace ExSys.Forms
         {
             TeacherTabs.Location = new Point((ClientSize.Width - TeacherTabs.Width) / 2, (ClientSize.Height - TeacherTabs.Height) / 2);
         }
-
         private void btnShowCourses_Click(object sender, EventArgs e)
         {
             // render the report form
