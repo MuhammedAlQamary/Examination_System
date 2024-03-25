@@ -102,6 +102,7 @@
             label7 = new Label();
             tabUpdateStudent = new TabPage();
             groupBoxUpdateStd = new GroupBox();
+            btnGrades = new Button();
             comboBoxStdBranch = new ComboBox();
             comboBoxStdTrack = new ComboBox();
             labelStdBranch = new Label();
@@ -173,7 +174,7 @@
             tbReports = new TabPage();
             groupBox4 = new GroupBox();
             button1 = new Button();
-            btnGrades = new Button();
+            button2 = new Button();
             adminTabControl.SuspendLayout();
             tp.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -405,6 +406,7 @@
             // 
             // groupBoxupIns
             // 
+            groupBoxupIns.Controls.Add(button2);
             groupBoxupIns.Controls.Add(labelIssBranch);
             groupBoxupIns.Controls.Add(comboBoxInsBranches);
             groupBoxupIns.Controls.Add(label27);
@@ -728,6 +730,13 @@
             resources.ApplyResources(groupBoxUpdateStd, "groupBoxUpdateStd");
             groupBoxUpdateStd.Name = "groupBoxUpdateStd";
             groupBoxUpdateStd.TabStop = false;
+            // 
+            // btnGrades
+            // 
+            resources.ApplyResources(btnGrades, "btnGrades");
+            btnGrades.Name = "btnGrades";
+            btnGrades.UseVisualStyleBackColor = true;
+            btnGrades.Click += btnGrades_Click;
             // 
             // comboBoxStdBranch
             // 
@@ -1200,12 +1209,12 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
-            // btnGrades
+            // button2
             // 
-            resources.ApplyResources(btnGrades, "btnGrades");
-            btnGrades.Name = "btnGrades";
-            btnGrades.UseVisualStyleBackColor = true;
-            btnGrades.Click += btnGrades_Click;
+            resources.ApplyResources(button2, "button2");
+            button2.Name = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
             // 
             // adminForm
             // 
@@ -1421,5 +1430,6 @@
         private GroupBox groupBox4;
         private Button button1;
         private Button btnGrades;
+        private Button button2;
     }
 }

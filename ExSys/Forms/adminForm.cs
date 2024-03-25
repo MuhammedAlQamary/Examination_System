@@ -1148,5 +1148,13 @@ namespace ExSys.Forms
             report1.ShowDialog();
 
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            // render the report form
+            Report1 report1 = new Report1("Report3", (int)listBoxinstructors.SelectedValue);
+            report1.ShowDialog();
+
+        }
     }
 }

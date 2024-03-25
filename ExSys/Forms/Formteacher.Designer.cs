@@ -79,6 +79,7 @@
             TrackExam = new TextBox();
             Generate_Exam = new Button();
             BranchExam = new TextBox();
+            btnShowCourses = new Button();
             TeacherTabs.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -100,24 +101,27 @@
             TeacherTabs.Controls.Add(Exam);
             TeacherTabs.Dock = DockStyle.Fill;
             TeacherTabs.Location = new Point(0, 0);
+            TeacherTabs.Margin = new Padding(3, 2, 3, 2);
             TeacherTabs.Name = "TeacherTabs";
             TeacherTabs.SelectedIndex = 0;
-            TeacherTabs.Size = new Size(1536, 864);
+            TeacherTabs.Size = new Size(1213, 591);
             TeacherTabs.TabIndex = 0;
             // 
             // tabPage1
             // 
             tabPage1.Controls.Add(groupBox1);
-            tabPage1.Location = new Point(4, 29);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Margin = new Padding(3, 2, 3, 2);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1528, 831);
+            tabPage1.Padding = new Padding(3, 2, 3, 2);
+            tabPage1.Size = new Size(1205, 563);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Profile";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnShowCourses);
             groupBox1.Controls.Add(pictureBox1);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label5);
@@ -126,9 +130,11 @@
             groupBox1.Controls.Add(txtName);
             groupBox1.Controls.Add(Email);
             groupBox1.Controls.Add(txtEmail);
-            groupBox1.Location = new Point(443, 153);
+            groupBox1.Location = new Point(388, 115);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(827, 465);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(724, 349);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Profile";
@@ -136,10 +142,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(478, 23);
+            pictureBox1.Location = new Point(418, 17);
             pictureBox1.Margin = new Padding(0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(331, 410);
+            pictureBox1.Size = new Size(290, 308);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -147,27 +153,26 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(25, 65);
+            label4.Location = new Point(22, 49);
             label4.Name = "label4";
-            label4.Size = new Size(49, 20);
+            label4.Size = new Size(39, 15);
             label4.TabIndex = 2;
             label4.Text = "Name";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(20, 124);
+            label5.Location = new Point(18, 93);
             label5.Name = "label5";
-            label5.Size = new Size(54, 20);
+            label5.Size = new Size(44, 15);
             label5.TabIndex = 3;
             label5.Text = "Branch";
             // 
             // txtBranch
             // 
-            txtBranch.Location = new Point(159, 124);
-            txtBranch.Margin = new Padding(3, 4, 3, 4);
+            txtBranch.Location = new Point(139, 93);
             txtBranch.Name = "txtBranch";
-            txtBranch.Size = new Size(133, 27);
+            txtBranch.Size = new Size(117, 23);
             txtBranch.TabIndex = 12;
             // 
             // TeacherCourses
@@ -175,44 +180,44 @@
             TeacherCourses.BackgroundColor = SystemColors.Window;
             TeacherCourses.BorderStyle = BorderStyle.None;
             TeacherCourses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TeacherCourses.Location = new Point(5, 218);
+            TeacherCourses.Location = new Point(4, 164);
+            TeacherCourses.Margin = new Padding(3, 2, 3, 2);
             TeacherCourses.Name = "TeacherCourses";
             TeacherCourses.RowHeadersWidth = 51;
-            TeacherCourses.Size = new Size(427, 188);
+            TeacherCourses.Size = new Size(374, 141);
             TeacherCourses.TabIndex = 5;
             // 
             // txtName
             // 
-            txtName.Location = new Point(129, 62);
-            txtName.Margin = new Padding(3, 4, 3, 4);
+            txtName.Location = new Point(113, 46);
             txtName.Name = "txtName";
-            txtName.Size = new Size(260, 27);
+            txtName.Size = new Size(228, 23);
             txtName.TabIndex = 11;
             // 
             // Email
             // 
             Email.AutoSize = true;
-            Email.Location = new Point(20, 23);
+            Email.Location = new Point(18, 17);
             Email.Name = "Email";
-            Email.Size = new Size(46, 20);
+            Email.Size = new Size(36, 15);
             Email.TabIndex = 0;
             Email.Text = "Email";
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(129, 20);
-            txtEmail.Margin = new Padding(3, 4, 3, 4);
+            txtEmail.Location = new Point(113, 15);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(260, 27);
+            txtEmail.Size = new Size(228, 23);
             txtEmail.TabIndex = 10;
             // 
             // tabPage3
             // 
             tabPage3.Controls.Add(tabControl1);
-            tabPage3.Location = new Point(4, 29);
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Margin = new Padding(3, 2, 3, 2);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1528, 831);
+            tabPage3.Padding = new Padding(3, 2, 3, 2);
+            tabPage3.Size = new Size(1336, 620);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Question";
             tabPage3.UseVisualStyleBackColor = true;
@@ -222,12 +227,12 @@
             tabControl1.Controls.Add(Question);
             tabControl1.Controls.Add(tabPage8);
             tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Location = new Point(3, 3);
+            tabControl1.Location = new Point(3, 2);
             tabControl1.Margin = new Padding(0);
             tabControl1.Name = "tabControl1";
             tabControl1.Padding = new Point(0, 0);
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1522, 825);
+            tabControl1.Size = new Size(1330, 616);
             tabControl1.TabIndex = 0;
             // 
             // Question
@@ -250,93 +255,99 @@
             Question.Controls.Add(RadioTF);
             Question.Controls.Add(TxtQ);
             Question.Controls.Add(questionLbl);
-            Question.Location = new Point(4, 29);
+            Question.Location = new Point(4, 24);
+            Question.Margin = new Padding(3, 2, 3, 2);
             Question.Name = "Question";
-            Question.Padding = new Padding(3);
-            Question.Size = new Size(1514, 792);
+            Question.Padding = new Padding(3, 2, 3, 2);
+            Question.Size = new Size(1322, 588);
             Question.TabIndex = 0;
             Question.Text = "Add Question";
             Question.UseVisualStyleBackColor = true;
             // 
             // choice4
             // 
-            choice4.Location = new Point(176, 292);
+            choice4.Location = new Point(154, 219);
+            choice4.Margin = new Padding(3, 2, 3, 2);
             choice4.Name = "choice4";
-            choice4.Size = new Size(315, 27);
+            choice4.Size = new Size(276, 23);
             choice4.TabIndex = 31;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(27, 295);
+            label13.Location = new Point(24, 221);
             label13.Name = "label13";
-            label13.Size = new Size(60, 20);
+            label13.Size = new Size(48, 15);
             label13.TabIndex = 30;
             label13.Text = "choice4";
             // 
             // choice3
             // 
-            choice3.Location = new Point(176, 257);
+            choice3.Location = new Point(154, 193);
+            choice3.Margin = new Padding(3, 2, 3, 2);
             choice3.Name = "choice3";
-            choice3.Size = new Size(315, 27);
+            choice3.Size = new Size(276, 23);
             choice3.TabIndex = 29;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(27, 260);
+            label12.Location = new Point(24, 195);
             label12.Name = "label12";
-            label12.Size = new Size(60, 20);
+            label12.Size = new Size(48, 15);
             label12.TabIndex = 28;
             label12.Text = "choice3";
             // 
             // choice2
             // 
-            choice2.Location = new Point(176, 217);
+            choice2.Location = new Point(154, 163);
+            choice2.Margin = new Padding(3, 2, 3, 2);
             choice2.Name = "choice2";
-            choice2.Size = new Size(315, 27);
+            choice2.Size = new Size(276, 23);
             choice2.TabIndex = 27;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(27, 220);
+            label11.Location = new Point(24, 165);
             label11.Name = "label11";
-            label11.Size = new Size(60, 20);
+            label11.Size = new Size(48, 15);
             label11.TabIndex = 26;
             label11.Text = "choice2";
             // 
             // choice1
             // 
-            choice1.Location = new Point(176, 177);
+            choice1.Location = new Point(154, 133);
+            choice1.Margin = new Padding(3, 2, 3, 2);
             choice1.Name = "choice1";
-            choice1.Size = new Size(315, 27);
+            choice1.Size = new Size(276, 23);
             choice1.TabIndex = 25;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(27, 180);
+            label10.Location = new Point(24, 135);
             label10.Name = "label10";
-            label10.Size = new Size(60, 20);
+            label10.Size = new Size(48, 15);
             label10.TabIndex = 24;
             label10.Text = "choice1";
             // 
             // CoursesComb
             // 
             CoursesComb.FormattingEnabled = true;
-            CoursesComb.Location = new Point(188, 127);
+            CoursesComb.Location = new Point(164, 95);
+            CoursesComb.Margin = new Padding(3, 2, 3, 2);
             CoursesComb.Name = "CoursesComb";
-            CoursesComb.Size = new Size(151, 28);
+            CoursesComb.Size = new Size(133, 23);
             CoursesComb.TabIndex = 23;
             CoursesComb.SelectedIndexChanged += CoursesComb_SelectedIndexChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(41, 127);
+            label1.Location = new Point(36, 95);
             label1.Name = "label1";
-            label1.Size = new Size(54, 20);
+            label1.Size = new Size(44, 15);
             label1.TabIndex = 21;
             label1.Text = "Course";
             // 
@@ -345,10 +356,10 @@
             AddBtn.BackColor = Color.DeepSkyBlue;
             AddBtn.Font = new Font("Rockwell", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddBtn.ForeColor = Color.White;
-            AddBtn.Location = new Point(83, 529);
+            AddBtn.Location = new Point(73, 397);
             AddBtn.Margin = new Padding(0);
             AddBtn.Name = "AddBtn";
-            AddBtn.Size = new Size(94, 43);
+            AddBtn.Size = new Size(82, 32);
             AddBtn.TabIndex = 20;
             AddBtn.Text = "Add";
             AddBtn.UseVisualStyleBackColor = false;
@@ -357,35 +368,37 @@
             // qType
             // 
             qType.AutoSize = true;
-            qType.Location = new Point(67, 351);
+            qType.Location = new Point(59, 263);
             qType.Name = "qType";
-            qType.Size = new Size(110, 20);
+            qType.Size = new Size(88, 15);
             qType.TabIndex = 18;
             qType.Tag = " ";
             qType.Text = "Question Type :";
             // 
             // TxtAnswer
             // 
-            TxtAnswer.Location = new Point(176, 70);
+            TxtAnswer.Location = new Point(154, 52);
+            TxtAnswer.Margin = new Padding(3, 2, 3, 2);
             TxtAnswer.Name = "TxtAnswer";
-            TxtAnswer.Size = new Size(315, 27);
+            TxtAnswer.Size = new Size(276, 23);
             TxtAnswer.TabIndex = 17;
             // 
             // QAnswer
             // 
             QAnswer.AutoSize = true;
-            QAnswer.Location = new Point(27, 73);
+            QAnswer.Location = new Point(24, 55);
             QAnswer.Name = "QAnswer";
-            QAnswer.Size = new Size(118, 20);
+            QAnswer.Size = new Size(95, 15);
             QAnswer.TabIndex = 16;
             QAnswer.Text = "Question answer";
             // 
             // RadioMcq
             // 
             RadioMcq.AutoSize = true;
-            RadioMcq.Location = new Point(105, 395);
+            RadioMcq.Location = new Point(92, 296);
+            RadioMcq.Margin = new Padding(3, 2, 3, 2);
             RadioMcq.Name = "RadioMcq";
-            RadioMcq.Size = new Size(59, 24);
+            RadioMcq.Size = new Size(49, 19);
             RadioMcq.TabIndex = 3;
             RadioMcq.TabStop = true;
             RadioMcq.Text = "Mcq";
@@ -394,9 +407,10 @@
             // RadioTF
             // 
             RadioTF.AutoSize = true;
-            RadioTF.Location = new Point(105, 441);
+            RadioTF.Location = new Point(92, 331);
+            RadioTF.Margin = new Padding(3, 2, 3, 2);
             RadioTF.Name = "RadioTF";
-            RadioTF.Size = new Size(95, 24);
+            RadioTF.Size = new Size(76, 19);
             RadioTF.TabIndex = 2;
             RadioTF.TabStop = true;
             RadioTF.Text = "True/false";
@@ -405,18 +419,19 @@
             // 
             // TxtQ
             // 
-            TxtQ.Location = new Point(176, 20);
+            TxtQ.Location = new Point(154, 15);
+            TxtQ.Margin = new Padding(3, 2, 3, 2);
             TxtQ.Multiline = true;
             TxtQ.Name = "TxtQ";
-            TxtQ.Size = new Size(315, 33);
+            TxtQ.Size = new Size(276, 26);
             TxtQ.TabIndex = 1;
             // 
             // questionLbl
             // 
             questionLbl.AutoSize = true;
-            questionLbl.Location = new Point(27, 35);
+            questionLbl.Location = new Point(24, 26);
             questionLbl.Name = "questionLbl";
-            questionLbl.Size = new Size(68, 20);
+            questionLbl.Size = new Size(55, 15);
             questionLbl.TabIndex = 0;
             questionLbl.Text = "Question";
             // 
@@ -426,10 +441,11 @@
             tabPage8.Controls.Add(label14);
             tabPage8.Controls.Add(btnShowQ_Ans);
             tabPage8.Controls.Add(QuestionsAnswers);
-            tabPage8.Location = new Point(4, 29);
+            tabPage8.Location = new Point(4, 24);
+            tabPage8.Margin = new Padding(3, 2, 3, 2);
             tabPage8.Name = "tabPage8";
-            tabPage8.Padding = new Padding(3);
-            tabPage8.Size = new Size(1514, 792);
+            tabPage8.Padding = new Padding(3, 2, 3, 2);
+            tabPage8.Size = new Size(1324, 591);
             tabPage8.TabIndex = 2;
             tabPage8.Text = "ViewQuestion";
             tabPage8.UseVisualStyleBackColor = true;
@@ -437,27 +453,29 @@
             // ShowCourses
             // 
             ShowCourses.FormattingEnabled = true;
-            ShowCourses.Location = new Point(151, 317);
+            ShowCourses.Location = new Point(132, 238);
+            ShowCourses.Margin = new Padding(3, 2, 3, 2);
             ShowCourses.Name = "ShowCourses";
-            ShowCourses.Size = new Size(151, 28);
+            ShowCourses.Size = new Size(133, 23);
             ShowCourses.TabIndex = 7;
             ShowCourses.SelectedIndexChanged += ShowCourses_SelectedIndexChanged;
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(71, 320);
+            label14.Location = new Point(62, 240);
             label14.Name = "label14";
-            label14.Size = new Size(60, 20);
+            label14.Size = new Size(49, 15);
             label14.TabIndex = 6;
             label14.Text = "Courses";
             // 
             // btnShowQ_Ans
             // 
             btnShowQ_Ans.BackColor = SystemColors.ActiveCaption;
-            btnShowQ_Ans.Location = new Point(528, 306);
+            btnShowQ_Ans.Location = new Point(462, 230);
+            btnShowQ_Ans.Margin = new Padding(3, 2, 3, 2);
             btnShowQ_Ans.Name = "btnShowQ_Ans";
-            btnShowQ_Ans.Size = new Size(193, 49);
+            btnShowQ_Ans.Size = new Size(169, 37);
             btnShowQ_Ans.TabIndex = 1;
             btnShowQ_Ans.Text = "ShowQuestionsAnswers";
             btnShowQ_Ans.UseVisualStyleBackColor = false;
@@ -467,18 +485,20 @@
             // 
             QuestionsAnswers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             QuestionsAnswers.Dock = DockStyle.Top;
-            QuestionsAnswers.Location = new Point(3, 3);
+            QuestionsAnswers.Location = new Point(3, 2);
+            QuestionsAnswers.Margin = new Padding(3, 2, 3, 2);
             QuestionsAnswers.Name = "QuestionsAnswers";
             QuestionsAnswers.RowHeadersWidth = 51;
-            QuestionsAnswers.Size = new Size(1508, 270);
+            QuestionsAnswers.Size = new Size(1318, 202);
             QuestionsAnswers.TabIndex = 0;
             // 
             // Reports
             // 
-            Reports.Location = new Point(4, 29);
+            Reports.Location = new Point(4, 24);
+            Reports.Margin = new Padding(3, 2, 3, 2);
             Reports.Name = "Reports";
-            Reports.Padding = new Padding(3);
-            Reports.Size = new Size(1528, 831);
+            Reports.Padding = new Padding(3, 2, 3, 2);
+            Reports.Size = new Size(1205, 563);
             Reports.TabIndex = 3;
             Reports.Text = "Reports";
             Reports.UseVisualStyleBackColor = true;
@@ -497,10 +517,11 @@
             Exam.Controls.Add(TrackExam);
             Exam.Controls.Add(Generate_Exam);
             Exam.Controls.Add(BranchExam);
-            Exam.Location = new Point(4, 29);
+            Exam.Location = new Point(4, 24);
+            Exam.Margin = new Padding(3, 2, 3, 2);
             Exam.Name = "Exam";
-            Exam.Padding = new Padding(3);
-            Exam.Size = new Size(1528, 831);
+            Exam.Padding = new Padding(3, 2, 3, 2);
+            Exam.Size = new Size(1336, 620);
             Exam.TabIndex = 4;
             Exam.Text = "Exam";
             Exam.UseVisualStyleBackColor = true;
@@ -508,93 +529,98 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(347, 192);
+            label9.Location = new Point(304, 144);
             label9.Name = "label9";
-            label9.Size = new Size(175, 20);
+            label9.Size = new Size(141, 15);
             label9.TabIndex = 11;
             label9.Text = "Enter duration in minutes";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(74, 196);
+            label8.Location = new Point(65, 147);
             label8.Name = "label8";
-            label8.Size = new Size(67, 20);
+            label8.Size = new Size(53, 15);
             label8.TabIndex = 10;
             label8.Text = "Duration";
             // 
             // DurationTxt
             // 
-            DurationTxt.Location = new Point(178, 189);
+            DurationTxt.Location = new Point(156, 142);
+            DurationTxt.Margin = new Padding(3, 2, 3, 2);
             DurationTxt.Name = "DurationTxt";
-            DurationTxt.Size = new Size(125, 27);
+            DurationTxt.Size = new Size(110, 23);
             DurationTxt.TabIndex = 9;
             DurationTxt.TextChanged += DurationTxt_TextChanged;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(391, 40);
+            label7.Location = new Point(342, 30);
             label7.Name = "label7";
-            label7.Size = new Size(111, 20);
+            label7.Size = new Size(88, 15);
             label7.TabIndex = 8;
             label7.Text = "SelectedCourse";
             // 
             // SelectedCourse
             // 
-            SelectedCourse.Location = new Point(515, 37);
+            SelectedCourse.Location = new Point(451, 28);
+            SelectedCourse.Margin = new Padding(3, 2, 3, 2);
             SelectedCourse.Name = "SelectedCourse";
-            SelectedCourse.Size = new Size(125, 27);
+            SelectedCourse.Size = new Size(110, 23);
             SelectedCourse.TabIndex = 7;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(391, 113);
+            label2.Location = new Point(342, 85);
             label2.Name = "label2";
-            label2.Size = new Size(83, 20);
+            label2.Size = new Size(66, 15);
             label2.TabIndex = 6;
             label2.Text = "TrackName";
             // 
             // CoursesExam
             // 
             CoursesExam.FormattingEnabled = true;
-            CoursesExam.Location = new Point(161, 41);
+            CoursesExam.Location = new Point(141, 31);
+            CoursesExam.Margin = new Padding(3, 2, 3, 2);
             CoursesExam.Name = "CoursesExam";
-            CoursesExam.Size = new Size(151, 28);
+            CoursesExam.Size = new Size(133, 23);
             CoursesExam.TabIndex = 5;
             CoursesExam.SelectedIndexChanged += CoursesExam_SelectedIndexChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(81, 44);
+            label3.Location = new Point(71, 33);
             label3.Name = "label3";
-            label3.Size = new Size(60, 20);
+            label3.Size = new Size(49, 15);
             label3.TabIndex = 4;
             label3.Text = "Courses";
             // 
             // branchlbl
             // 
             branchlbl.AutoSize = true;
-            branchlbl.Location = new Point(54, 113);
+            branchlbl.Location = new Point(47, 85);
             branchlbl.Name = "branchlbl";
-            branchlbl.Size = new Size(94, 20);
+            branchlbl.Size = new Size(76, 15);
             branchlbl.TabIndex = 3;
             branchlbl.Text = "BranchName";
             // 
             // TrackExam
             // 
-            TrackExam.Location = new Point(515, 106);
+            TrackExam.Location = new Point(451, 80);
+            TrackExam.Margin = new Padding(3, 2, 3, 2);
             TrackExam.Name = "TrackExam";
-            TrackExam.Size = new Size(125, 27);
+            TrackExam.Size = new Size(110, 23);
             TrackExam.TabIndex = 2;
             // 
             // Generate_Exam
             // 
-            Generate_Exam.Location = new Point(314, 300);
+            Generate_Exam.Location = new Point(275, 225);
+            Generate_Exam.Margin = new Padding(3, 2, 3, 2);
             Generate_Exam.Name = "Generate_Exam";
-            Generate_Exam.Size = new Size(160, 29);
+            Generate_Exam.Size = new Size(140, 22);
             Generate_Exam.TabIndex = 1;
             Generate_Exam.Text = "GenerateExam";
             Generate_Exam.UseVisualStyleBackColor = true;
@@ -602,20 +628,32 @@
             // 
             // BranchExam
             // 
-            BranchExam.Location = new Point(178, 113);
+            BranchExam.Location = new Point(156, 85);
+            BranchExam.Margin = new Padding(3, 2, 3, 2);
             BranchExam.Name = "BranchExam";
-            BranchExam.Size = new Size(125, 27);
+            BranchExam.Size = new Size(110, 23);
             BranchExam.TabIndex = 0;
+            // 
+            // btnShowCourses
+            // 
+            btnShowCourses.Location = new Point(200, 153);
+            btnShowCourses.Name = "btnShowCourses";
+            btnShowCourses.Size = new Size(141, 23);
+            btnShowCourses.TabIndex = 13;
+            btnShowCourses.Text = "btnShowCourses";
+            btnShowCourses.UseVisualStyleBackColor = true;
+            btnShowCourses.Click += btnShowCourses_Click;
             // 
             // Formteacher
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.White;
-            ClientSize = new Size(1536, 864);
+            ClientSize = new Size(1213, 591);
             Controls.Add(TeacherTabs);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Formteacher";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Formteacher";
@@ -694,5 +732,6 @@
         private Label label14;
         private PictureBox pictureBox1;
         private GroupBox groupBox1;
+        private Button btnShowCourses;
     }
 }

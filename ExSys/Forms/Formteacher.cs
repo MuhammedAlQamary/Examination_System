@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Data.Models;
 using ExSys.Forms;
+using ExSys.Forms.Reports;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
@@ -17,7 +18,7 @@ namespace ExSys.Forms
 {
     public partial class Formteacher : Form
     {
-        int id ;
+        int id;
         ExSysContext db = new ExSysContext();
         public Instructor instructor;
         int? courseId;
@@ -81,9 +82,9 @@ namespace ExSys.Forms
             txtName.ReadOnly = true;
             txtEmail.ReadOnly = true;
             txtBranch.ReadOnly = true;
-            SelectedCourse.ReadOnly=true;
+            SelectedCourse.ReadOnly = true;
             BranchExam.ReadOnly = true;
-            TrackExam.ReadOnly=true;
+            TrackExam.ReadOnly = true;
         }
 
 
@@ -348,7 +349,7 @@ namespace ExSys.Forms
                 column.FillWeight = 100f / QuestionsAnswers.Columns.Count;
             }
 
-            var questionsWithChoices = db.Questions.Include(q => q.Choices).Where(a=>a.CourseId==ShowCourseID) .ToList();
+            var questionsWithChoices = db.Questions.Include(q => q.Choices).Where(a => a.CourseId == ShowCourseID).ToList();
 
             var flattenedData = questionsWithChoices.SelectMany(q =>
                 q.Choices.Select(c => new
@@ -376,6 +377,14 @@ namespace ExSys.Forms
         private void CenterControls()
         {
             TeacherTabs.Location = new Point((ClientSize.Width - TeacherTabs.Width) / 2, (ClientSize.Height - TeacherTabs.Height) / 2);
+        }
+
+        private void btnShowCourses_Click(object sender, EventArgs e)
+        {
+            // render the report form
+            Report1 report1 = new Report1("Report3", id);
+            report1.ShowDialog();
+
         }
     }
 }
