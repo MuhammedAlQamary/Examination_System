@@ -129,12 +129,47 @@
             label15 = new Label();
             tabUpdateCourse = new TabPage();
             groupBoxupdate = new GroupBox();
+            buttonassigntotopic = new Button();
+            buttonAssCoursetoTrack = new Button();
             btn_delete = new Button();
             btn_updateCourse = new Button();
             label17 = new Label();
             listBoxCourses = new ListBox();
             TBCouseName = new TextBox();
             label16 = new Label();
+            tabAssignCourseTrack = new TabPage();
+            buttonAddthetrack = new Button();
+            ListboxNotAssignedTracks = new ListBox();
+            label26 = new Label();
+            label29 = new Label();
+            comboBoxcourses = new ComboBox();
+            buttonRemoveTrack = new Button();
+            ListboxAssignedTracks = new ListBox();
+            label30 = new Label();
+            tabPagetopicToCourses = new TabPage();
+            button_Addthetopic = new Button();
+            listBoxNotAssignedTopics = new ListBox();
+            label36 = new Label();
+            label37 = new Label();
+            comboBoxcoursesintopics = new ComboBox();
+            button_Removethetopic = new Button();
+            listBoxAssignedTopics = new ListBox();
+            label38 = new Label();
+            tabPagefortopics = new TabPage();
+            tabControlfortopics = new TabControl();
+            tabPageAddTopics = new TabPage();
+            groupBox2 = new GroupBox();
+            Btn_addtopic = new Button();
+            TopicName = new TextBox();
+            label33 = new Label();
+            tabPageupdateTopics = new TabPage();
+            groupBox3 = new GroupBox();
+            btn_deleteTopic = new Button();
+            Btn_updateTopic = new Button();
+            label34 = new Label();
+            listBoxForTopics = new ListBox();
+            textBoxTopicName = new TextBox();
+            label35 = new Label();
             adminTabControl.SuspendLayout();
             tp.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -162,6 +197,14 @@
             groupBoxAddCourses.SuspendLayout();
             tabUpdateCourse.SuspendLayout();
             groupBoxupdate.SuspendLayout();
+            tabAssignCourseTrack.SuspendLayout();
+            tabPagetopicToCourses.SuspendLayout();
+            tabPagefortopics.SuspendLayout();
+            tabControlfortopics.SuspendLayout();
+            tabPageAddTopics.SuspendLayout();
+            groupBox2.SuspendLayout();
+            tabPageupdateTopics.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // adminTabControl
@@ -170,6 +213,7 @@
             adminTabControl.Controls.Add(tpInstructors);
             adminTabControl.Controls.Add(tpStudents);
             adminTabControl.Controls.Add(tabPageCourses);
+            adminTabControl.Controls.Add(tabPagefortopics);
             resources.ApplyResources(adminTabControl, "adminTabControl");
             adminTabControl.Name = "adminTabControl";
             adminTabControl.SelectedIndex = 0;
@@ -676,7 +720,6 @@
             resources.ApplyResources(groupBoxUpdateStd, "groupBoxUpdateStd");
             groupBoxUpdateStd.Name = "groupBoxUpdateStd";
             groupBoxUpdateStd.TabStop = false;
-            groupBoxUpdateStd.Enter += groupBoxUpdateStd_Enter;
             // 
             // comboBoxStdBranch
             // 
@@ -787,6 +830,8 @@
             // 
             tabControlforcourses.Controls.Add(tabPageAddcourse);
             tabControlforcourses.Controls.Add(tabUpdateCourse);
+            tabControlforcourses.Controls.Add(tabAssignCourseTrack);
+            tabControlforcourses.Controls.Add(tabPagetopicToCourses);
             resources.ApplyResources(tabControlforcourses, "tabControlforcourses");
             tabControlforcourses.Name = "tabControlforcourses";
             tabControlforcourses.SelectedIndex = 0;
@@ -834,6 +879,8 @@
             // 
             // groupBoxupdate
             // 
+            groupBoxupdate.Controls.Add(buttonassigntotopic);
+            groupBoxupdate.Controls.Add(buttonAssCoursetoTrack);
             groupBoxupdate.Controls.Add(btn_delete);
             groupBoxupdate.Controls.Add(btn_updateCourse);
             groupBoxupdate.Controls.Add(label17);
@@ -843,6 +890,20 @@
             resources.ApplyResources(groupBoxupdate, "groupBoxupdate");
             groupBoxupdate.Name = "groupBoxupdate";
             groupBoxupdate.TabStop = false;
+            // 
+            // buttonassigntotopic
+            // 
+            resources.ApplyResources(buttonassigntotopic, "buttonassigntotopic");
+            buttonassigntotopic.Name = "buttonassigntotopic";
+            buttonassigntotopic.UseVisualStyleBackColor = true;
+            buttonassigntotopic.Click += buttonassigntotopic_Click;
+            // 
+            // buttonAssCoursetoTrack
+            // 
+            resources.ApplyResources(buttonAssCoursetoTrack, "buttonAssCoursetoTrack");
+            buttonAssCoursetoTrack.Name = "buttonAssCoursetoTrack";
+            buttonAssCoursetoTrack.UseVisualStyleBackColor = true;
+            buttonAssCoursetoTrack.Click += buttonAssCoursetoTrack_Click;
             // 
             // btn_delete
             // 
@@ -879,6 +940,236 @@
             // 
             resources.ApplyResources(label16, "label16");
             label16.Name = "label16";
+            // 
+            // tabAssignCourseTrack
+            // 
+            tabAssignCourseTrack.Controls.Add(buttonAddthetrack);
+            tabAssignCourseTrack.Controls.Add(ListboxNotAssignedTracks);
+            tabAssignCourseTrack.Controls.Add(label26);
+            tabAssignCourseTrack.Controls.Add(label29);
+            tabAssignCourseTrack.Controls.Add(comboBoxcourses);
+            tabAssignCourseTrack.Controls.Add(buttonRemoveTrack);
+            tabAssignCourseTrack.Controls.Add(ListboxAssignedTracks);
+            tabAssignCourseTrack.Controls.Add(label30);
+            resources.ApplyResources(tabAssignCourseTrack, "tabAssignCourseTrack");
+            tabAssignCourseTrack.Name = "tabAssignCourseTrack";
+            tabAssignCourseTrack.UseVisualStyleBackColor = true;
+            tabAssignCourseTrack.Enter += tabAssignCourseTrack_Enter;
+            // 
+            // buttonAddthetrack
+            // 
+            resources.ApplyResources(buttonAddthetrack, "buttonAddthetrack");
+            buttonAddthetrack.Name = "buttonAddthetrack";
+            buttonAddthetrack.UseVisualStyleBackColor = true;
+            buttonAddthetrack.Click += buttonAddthetrack_Click;
+            // 
+            // ListboxNotAssignedTracks
+            // 
+            ListboxNotAssignedTracks.FormattingEnabled = true;
+            resources.ApplyResources(ListboxNotAssignedTracks, "ListboxNotAssignedTracks");
+            ListboxNotAssignedTracks.Name = "ListboxNotAssignedTracks";
+            // 
+            // label26
+            // 
+            resources.ApplyResources(label26, "label26");
+            label26.Name = "label26";
+            // 
+            // label29
+            // 
+            resources.ApplyResources(label29, "label29");
+            label29.Name = "label29";
+            // 
+            // comboBoxcourses
+            // 
+            comboBoxcourses.FormattingEnabled = true;
+            resources.ApplyResources(comboBoxcourses, "comboBoxcourses");
+            comboBoxcourses.Name = "comboBoxcourses";
+            comboBoxcourses.SelectedIndexChanged += comboBoxcourses_SelectedIndexChanged;
+            // 
+            // buttonRemoveTrack
+            // 
+            resources.ApplyResources(buttonRemoveTrack, "buttonRemoveTrack");
+            buttonRemoveTrack.Name = "buttonRemoveTrack";
+            buttonRemoveTrack.UseVisualStyleBackColor = true;
+            buttonRemoveTrack.Click += buttonRemoveTrack_Click;
+            // 
+            // ListboxAssignedTracks
+            // 
+            ListboxAssignedTracks.FormattingEnabled = true;
+            resources.ApplyResources(ListboxAssignedTracks, "ListboxAssignedTracks");
+            ListboxAssignedTracks.Name = "ListboxAssignedTracks";
+            // 
+            // label30
+            // 
+            resources.ApplyResources(label30, "label30");
+            label30.Name = "label30";
+            // 
+            // tabPagetopicToCourses
+            // 
+            tabPagetopicToCourses.Controls.Add(button_Addthetopic);
+            tabPagetopicToCourses.Controls.Add(listBoxNotAssignedTopics);
+            tabPagetopicToCourses.Controls.Add(label36);
+            tabPagetopicToCourses.Controls.Add(label37);
+            tabPagetopicToCourses.Controls.Add(comboBoxcoursesintopics);
+            tabPagetopicToCourses.Controls.Add(button_Removethetopic);
+            tabPagetopicToCourses.Controls.Add(listBoxAssignedTopics);
+            tabPagetopicToCourses.Controls.Add(label38);
+            resources.ApplyResources(tabPagetopicToCourses, "tabPagetopicToCourses");
+            tabPagetopicToCourses.Name = "tabPagetopicToCourses";
+            tabPagetopicToCourses.UseVisualStyleBackColor = true;
+            tabPagetopicToCourses.Enter += tabPagetopicToCourses_Enter;
+            // 
+            // button_Addthetopic
+            // 
+            resources.ApplyResources(button_Addthetopic, "button_Addthetopic");
+            button_Addthetopic.Name = "button_Addthetopic";
+            button_Addthetopic.UseVisualStyleBackColor = true;
+            button_Addthetopic.Click += button1_Click;
+            // 
+            // listBoxNotAssignedTopics
+            // 
+            listBoxNotAssignedTopics.FormattingEnabled = true;
+            resources.ApplyResources(listBoxNotAssignedTopics, "listBoxNotAssignedTopics");
+            listBoxNotAssignedTopics.Name = "listBoxNotAssignedTopics";
+            // 
+            // label36
+            // 
+            resources.ApplyResources(label36, "label36");
+            label36.Name = "label36";
+            // 
+            // label37
+            // 
+            resources.ApplyResources(label37, "label37");
+            label37.Name = "label37";
+            // 
+            // comboBoxcoursesintopics
+            // 
+            comboBoxcoursesintopics.FormattingEnabled = true;
+            resources.ApplyResources(comboBoxcoursesintopics, "comboBoxcoursesintopics");
+            comboBoxcoursesintopics.Name = "comboBoxcoursesintopics";
+            comboBoxcoursesintopics.SelectedIndexChanged += comboBoxcoursesintopics_SelectedIndexChanged;
+            // 
+            // button_Removethetopic
+            // 
+            resources.ApplyResources(button_Removethetopic, "button_Removethetopic");
+            button_Removethetopic.Name = "button_Removethetopic";
+            button_Removethetopic.UseVisualStyleBackColor = true;
+            button_Removethetopic.Click += button2_Click;
+            // 
+            // listBoxAssignedTopics
+            // 
+            listBoxAssignedTopics.FormattingEnabled = true;
+            resources.ApplyResources(listBoxAssignedTopics, "listBoxAssignedTopics");
+            listBoxAssignedTopics.Name = "listBoxAssignedTopics";
+            // 
+            // label38
+            // 
+            resources.ApplyResources(label38, "label38");
+            label38.Name = "label38";
+            // 
+            // tabPagefortopics
+            // 
+            tabPagefortopics.Controls.Add(tabControlfortopics);
+            resources.ApplyResources(tabPagefortopics, "tabPagefortopics");
+            tabPagefortopics.Name = "tabPagefortopics";
+            tabPagefortopics.UseVisualStyleBackColor = true;
+            // 
+            // tabControlfortopics
+            // 
+            tabControlfortopics.Controls.Add(tabPageAddTopics);
+            tabControlfortopics.Controls.Add(tabPageupdateTopics);
+            resources.ApplyResources(tabControlfortopics, "tabControlfortopics");
+            tabControlfortopics.Name = "tabControlfortopics";
+            tabControlfortopics.SelectedIndex = 0;
+            // 
+            // tabPageAddTopics
+            // 
+            tabPageAddTopics.Controls.Add(groupBox2);
+            resources.ApplyResources(tabPageAddTopics, "tabPageAddTopics");
+            tabPageAddTopics.Name = "tabPageAddTopics";
+            tabPageAddTopics.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(Btn_addtopic);
+            groupBox2.Controls.Add(TopicName);
+            groupBox2.Controls.Add(label33);
+            resources.ApplyResources(groupBox2, "groupBox2");
+            groupBox2.Name = "groupBox2";
+            groupBox2.TabStop = false;
+            // 
+            // Btn_addtopic
+            // 
+            resources.ApplyResources(Btn_addtopic, "Btn_addtopic");
+            Btn_addtopic.Name = "Btn_addtopic";
+            Btn_addtopic.UseVisualStyleBackColor = true;
+            Btn_addtopic.Click += Btn_addtopic_Click_1;
+            // 
+            // TopicName
+            // 
+            resources.ApplyResources(TopicName, "TopicName");
+            TopicName.Name = "TopicName";
+            // 
+            // label33
+            // 
+            resources.ApplyResources(label33, "label33");
+            label33.Name = "label33";
+            // 
+            // tabPageupdateTopics
+            // 
+            tabPageupdateTopics.Controls.Add(groupBox3);
+            resources.ApplyResources(tabPageupdateTopics, "tabPageupdateTopics");
+            tabPageupdateTopics.Name = "tabPageupdateTopics";
+            tabPageupdateTopics.UseVisualStyleBackColor = true;
+            tabPageupdateTopics.Enter += tabPageupdateTopics_Enter;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(btn_deleteTopic);
+            groupBox3.Controls.Add(Btn_updateTopic);
+            groupBox3.Controls.Add(label34);
+            groupBox3.Controls.Add(listBoxForTopics);
+            groupBox3.Controls.Add(textBoxTopicName);
+            groupBox3.Controls.Add(label35);
+            resources.ApplyResources(groupBox3, "groupBox3");
+            groupBox3.Name = "groupBox3";
+            groupBox3.TabStop = false;
+            // 
+            // btn_deleteTopic
+            // 
+            resources.ApplyResources(btn_deleteTopic, "btn_deleteTopic");
+            btn_deleteTopic.Name = "btn_deleteTopic";
+            btn_deleteTopic.UseVisualStyleBackColor = true;
+            btn_deleteTopic.Click += btn_deleteTopic_Click;
+            // 
+            // Btn_updateTopic
+            // 
+            resources.ApplyResources(Btn_updateTopic, "Btn_updateTopic");
+            Btn_updateTopic.Name = "Btn_updateTopic";
+            Btn_updateTopic.UseVisualStyleBackColor = true;
+            Btn_updateTopic.Click += Btn_updateTopic_Click;
+            // 
+            // label34
+            // 
+            resources.ApplyResources(label34, "label34");
+            label34.Name = "label34";
+            // 
+            // listBoxForTopics
+            // 
+            listBoxForTopics.FormattingEnabled = true;
+            resources.ApplyResources(listBoxForTopics, "listBoxForTopics");
+            listBoxForTopics.Name = "listBoxForTopics";
+            listBoxForTopics.SelectedIndexChanged += listBoxForTopics_SelectedIndexChanged;
+            // 
+            // textBoxTopicName
+            // 
+            resources.ApplyResources(textBoxTopicName, "textBoxTopicName");
+            textBoxTopicName.Name = "textBoxTopicName";
+            // 
+            // label35
+            // 
+            resources.ApplyResources(label35, "label35");
+            label35.Name = "label35";
             // 
             // adminForm
             // 
@@ -924,6 +1215,18 @@
             tabUpdateCourse.ResumeLayout(false);
             groupBoxupdate.ResumeLayout(false);
             groupBoxupdate.PerformLayout();
+            tabAssignCourseTrack.ResumeLayout(false);
+            tabAssignCourseTrack.PerformLayout();
+            tabPagetopicToCourses.ResumeLayout(false);
+            tabPagetopicToCourses.PerformLayout();
+            tabPagefortopics.ResumeLayout(false);
+            tabControlfortopics.ResumeLayout(false);
+            tabPageAddTopics.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            tabPageupdateTopics.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1041,5 +1344,40 @@
         private ComboBox comboBoxStdBranch;
         private ComboBox comboBoxStdTrack;
         private Label labelStdBranch;
+        private Button buttonAssCoursetoTrack;
+        private TabPage tabAssignCourseTrack;
+        private Button buttonAddthetrack;
+        private ListBox ListboxNotAssignedTracks;
+        private Label label26;
+        private Label label29;
+        private ComboBox comboBoxcourses;
+        private Button buttonRemoveTrack;
+        private ListBox ListboxAssignedTracks;
+        private Label label30;
+        private TabPage tabPagefortopics;
+        private TabControl tabControlfortopics;
+        private TabPage tabPageAddTopics;
+        private TabPage tabPageupdateTopics;
+        private GroupBox groupBox2;
+        private GroupBox groupBox3;
+        private Button Btn_addtopic;
+        private TextBox TopicName;
+        private Label label33;
+        private Button btn_deleteTopic;
+        private Button Btn_updateTopic;
+        private Label label34;
+        private ListBox listBoxForTopics;
+        private TextBox textBoxTopicName;
+        private Label label35;
+        private TabPage tabPagetopicToCourses;
+        private Button button_Addthetopic;
+        private ListBox listBoxNotAssignedTopics;
+        private Label label36;
+        private Label label37;
+        private ComboBox comboBoxcoursesintopics;
+        private Button button_Removethetopic;
+        private ListBox listBoxAssignedTopics;
+        private Label label38;
+        private Button buttonassigntotopic;
     }
 }

@@ -71,6 +71,30 @@ public partial class ExSysContext : DbContext
         Database.ExecuteSqlRaw("EXEC dbo.DeleteCourse @Course_ID",
                               new SqlParameter("@Course_ID", courseId));
     }
+    public List<Track> GetTracksOfCourse(int courseId)
+    {
+        var sql = "EXEC dbo.GetTracksOfCourse @Course_ID";
+        return this.Tracks.FromSqlRaw(sql, new SqlParameter("@Course_ID", courseId)).ToList();
+    }
+
+    public List<Track> GetUnAssignedTracksOfCourse(int courseId)
+    {
+        var sql = "EXEC dbo.GetUnAssignedTracksOfCourse @Course_ID";
+        return this.Tracks.FromSqlRaw(sql, new SqlParameter("@Course_ID", courseId)).ToList();
+    }
+
+    public void RemoveTrackFromCourse(int courseId, int trackId)
+    {
+        var sql = "EXEC dbo.RemoveTrackFromCourse @Course_ID, @Track_ID";
+        this.Database.ExecuteSqlRaw(sql, new SqlParameter("@Course_ID", courseId), new SqlParameter("@Track_ID", trackId));
+    }
+
+    public void AddTrackToCourse(int courseId, int trackId)
+    {
+        var sql = "EXEC dbo.AddTrackToCourse @Course_ID, @Track_ID";
+        this.Database.ExecuteSqlRaw(sql, new SqlParameter("@Course_ID", courseId), new SqlParameter("@Track_ID", trackId));
+    }
+
 
     #endregion
 
@@ -128,7 +152,7 @@ public partial class ExSysContext : DbContext
                                             new SqlParameter("@Instructor_ID", instructorId),
                                             new SqlParameter("@Branch_ID", branchId));
     }
-   
+
 
     #region functions for stored procedures for instructor course
 
@@ -197,7 +221,7 @@ public partial class ExSysContext : DbContext
     }
 
 
-   public void UpdateStudent(int studentId, string studentFname, string studentLname, string studentEmail, string studentPassword , int brtrid)
+    public void UpdateStudent(int studentId, string studentFname, string studentLname, string studentEmail, string studentPassword, int brtrid)
     {
         // Call the stored procedure using Entity Framework
         Database.ExecuteSqlRaw("EXEC dbo.UpdateStudent @Student_ID, @Student_FName, @Student_LName, @Student_Email, @Student_Password , @BrTr_ID",
@@ -215,6 +239,51 @@ public partial class ExSysContext : DbContext
         Database.ExecuteSqlRaw("EXEC dbo.DeleteStudent @Student_ID",
                                                                        new SqlParameter("@Student_ID", studentId));
     }
+    #endregion
+
+    #region topics 
+    public void AddTopic(string topicName)
+    {
+        // Call the stored procedure using raw SQL query
+        Database.ExecuteSqlRaw("EXEC dbo.AddTopic @To_Name",
+                                                         new SqlParameter("@To_Name", topicName));
+    }
+    public void UpdateTopic(int topicId, string topicName)
+    {
+        // Call the stored procedure using Entity Framework
+        Database.ExecuteSqlRaw("EXEC dbo.UpdateTopic @Topic_ID, @To_Name",
+                               new SqlParameter("@Topic_ID", topicId),
+                               new SqlParameter("@To_Name", topicName));
+    }
+    public void DeleteTopic(int topicId)
+    {
+        // Call the stored procedure using Entity Framework
+        Database.ExecuteSqlRaw("EXEC dbo.DeleteTopic @Topic_ID",
+                              new SqlParameter("@Topic_ID", topicId));
+    }
+    public List<Topic> ShowRelatedTopics (int courseId)
+    {
+        var sql = "EXEC dbo.ShowRelatedTopics @Course_ID";
+        return this.Topics.FromSqlRaw(sql, new SqlParameter("@Course_ID", courseId)).ToList();
+    }
+    public List<Topic> ShowUnassignedTopics(int courseId)
+    {
+        var sql = "EXEC dbo.ShowUnassignedTopics @Course_ID";
+        return this.Topics.FromSqlRaw(sql, new SqlParameter("@Course_ID", courseId)).ToList();
+    }
+
+    public void RemoveTopicFromCourse(int courseId, int topicId)
+    {
+        var sql = "EXEC dbo.RemoveTopicFromCourse @Course_ID, @Topic_ID";
+        this.Database.ExecuteSqlRaw(sql, new SqlParameter("@Course_ID", courseId), new SqlParameter("@Topic_ID", topicId));
+    }
+
+    public void AddTopicToCourse(int courseId, int topicId)
+    {
+        var sql = "EXEC dbo.AddTopicToCourse @Course_ID, @Topic_ID";
+        this.Database.ExecuteSqlRaw(sql, new SqlParameter("@Course_ID", courseId), new SqlParameter("@Topic_ID", topicId));
+    }
+
     #endregion
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.

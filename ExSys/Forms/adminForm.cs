@@ -108,10 +108,10 @@ namespace ExSys.Forms
                 comboBoxBranches.ValueMember = "BranchId";
             }
             SetStudentBranchInComboBox();
-           SetStudentTrackInComboBox();
+            SetStudentTrackInComboBox();
         }
 
-        
+
 
         private void listBoxStd_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -147,7 +147,7 @@ namespace ExSys.Forms
             }
 
             SetStudentBranchInComboBox();
-             SetStudentTrackInComboBox();
+            SetStudentTrackInComboBox();
 
 
         }
@@ -374,8 +374,6 @@ namespace ExSys.Forms
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-
-
             //make it by try and catch for foreign key 
             try
             {
@@ -392,8 +390,6 @@ namespace ExSys.Forms
                         RefreshCourseList();
                     }
                 }
-
-
             }
             catch (DbUpdateException ex)
             {
@@ -445,6 +441,7 @@ namespace ExSys.Forms
                     // Handle database-related exceptions
                     MessageBox.Show(ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
 
         }
@@ -460,7 +457,7 @@ namespace ExSys.Forms
                 listBoxinstructors.DataSource = instructors;
                 listBoxinstructors.DisplayMember = "InstructorFname";
                 listBoxinstructors.ValueMember = "InstructorId";
-                
+
             }
             SetBranchesInComboBox();
         }
@@ -495,26 +492,26 @@ namespace ExSys.Forms
             }
             SetBranchesInComboBox();
         }
-       private void SetBranchesInComboBox()
-{
-    using (var context = new ExSysContext())
-    {
-        var branches = context.Branches.ToList();
-        comboBoxInsBranches.DataSource = branches;
-        comboBoxInsBranches.DisplayMember = "BranchName";
-        comboBoxInsBranches.ValueMember = "BranchId";
+        private void SetBranchesInComboBox()
+        {
+            using (var context = new ExSysContext())
+            {
+                var branches = context.Branches.ToList();
+                comboBoxInsBranches.DataSource = branches;
+                comboBoxInsBranches.DisplayMember = "BranchName";
+                comboBoxInsBranches.ValueMember = "BranchId";
 
-        if (listBoxinstructors.SelectedItem is Instructor selectedInstructor)
-        {
-            comboBoxInsBranches.SelectedValue = selectedInstructor.BranchId;
+                if (listBoxinstructors.SelectedItem is Instructor selectedInstructor)
+                {
+                    comboBoxInsBranches.SelectedValue = selectedInstructor.BranchId;
+                }
+                else
+                {
+                    comboBoxInsBranches.SelectedIndex = -1;
+                }
+            }
         }
-        else
-        {
-            comboBoxInsBranches.SelectedIndex = -1;
-        }
-    }
-}
- private void btn_updateIns_Click(object sender, EventArgs e)
+        private void btn_updateIns_Click(object sender, EventArgs e)
         {
             //get the selected instructor id
             int instructorId = (int)listBoxinstructors.SelectedValue;
@@ -680,7 +677,6 @@ namespace ExSys.Forms
         }
         private void PopulateComboBoxInstructors()
         {
-            //using GetAllInstructors stored proc 
             using (var context = new ExSysContext())
             {
                 var instructors = context.Instructors.ToList();
@@ -787,11 +783,352 @@ namespace ExSys.Forms
         }
         #endregion
 
-
-
-        private void groupBoxUpdateStd_Enter(object sender, EventArgs e)
+        #region assign tracks to courses 
+        private void tabAssignCourseTrack_Enter(object sender, EventArgs e)
         {
+            PopulatecomboBoxcourses();
 
         }
+        public void PopulatecomboBoxcourses()
+        {
+            using (var context = new ExSysContext())
+            {
+                var courses = context.Courses.ToList();
+                comboBoxcourses.DataSource = courses;
+                comboBoxcourses.DisplayMember = "CourseName";
+                comboBoxcourses.ValueMember = "CourseId";
+            }
+
+        }
+
+        private void buttonAssCoursetoTrack_Click(object sender, EventArgs e)
+        {
+            //get the selected course id from the courses list box
+            int courseId = (int)listBoxCourses.SelectedValue;
+            // Go to the tab of assign course to track
+            tabControlforcourses.SelectTab(tabAssignCourseTrack);
+            // Select the course name in the combo box
+            comboBoxcourses.SelectedValue = courseId;
+            // Fill the tracks in the list box of assigned tracks
+            using (var context = new ExSysContext())
+            {
+                var assignedTracks = context.GetTracksOfCourse(courseId).ToList();
+                ListboxAssignedTracks.DataSource = assignedTracks;
+                ListboxAssignedTracks.DisplayMember = "TrackName";
+                ListboxAssignedTracks.ValueMember = "TrackId";
+                // Fill the other list box of unassigned tracks
+                var unassignedTracks = context.GetUnAssignedTracksOfCourse(courseId).ToList();
+                ListboxNotAssignedTracks.DataSource = unassignedTracks;
+                ListboxNotAssignedTracks.DisplayMember = "TrackName";
+                ListboxNotAssignedTracks.ValueMember = "TrackId";
+            }
+        }
+
+        private void comboBoxcourses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxcourses.SelectedValue is int courseId)
+            {
+                using (var context = new ExSysContext())
+                {
+                    var assignedTracks = context.GetTracksOfCourse(courseId).ToList();
+                    ListboxAssignedTracks.DataSource = assignedTracks;
+                    ListboxAssignedTracks.DisplayMember = "TrackName";
+                    ListboxAssignedTracks.ValueMember = "TrackId";
+
+                    var unassignedTracks = context.GetUnAssignedTracksOfCourse(courseId).ToList();
+                    ListboxNotAssignedTracks.DataSource = unassignedTracks;
+                    ListboxNotAssignedTracks.DisplayMember = "TrackName";
+                    ListboxNotAssignedTracks.ValueMember = "TrackId";
+                }
+            }
+
+        }
+
+        private void buttonRemoveTrack_Click(object sender, EventArgs e)
+        {
+            //get the selected course id from the courses list box
+            int courseId = (int)comboBoxcourses.SelectedValue;
+            using (var context = new ExSysContext())
+            {
+                int trackId = (int)ListboxAssignedTracks.SelectedValue;
+                DialogResult result = MessageBox.Show("Are you sure you want to remove this track from the course?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    context.RemoveTrackFromCourse(courseId, trackId);
+                    context.SaveChanges();
+                    // Fill the tracks in the list box of assigned tracks
+                    var assignedTracks = context.GetTracksOfCourse(courseId).ToList();
+                    ListboxAssignedTracks.DataSource = assignedTracks;
+                    ListboxAssignedTracks.DisplayMember = "TrackName";
+                    ListboxAssignedTracks.ValueMember = "TrackId";
+
+                    // Fill the other list box of unassigned tracks
+                    var unassignedTracks = context.GetUnAssignedTracksOfCourse(courseId).ToList();
+                    ListboxNotAssignedTracks.DataSource = unassignedTracks;
+                    ListboxNotAssignedTracks.DisplayMember = "TrackName";
+                    ListboxNotAssignedTracks.ValueMember = "TrackId";
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+
+        }
+
+        private void buttonAddthetrack_Click(object sender, EventArgs e)
+        {
+            if (comboBoxcourses.SelectedValue != null)
+            {
+                //get the selected course id from the courses list box
+                int courseId = (int)comboBoxcourses.SelectedValue;
+                using (var context = new ExSysContext())
+                {
+                    int trackId = (int)ListboxNotAssignedTracks.SelectedValue;
+                    DialogResult result = MessageBox.Show("Are you sure you want to add this track to the course?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        context.AddTrackToCourse(courseId, trackId);
+                        context.SaveChanges();
+                        // Fill the tracks in the list box of assigned tracks
+                        var assignedTracks = context.GetTracksOfCourse(courseId).ToList();
+                        ListboxAssignedTracks.DataSource = assignedTracks;
+                        ListboxAssignedTracks.DisplayMember = "TrackName";
+                        ListboxAssignedTracks.ValueMember = "TrackId";
+
+                        // Fill the other list box of unassigned tracks
+                        var unassignedTracks = context.GetUnAssignedTracksOfCourse(courseId).ToList();
+                        ListboxNotAssignedTracks.DataSource = unassignedTracks;
+                        ListboxNotAssignedTracks.DisplayMember = "TrackName";
+                        ListboxNotAssignedTracks.ValueMember = "TrackId";
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+
+                }
+
+            }
+        }
+        #endregion
+
+        #region topics and  assign topics to courses 
+        //refresh the topics list box
+        private void RefreshTopicsList()
+        {
+            using (var context = new ExSysContext())
+            {
+                var topics = context.Topics.ToList();
+                listBoxForTopics.DataSource = topics;
+                listBoxForTopics.DisplayMember = "TopicName";
+                listBoxForTopics.ValueMember = "TopicId";
+            }
+        }
+
+
+
+        private void tabPageupdateTopics_Enter(object sender, EventArgs e)
+        {
+            //show the topic name not id in the list box 
+            using (var context = new ExSysContext())
+            {
+                var topics = context.Topics.ToList();
+                listBoxForTopics.DataSource = topics;
+                listBoxForTopics.DisplayMember = "ToName";
+                listBoxForTopics.ValueMember = "TopicId";
+            }
+
+
+        }
+
+        private void btn_deleteTopic_Click(object sender, EventArgs e)
+        {
+            //delete the selected topic from the list box and refresh the data base 
+            using (var context = new ExSysContext())
+            {
+                int topicId = (int)listBoxForTopics.SelectedValue;
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this topic?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    context.DeleteTopic(topicId);
+                    context.SaveChanges();
+                    RefreshTopicsList();
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+
+        }
+
+        private void Btn_updateTopic_Click(object sender, EventArgs e)
+        {
+            //update the selected topic from the list box and refresh the data base 
+            using (var context = new ExSysContext())
+            {
+                int topicId = (int)listBoxForTopics.SelectedValue;
+                string topicName = textBoxTopicName.Text;
+                context.UpdateTopic(topicId, topicName);
+                //show message if the update done suffessfully 
+                MessageBox.Show("Topic Updated Successfully");
+                context.SaveChanges();
+                RefreshTopicsList();
+            }
+
+        }
+
+        private void listBoxForTopics_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // bind data for the selected topic in the text box named textBoxTopicName
+            textBoxTopicName.DataBindings.Clear();
+            textBoxTopicName.DataBindings.Add("Text", listBoxForTopics.DataSource, "ToName");
+
+
+        }
+
+        private void Btn_addtopic_Click_1(object sender, EventArgs e)
+        {
+            //add topic in the text box to the data base using linq 
+            using (var context = new ExSysContext())
+            {
+                context.AddTopic(TopicName.Text);
+                context.SaveChanges();
+                MessageBox.Show("Topic added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RefreshTopicsList();
+            }
+
+        }
+
+        private void tabPagetopicToCourses_Enter(object sender, EventArgs e)
+        {
+            //populate comboboxcoursesintopics by courses
+            using (var context = new ExSysContext())
+            {
+                var courses = context.Courses.ToList();
+                comboBoxcoursesintopics.DataSource = courses;
+                comboBoxcoursesintopics.DisplayMember = "CourseName";
+                comboBoxcoursesintopics.ValueMember = "CourseId";
+            }
+        }
+
+        private void buttonassigntotopic_Click(object sender, EventArgs e)
+        {
+
+            //get the selected course id from the courses list box
+            int courseId = (int)listBoxCourses.SelectedValue;
+            // Go to the tab of assign course to track
+            tabControlforcourses.SelectTab(tabPagetopicToCourses);
+            // Select the course name in the combo box
+            comboBoxcoursesintopics.SelectedValue = courseId;
+            // Fill the tracks in the list box of assigned tracks
+            using (var context = new ExSysContext())
+            {
+                var assignedTopics = context.ShowRelatedTopics(courseId).ToList();
+                listBoxAssignedTopics.DataSource = assignedTopics;
+                listBoxAssignedTopics.DisplayMember = "ToName";
+                listBoxAssignedTopics.ValueMember = "TopicId";
+                // Fill the other list box of unassigned tracks
+                var unassignedTopics = context.ShowUnassignedTopics(courseId).ToList();
+                listBoxNotAssignedTopics.DataSource = unassignedTopics;
+                listBoxNotAssignedTopics.DisplayMember = "ToName";
+                listBoxNotAssignedTopics.ValueMember = "TopicId";
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //get the selected course id from the courses list box
+            int courseId = (int)comboBoxcoursesintopics.SelectedValue;
+            using (var context = new ExSysContext())
+            {
+                int topicId = (int)listBoxAssignedTopics.SelectedValue;
+                DialogResult result = MessageBox.Show("Are you sure you want to remove this topic from the course?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    context.RemoveTopicFromCourse(courseId, topicId);
+                    context.SaveChanges();
+                    // Fill the tracks in the list box of assigned tracks
+                    var assignedTopics = context.ShowRelatedTopics(courseId).ToList();
+                    listBoxAssignedTopics.DataSource = assignedTopics;
+                    listBoxAssignedTopics.DisplayMember = "ToName";
+                    listBoxAssignedTopics.ValueMember = "TopicId";
+                    // Fill the other list box of unassigned tracks
+                    var unassignedTopics = context.ShowUnassignedTopics(courseId).ToList();
+                    listBoxNotAssignedTopics.DataSource = unassignedTopics;
+                    listBoxNotAssignedTopics.DisplayMember = "ToName";
+                    listBoxNotAssignedTopics.ValueMember = "TopicId";
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (comboBoxcoursesintopics.SelectedValue != null)
+            {
+                //get the selected course id from the courses list box
+                int courseId = (int)comboBoxcoursesintopics.SelectedValue;
+                using (var context = new ExSysContext())
+                {
+                    int topicId = (int)listBoxNotAssignedTopics.SelectedValue;
+                    DialogResult result = MessageBox.Show("Are you sure you want to add this topic to the course?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        context.AddTopicToCourse(courseId, topicId);
+                        context.SaveChanges();
+                        // Fill the tracks in the list box of assigned tracks
+                        var assignedTopics = context.ShowRelatedTopics(courseId).ToList();
+                        listBoxAssignedTopics.DataSource = assignedTopics;
+                        listBoxAssignedTopics.DisplayMember = "ToName";
+                        listBoxAssignedTopics.ValueMember = "TopicId";
+                        // Fill the other list box of unassigned tracks
+                        var unassignedTopics = context.ShowUnassignedTopics(courseId).ToList();
+                        listBoxNotAssignedTopics.DataSource = unassignedTopics;
+                        listBoxNotAssignedTopics.DisplayMember = "ToName";
+                        listBoxNotAssignedTopics.ValueMember = "TopicId";
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+            }
+
+        }
+
+        private void comboBoxcoursesintopics_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxcoursesintopics.SelectedValue is int courseId)
+            {
+                using (var context = new ExSysContext())
+                {
+                    var assignedTopics = context.ShowRelatedTopics(courseId).ToList();
+                    listBoxAssignedTopics.DataSource = assignedTopics;
+                    listBoxAssignedTopics.DisplayMember = "ToName";
+                    listBoxAssignedTopics.ValueMember = "TopicId";
+
+                    var unassignedTopics = context.ShowUnassignedTopics(courseId).ToList();
+                    listBoxNotAssignedTopics.DataSource = unassignedTopics;
+                    listBoxNotAssignedTopics.DisplayMember = "ToName";
+                    listBoxNotAssignedTopics.ValueMember = "TopicId";
+                }
+            }
+
+        }
+        #endregion
+
+
+       
     }
 }
