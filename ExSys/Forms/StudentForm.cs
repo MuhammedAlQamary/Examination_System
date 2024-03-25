@@ -180,7 +180,7 @@ namespace ExSys.Forms
 
                 int branchID = student.BrTr.BranchId;
                 int trackID = student.BrTr.TrackId;
-                MessageBox.Show($"BranchID_{student.BrTr.BranchId}:TrackID_{student.BrTr.TrackId}:StudentID_{studentid}:Course_Id{courseid}");
+               // MessageBox.Show($"BranchID_{student.BrTr.BranchId}:TrackID_{student.BrTr.TrackId}:StudentID_{studentid}:Course_Id{courseid}");
 
                 var examIdParam = new SqlParameter("@Exam_ID", SqlDbType.Int) { Direction = ParameterDirection.Output };
 
