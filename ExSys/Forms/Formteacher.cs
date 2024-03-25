@@ -17,7 +17,7 @@ namespace ExSys.Forms
 {
     public partial class Formteacher : Form
     {
-        int id ;
+        int id;
         ExSysContext db = new ExSysContext();
         public Instructor instructor;
         int? courseId;
@@ -81,9 +81,9 @@ namespace ExSys.Forms
             txtName.ReadOnly = true;
             txtEmail.ReadOnly = true;
             txtBranch.ReadOnly = true;
-            SelectedCourse.ReadOnly=true;
+            SelectedCourse.ReadOnly = true;
             BranchExam.ReadOnly = true;
-            TrackExam.ReadOnly=true;
+            TrackExam.ReadOnly = true;
         }
 
 
@@ -169,9 +169,9 @@ namespace ExSys.Forms
                 }
                 else
                 {
-                    MessageBox.Show("this exam has been generated before"); 
+                    MessageBox.Show("this exam has been generated before");
                 }
-               
+
             }
             else
             {
@@ -343,6 +343,8 @@ namespace ExSys.Forms
         {
             choice3.Visible = false;
             choice4.Visible = false;
+            label12.Visible = false;
+            label13.Visible = false;
         }
 
         private void ShowQuestionWithAnswers()
@@ -356,7 +358,7 @@ namespace ExSys.Forms
                 column.FillWeight = 100f / QuestionsAnswers.Columns.Count;
             }
 
-            var questionsWithChoices = db.Questions.Include(q => q.Choices).Where(a=>a.CourseId==ShowCourseID) .ToList();
+            var questionsWithChoices = db.Questions.Include(q => q.Choices).Where(a => a.CourseId == ShowCourseID).ToList();
 
             var flattenedData = questionsWithChoices.SelectMany(q =>
                 q.Choices.Select(c => new
@@ -384,6 +386,14 @@ namespace ExSys.Forms
         private void CenterControls()
         {
             TeacherTabs.Location = new Point((ClientSize.Width - TeacherTabs.Width) / 2, (ClientSize.Height - TeacherTabs.Height) / 2);
+        }
+
+        private void RadioMcq_CheckedChanged(object sender, EventArgs e)
+        {
+            choice3.Visible = true;
+            choice4.Visible = true;
+            label12.Visible = true;
+            label13.Visible = true;
         }
     }
 }
