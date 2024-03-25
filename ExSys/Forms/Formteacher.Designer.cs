@@ -390,6 +390,7 @@
             RadioMcq.TabStop = true;
             RadioMcq.Text = "Mcq";
             RadioMcq.UseVisualStyleBackColor = true;
+            RadioMcq.CheckedChanged += RadioMcq_CheckedChanged;
             // 
             // RadioTF
             // 
