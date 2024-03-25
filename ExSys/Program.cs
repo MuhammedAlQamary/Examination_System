@@ -21,13 +21,10 @@ namespace ExSys
             // see https://aka.ms/applicationconfiguration.
             //ApplicationConfiguration.Initialize();
             //Application.Run(new Formteacher());
-            // Application.Run(new loginForm());
-            // Application.Run(new adminForm());
-            //Application.Run(new StudentForm(55));
-            //Application.Run(new Report_1());
-            //Application.Run(new Report_1());
-            //Application.Run(new Report1("Report5", 110));
-			Application.Run(new Report2("Report6", 110, 55));
+             Application.Run(new loginForm());
+             //Application.Run(new adminForm());
+           //Application.Run(new StudentForm());
+
 
 
             //Console.WriteLine("hello");
