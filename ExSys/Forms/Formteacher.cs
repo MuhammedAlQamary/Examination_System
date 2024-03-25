@@ -83,7 +83,6 @@ namespace ExSys.Forms
             txtBranch.ReadOnly = true;
             SelectedCourse.ReadOnly=true;
             BranchExam.ReadOnly = true;
-            DurationTxt.ReadOnly = true;
             TrackExam.ReadOnly=true;
         }
 
