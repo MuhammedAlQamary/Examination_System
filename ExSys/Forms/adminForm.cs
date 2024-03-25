@@ -993,14 +993,21 @@ namespace ExSys.Forms
 
         private void Btn_addtopic_Click_1(object sender, EventArgs e)
         {
-            //add topic in the text box to the data base using linq 
-            using (var context = new ExSysContext())
+            if (string.IsNullOrEmpty(TopicName.Text))
             {
-                context.AddTopic(TopicName.Text);
-                context.SaveChanges();
-                MessageBox.Show("Topic added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshTopicsList();
+                MessageBox.Show("Please enter a topic name.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                using (var context = new ExSysContext())
+                {
+                    context.AddTopic(TopicName.Text);
+                    context.SaveChanges();
+                    MessageBox.Show("Topic added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshTopicsList();
+                }
+            }
+
 
         }
 
