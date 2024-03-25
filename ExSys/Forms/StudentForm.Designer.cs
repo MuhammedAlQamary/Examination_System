@@ -33,7 +33,8 @@
             tabControlStudentForm = new TabControl();
             TabStdDet1 = new TabPage();
             groupBoxStdDet = new GroupBox();
-            courseBindingSource = new BindingSource(components);
+            btnShowReports = new Button();
+            button1 = new Button();
             LBLBranchName = new Label();
             label8 = new Label();
             LBLStudentCrsDegree = new Label();
@@ -51,13 +52,15 @@
             buttonStartExam = new Button();
             comboBoxCrsExam = new ComboBox();
             label5 = new Label();
+            courseBindingSource = new BindingSource(components);
+            button2 = new Button();
             tabControlStudentForm.SuspendLayout();
             TabStdDet1.SuspendLayout();
             groupBoxStdDet.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)courseBindingSource).BeginInit();
             TabStdDet2.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBoxStartExam.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)courseBindingSource).BeginInit();
             SuspendLayout();
             // 
             // tabControlStudentForm
@@ -77,6 +80,9 @@
             // 
             // groupBoxStdDet
             // 
+            groupBoxStdDet.Controls.Add(button2);
+            groupBoxStdDet.Controls.Add(btnShowReports);
+            groupBoxStdDet.Controls.Add(button1);
             groupBoxStdDet.Controls.Add(LBLBranchName);
             groupBoxStdDet.Controls.Add(label8);
             groupBoxStdDet.Controls.Add(LBLStudentCrsDegree);
@@ -91,9 +97,19 @@
             groupBoxStdDet.Name = "groupBoxStdDet";
             groupBoxStdDet.TabStop = false;
             // 
-            // courseBindingSource
+            // btnShowReports
             // 
-            courseBindingSource.DataSource = typeof(Data.Models.Course);
+            resources.ApplyResources(btnShowReports, "btnShowReports");
+            btnShowReports.Name = "btnShowReports";
+            btnShowReports.UseVisualStyleBackColor = true;
+            btnShowReports.Click += btnShowReports_Click;
+            // 
+            // button1
+            // 
+            resources.ApplyResources(button1, "button1");
+            button1.Name = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // LBLBranchName
             // 
@@ -197,6 +213,17 @@
             resources.ApplyResources(label5, "label5");
             label5.Name = "label5";
             // 
+            // courseBindingSource
+            // 
+            courseBindingSource.DataSource = typeof(Data.Models.Course);
+            // 
+            // button2
+            // 
+            resources.ApplyResources(button2, "button2");
+            button2.Name = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // StudentForm
             // 
             resources.ApplyResources(this, "$this");
@@ -211,11 +238,11 @@
             TabStdDet1.ResumeLayout(false);
             groupBoxStdDet.ResumeLayout(false);
             groupBoxStdDet.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)courseBindingSource).EndInit();
             TabStdDet2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBoxStartExam.ResumeLayout(false);
             groupBoxStartExam.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)courseBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -242,5 +269,8 @@
 		private Label label8;
 		private Panel panelExam;
         private BindingSource courseBindingSource;
+        private Button button1;
+        private Button btnShowReports;
+        private Button button2;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Data.Models;
 using ExSys.Forms;
+using ExSys.Forms.Reports;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
@@ -387,13 +388,34 @@ namespace ExSys.Forms
         {
             TeacherTabs.Location = new Point((ClientSize.Width - TeacherTabs.Width) / 2, (ClientSize.Height - TeacherTabs.Height) / 2);
         }
-
-        private void RadioMcq_CheckedChanged(object sender, EventArgs e)
+        private void btnShowCourses_Click(object sender, EventArgs e)
         {
-            choice3.Visible = true;
-            choice4.Visible = true;
-            label12.Visible = true;
-            label13.Visible = true;
+            // render the report form
+            Report1 report1 = new Report1("Report3", id);
+            report1.ShowDialog();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnShowTopics_Click(object sender, EventArgs e)
+        {
+            // render the report form
+            if (ShowCourses.SelectedValue == null)
+            {
+                MessageBox.Show("Please select a course to show the report");
+                return;
+            }
+            // get the selected course id by course name 
+            var selectedCourse = db.Courses.SingleOrDefault(a => a.CourseName == ShowCourses.SelectedValue);
+            ShowCourseID = selectedCourse.CourseId;
+
+            Report1 report1 = new Report1("Report4", ShowCourseID);
+            report1.ShowDialog();
+
         }
     }
 }

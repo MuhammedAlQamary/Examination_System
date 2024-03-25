@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExSys.MyModels;
+using ExSys.Forms.Reports;
 
 namespace ExSys.Forms
 {
@@ -71,6 +72,15 @@ namespace ExSys.Forms
             listBoxTrackes.SelectedIndex = 0;
 
             // assign 
+
+            // add exams into the list box CBExams
+            using (var context = new ExSysContext())
+            {
+                var exams = context.Exams.Select(a => a.Exam_ID).ToList();
+                CBExams.DataSource = exams;
+                // CBExams.DisplayMember = "Exam_ID";
+                // CBExams.ValueMember = "Exam_ID";
+            }
 
         }
 
@@ -995,19 +1005,18 @@ namespace ExSys.Forms
         {
             if (string.IsNullOrEmpty(TopicName.Text))
             {
-                 MessageBox.Show("Please enter a topic name.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a topic name.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-           {
-            using (var context = new ExSysContext())
-           {
-         context.AddTopic(TopicName.Text);
-         context.SaveChanges();
-         MessageBox.Show("Topic added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-         RefreshTopicsList();
-          }
-       }
-
+            {
+                using (var context = new ExSysContext())
+                {
+                    context.AddTopic(TopicName.Text);
+                    context.SaveChanges();
+                    MessageBox.Show("Topic added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshTopicsList();
+                }
+            }
         }
 
         private void tabPagetopicToCourses_Enter(object sender, EventArgs e)
@@ -1135,6 +1144,63 @@ namespace ExSys.Forms
         #endregion
 
 
-       
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            // Show the report form
+            Report1 report = new Report1("Report1", null);
+            report.ShowDialog();
+
+            //Application.Run(new Report1("Report1", null));
+            //DialogResult dialogResult = Form.ShowDialog(new Report1("Report1", null));
+        }
+
+        private void btnGrades_Click(object sender, EventArgs e)
+        {
+            // render the report form
+            Report1 report1 = new Report1("Report2", (int)listBoxStd.SelectedValue);
+            report1.ShowDialog();
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            // render the report form
+            Report1 report1 = new Report1("Report3", (int)listBoxinstructors.SelectedValue);
+            report1.ShowDialog();
+
+        }
+
+        private void btnShowTopics_Click(object sender, EventArgs e)
+        {
+            // render the report form
+            Report1 report1 = new Report1("Report4", (int)listBoxCourses.SelectedValue);
+            report1.ShowDialog();
+
+        }
+
+        private void btnShowExamReport_Click(object sender, EventArgs e)
+        {
+
+
+            Report1 report1 = new Report1("Report5", (int)CBExams.SelectedValue);
+            report1.ShowDialog();
+
+        }
+
+        private void CBExams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ExSysContext db = new ExSysContext();
+
+            var examID = CBExams.SelectedValue;
+            var exam = db.Exams.FirstOrDefault(a => a.Exam_ID == (int)examID);
+            var courseID = exam.CourseId;
+            string courseName = db.Courses.FirstOrDefault(a => a.CourseId == courseID).CourseName;
+
+
+            label39.Text = courseName;
+
+            // var selectedCourse = db.Courses.SingleOrDefault(a => a.CourseName == CoursesComb.SelectedValue);
+        }
     }
 }

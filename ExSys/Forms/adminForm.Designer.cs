@@ -57,6 +57,7 @@
             lblInstructorName = new Label();
             tpUpdateInstructor = new TabPage();
             groupBoxupIns = new GroupBox();
+            button2 = new Button();
             labelIssBranch = new Label();
             comboBoxInsBranches = new ComboBox();
             label27 = new Label();
@@ -87,6 +88,8 @@
             tabٍStudents = new TabControl();
             tabAddStudent = new TabPage();
             groupBox1 = new GroupBox();
+            groupBox4 = new GroupBox();
+            button1 = new Button();
             comboBoxBranches = new ComboBox();
             comboBoxTracks = new ComboBox();
             label31 = new Label();
@@ -102,6 +105,7 @@
             label7 = new Label();
             tabUpdateStudent = new TabPage();
             groupBoxUpdateStd = new GroupBox();
+            btnGrades = new Button();
             comboBoxStdBranch = new ComboBox();
             comboBoxStdTrack = new ComboBox();
             labelStdBranch = new Label();
@@ -129,6 +133,7 @@
             label15 = new Label();
             tabUpdateCourse = new TabPage();
             groupBoxupdate = new GroupBox();
+            btnShowTopics = new Button();
             buttonassigntotopic = new Button();
             buttonAssCoursetoTrack = new Button();
             btn_delete = new Button();
@@ -170,6 +175,12 @@
             listBoxForTopics = new ListBox();
             textBoxTopicName = new TextBox();
             label35 = new Label();
+            tbReports = new TabPage();
+            groupBox5 = new GroupBox();
+            btnShowExamReport = new Button();
+            CBExams = new ComboBox();
+            lblExamID = new Label();
+            label39 = new Label();
             adminTabControl.SuspendLayout();
             tp.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -189,6 +200,7 @@
             tabٍStudents.SuspendLayout();
             tabAddStudent.SuspendLayout();
             groupBox1.SuspendLayout();
+            groupBox4.SuspendLayout();
             tabUpdateStudent.SuspendLayout();
             groupBoxUpdateStd.SuspendLayout();
             tabPageCourses.SuspendLayout();
@@ -205,6 +217,8 @@
             groupBox2.SuspendLayout();
             tabPageupdateTopics.SuspendLayout();
             groupBox3.SuspendLayout();
+            tbReports.SuspendLayout();
+            groupBox5.SuspendLayout();
             SuspendLayout();
             // 
             // adminTabControl
@@ -214,6 +228,7 @@
             adminTabControl.Controls.Add(tpStudents);
             adminTabControl.Controls.Add(tabPageCourses);
             adminTabControl.Controls.Add(tabPagefortopics);
+            adminTabControl.Controls.Add(tbReports);
             resources.ApplyResources(adminTabControl, "adminTabControl");
             adminTabControl.Name = "adminTabControl";
             adminTabControl.SelectedIndex = 0;
@@ -398,6 +413,7 @@
             // 
             // groupBoxupIns
             // 
+            groupBoxupIns.Controls.Add(button2);
             groupBoxupIns.Controls.Add(labelIssBranch);
             groupBoxupIns.Controls.Add(comboBoxInsBranches);
             groupBoxupIns.Controls.Add(label27);
@@ -418,6 +434,13 @@
             groupBoxupIns.ForeColor = SystemColors.ActiveCaptionText;
             groupBoxupIns.Name = "groupBoxupIns";
             groupBoxupIns.TabStop = false;
+            // 
+            // button2
+            // 
+            resources.ApplyResources(button2, "button2");
+            button2.Name = "button2";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
             // 
             // labelIssBranch
             // 
@@ -604,6 +627,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(groupBox4);
             groupBox1.Controls.Add(comboBoxBranches);
             groupBox1.Controls.Add(comboBoxTracks);
             groupBox1.Controls.Add(label31);
@@ -620,6 +644,19 @@
             resources.ApplyResources(groupBox1, "groupBox1");
             groupBox1.Name = "groupBox1";
             groupBox1.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(button1);
+            resources.ApplyResources(groupBox4, "groupBox4");
+            groupBox4.Name = "groupBox4";
+            groupBox4.TabStop = false;
+            // 
+            // button1
+            // 
+            resources.ApplyResources(button1, "button1");
+            button1.Name = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // comboBoxBranches
             // 
@@ -699,6 +736,7 @@
             // 
             // groupBoxUpdateStd
             // 
+            groupBoxUpdateStd.Controls.Add(btnGrades);
             groupBoxUpdateStd.Controls.Add(comboBoxStdBranch);
             groupBoxUpdateStd.Controls.Add(comboBoxStdTrack);
             groupBoxUpdateStd.Controls.Add(labelStdBranch);
@@ -720,6 +758,13 @@
             resources.ApplyResources(groupBoxUpdateStd, "groupBoxUpdateStd");
             groupBoxUpdateStd.Name = "groupBoxUpdateStd";
             groupBoxUpdateStd.TabStop = false;
+            // 
+            // btnGrades
+            // 
+            resources.ApplyResources(btnGrades, "btnGrades");
+            btnGrades.Name = "btnGrades";
+            btnGrades.UseVisualStyleBackColor = true;
+            btnGrades.Click += btnGrades_Click;
             // 
             // comboBoxStdBranch
             // 
@@ -879,6 +924,7 @@
             // 
             // groupBoxupdate
             // 
+            groupBoxupdate.Controls.Add(btnShowTopics);
             groupBoxupdate.Controls.Add(buttonassigntotopic);
             groupBoxupdate.Controls.Add(buttonAssCoursetoTrack);
             groupBoxupdate.Controls.Add(btn_delete);
@@ -890,6 +936,13 @@
             resources.ApplyResources(groupBoxupdate, "groupBoxupdate");
             groupBoxupdate.Name = "groupBoxupdate";
             groupBoxupdate.TabStop = false;
+            // 
+            // btnShowTopics
+            // 
+            resources.ApplyResources(btnShowTopics, "btnShowTopics");
+            btnShowTopics.Name = "btnShowTopics";
+            btnShowTopics.UseVisualStyleBackColor = true;
+            btnShowTopics.Click += btnShowTopics_Click;
             // 
             // buttonassigntotopic
             // 
@@ -1171,6 +1224,47 @@
             resources.ApplyResources(label35, "label35");
             label35.Name = "label35";
             // 
+            // tbReports
+            // 
+            tbReports.Controls.Add(groupBox5);
+            resources.ApplyResources(tbReports, "tbReports");
+            tbReports.Name = "tbReports";
+            tbReports.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(label39);
+            groupBox5.Controls.Add(btnShowExamReport);
+            groupBox5.Controls.Add(CBExams);
+            groupBox5.Controls.Add(lblExamID);
+            resources.ApplyResources(groupBox5, "groupBox5");
+            groupBox5.Name = "groupBox5";
+            groupBox5.TabStop = false;
+            // 
+            // btnShowExamReport
+            // 
+            resources.ApplyResources(btnShowExamReport, "btnShowExamReport");
+            btnShowExamReport.Name = "btnShowExamReport";
+            btnShowExamReport.UseVisualStyleBackColor = true;
+            btnShowExamReport.Click += btnShowExamReport_Click;
+            // 
+            // CBExams
+            // 
+            CBExams.FormattingEnabled = true;
+            resources.ApplyResources(CBExams, "CBExams");
+            CBExams.Name = "CBExams";
+            CBExams.SelectedIndexChanged += CBExams_SelectedIndexChanged;
+            // 
+            // lblExamID
+            // 
+            resources.ApplyResources(lblExamID, "lblExamID");
+            lblExamID.Name = "lblExamID";
+            // 
+            // label39
+            // 
+            resources.ApplyResources(label39, "label39");
+            label39.Name = "label39";
+            // 
             // adminForm
             // 
             resources.ApplyResources(this, "$this");
@@ -1204,6 +1298,7 @@
             tabAddStudent.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox4.ResumeLayout(false);
             tabUpdateStudent.ResumeLayout(false);
             groupBoxUpdateStd.ResumeLayout(false);
             groupBoxUpdateStd.PerformLayout();
@@ -1227,6 +1322,9 @@
             tabPageupdateTopics.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            tbReports.ResumeLayout(false);
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1379,5 +1477,16 @@
         private ListBox listBoxAssignedTopics;
         private Label label38;
         private Button buttonassigntotopic;
+        private TabPage tbReports;
+        private Button btnGrades;
+        private Button button2;
+        private Button btnShowTopics;
+        private GroupBox groupBox4;
+        private Button button1;
+        private GroupBox groupBox5;
+        private Label lblExamID;
+        private ComboBox CBExams;
+        private Button btnShowExamReport;
+        private Label label39;
     }
 }
